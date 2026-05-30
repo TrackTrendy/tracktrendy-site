@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Terms of Service - TrackTrendy</title>
+  <meta name="description" content="TrackTrendy terms of service - rules for using our analytics platform.">
+  <link rel="canonical" href="https://tracktrendy.com/terms">
+  <link rel="icon" href="favicon.png" type="image/png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --black: #000000; --surface: #0e0e0e; --surface2: #1a1a1a;
+      --sep: #252525; --purple: #7b5cdc; --purple-light: #a78bfa;
+      --white: #ffffff; --t1: #f1f1f1; --t2: rgba(255,255,255,0.68); --t3: rgba(255,255,255,0.35);
+      --font: 'Be Vietnam Pro', -apple-system, sans-serif;
+    }
+    html { scroll-behavior: smooth; }
+    body { font-family: var(--font); background: var(--black); color: var(--t1); line-height: 1.65; -webkit-font-smoothing: antialiased; }
+    .nav {
+      position: fixed; inset: 0 0 auto 0; z-index: 100;
+      padding: 14px 5%; display: flex; justify-content: space-between; align-items: center;
+      background: rgba(0,0,0,0.88); backdrop-filter: blur(18px); -webkit-backdrop-filter: blur(18px);
+      border-bottom: 1px solid rgba(123,92,220,0.12);
+    }
+    .nav-logo { display: flex; align-items: center; gap: 9px; text-decoration: none; }
+    .nav-logo img { height: 24px; }
+    .nav-logo span { font-size: 13px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--white); }
+    .nav-cta { padding: 8px 18px; background: var(--purple); color: #fff; border-radius: 7px; font-size: 13px; font-weight: 600; text-decoration: none; transition: background 0.18s; }
+    .nav-cta:hover { background: #6948c8; }
+    .legal-wrap { max-width: 760px; margin: 0 auto; padding: 120px 5% 80px; }
+    .legal-back { display: inline-flex; align-items: center; gap: 7px; font-size: 13px; color: var(--t3); text-decoration: none; margin-bottom: 40px; transition: color 0.15s; }
+    .legal-back:hover { color: var(--t1); }
+    .legal-eyebrow { font-size: 11px; font-weight: 600; letter-spacing: 0.2em; text-transform: uppercase; color: var(--purple-light); margin-bottom: 16px; }
+    .legal-wrap h1 { font-size: clamp(28px, 4vw, 44px); font-weight: 300; color: var(--white); line-height: 1.15; letter-spacing: -0.015em; margin-bottom: 10px; }
+    .legal-updated { font-size: 13px; color: var(--t3); margin-bottom: 48px; padding-bottom: 32px; border-bottom: 1px solid var(--sep); }
+    .legal-intro { font-size: 15px; color: var(--t2); line-height: 1.8; margin-bottom: 40px; }
+    .legal-toc { background: var(--surface); border: 1px solid var(--sep); border-radius: 10px; padding: 24px 28px; margin-bottom: 48px; }
+    .legal-toc-title { font-size: 12px; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: var(--t3); margin-bottom: 14px; }
+    .legal-toc ol { padding-left: 18px; display: flex; flex-direction: column; gap: 7px; }
+    .legal-toc ol li a { font-size: 13px; color: var(--purple-light); text-decoration: none; transition: color 0.15s; }
+    .legal-toc ol li a:hover { color: var(--white); }
+    .legal-section { margin-bottom: 44px; }
+    .legal-section h2 { font-size: 16px; font-weight: 700; color: var(--white); letter-spacing: 0.04em; text-transform: uppercase; margin-bottom: 16px; padding-bottom: 10px; border-bottom: 1px solid var(--sep); }
+    .legal-section p { font-size: 14px; color: var(--t2); line-height: 1.8; margin-bottom: 12px; }
+    .legal-section p:last-child { margin-bottom: 0; }
+    .legal-section ul, .legal-section ol { padding-left: 20px; display: flex; flex-direction: column; gap: 8px; margin-top: 10px; }
+    .legal-section li { font-size: 14px; color: var(--t2); line-height: 1.7; }
+    .legal-highlight { background: var(--surface); border: 1px solid var(--sep); border-left: 3px solid var(--purple); border-radius: 6px; padding: 14px 18px; margin: 16px 0; font-size: 13px; color: var(--t2); line-height: 1.7; font-style: italic; }
+    .footer { background: var(--surface); border-top: 1px solid var(--sep); padding: 28px 5%; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px; }
+    .footer-logo { display: flex; align-items: center; gap: 9px; text-decoration: none; }
+    .footer-logo img { height: 20px; }
+    .footer-logo span { font-size: 12px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--t2); }
+    .footer-links { display: flex; gap: 20px; }
+    .footer-links a { font-size: 12px; color: var(--t3); text-decoration: none; transition: color 0.15s; }
+    .footer-links a:hover { color: var(--t1); }
+    .footer-copy { font-size: 12px; color: var(--t3); }
+  </style>
+</head>
+<body>
+
+  <nav class="nav">
+    <a href="/" class="nav-logo">
+      <img src="logo.png" alt="TrackTrendy">
+      <span>TrackTrendy</span>
+    </a>
+    <a href="https://buy.stripe.com/eVaaIhfiL77Y6uA6oo" class="nav-cta" target="_blank">Try free &rarr;</a>
+  </nav>
+
+  <main class="legal-wrap">
+    <a href="/" class="legal-back">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg>
+      Back to home
+    </a>
+
+    <div class="legal-eyebrow">Legal</div>
+    <h1>Terms of Service</h1>
+    <p class="legal-updated">Last updated May 21, 2026</p>
+
+    <p class="legal-intro">Please read these Terms and Conditions ("Terms") carefully before using tracktrendy.com or the TrackTrendy dashboard at app.tracktrendy.com (the "Service"), operated by TrackTrendy ("Company", "we", "us", or "our"). By accessing or using the Service, you agree to be bound by these Terms. If you do not agree, please do not use the Service.</p>
+
+    <div class="legal-toc">
+      <div class="legal-toc-title">Contents</div>
+      <ol>
+        <li><a href="#s1">The service</a></li>
+        <li><a href="#s2">Accounts and registration</a></li>
+        <li><a href="#s3">Subscriptions and billing</a></li>
+        <li><a href="#s4">Acceptable use</a></li>
+        <li><a href="#s5">Cancellation and termination</a></li>
+        <li><a href="#s6">Invited members and site access</a></li>
+        <li><a href="#s7">Third-party integrations</a></li>
+        <li><a href="#s8">Intellectual property</a></li>
+        <li><a href="#s9">Service availability</a></li>
+        <li><a href="#s10">Limitation of liability</a></li>
+        <li><a href="#s11">Changes to these terms</a></li>
+        <li><a href="#s12">Contact</a></li>
+      </ol>
+    </div>
+
+    <div class="legal-section" id="s1">
+      <h2>1. The service</h2>
+      <p>TrackTrendy is a web analytics dashboard that allows website owners to track visitor activity through a privacy-first, cookieless tracking script. The Service includes an analytics dashboard, site management tools, team access features, email reports, and optional Google Search Console integration.</p>
+      <p>We reserve the right to modify, suspend, or discontinue any part of the Service at any time with reasonable notice.</p>
+    </div>
+
+    <div class="legal-section" id="s2">
+      <h2>2. Accounts and registration</h2>
+      <p>To use the Service, you must create an account with a valid email address and a secure password. You are responsible for maintaining the confidentiality of your account credentials and for all activity that occurs under your account.</p>
+      <p>You must be at least 18 years of age to use the Service. By creating an account, you confirm that the information you provide is accurate and that you will keep it up to date.</p>
+      <p>We reserve the right to suspend or terminate accounts that violate these Terms or that we reasonably believe are being used fraudulently.</p>
+    </div>
+
+    <div class="legal-section" id="s3">
+      <h2>3. Subscriptions and billing</h2>
+      <div class="legal-highlight">In short: Subscriptions are billed through Stripe on a recurring basis. You authorise us to charge your card at each renewal.</div>
+      <p>Paid plans are billed on a monthly or annual basis depending on the plan you select. All payments are processed securely by Stripe. By subscribing, you authorise TrackTrendy to charge your payment method on a recurring basis until you cancel.</p>
+      <p>Prices are listed on our <a href="/#pricing" style="color:var(--purple-light);">pricing page</a> and may be subject to applicable taxes depending on your location. We will notify you of any price changes in advance.</p>
+      <p>If a payment fails, your account will be placed in a restricted state. You will be notified by email and given the opportunity to update your payment details. Continued failure to pay may result in account suspension.</p>
+      <p>We may offer a free trial period to new users. At the end of the trial, your account will require a paid subscription to continue accessing the Service. We reserve the right to modify or discontinue free trial offers at any time.</p>
+    </div>
+
+    <div class="legal-section" id="s4">
+      <h2>4. Acceptable use</h2>
+      <p>You agree to use the Service only for lawful purposes and in a way that does not infringe the rights of others. You must not:</p>
+      <ul>
+        <li>Use the Service to track websites you do not own or have no right to monitor</li>
+        <li>Attempt to reverse-engineer, scrape, or circumvent any part of the Service</li>
+        <li>Use the Service to collect or process data in violation of applicable privacy laws (including GDPR)</li>
+        <li>Resell, sublicense, or redistribute access to the Service without our written consent</li>
+        <li>Use the Service for any illegal, harmful, or fraudulent activity</li>
+        <li>Attempt to gain unauthorised access to other users' accounts or data</li>
+      </ul>
+      <p>Violation of these terms may result in immediate account suspension without refund.</p>
+    </div>
+
+    <div class="legal-section" id="s5">
+      <h2>5. Cancellation and termination</h2>
+      <p>You may cancel your subscription at any time from the Billing tab in your account. Upon cancellation, your subscription will remain active until the end of the current billing period, after which your account will be downgraded or closed.</p>
+      <p>You may delete your account entirely from the Settings tab. Account deletion is immediate and permanent - all your personal data and site analytics will be removed in accordance with our <a href="/privacy.html" style="color:var(--purple-light);">Privacy Policy</a>.</p>
+      <p>We reserve the right to terminate or suspend your account without notice if you violate these Terms, engage in abusive behaviour, or if we are required to do so by law.</p>
+    </div>
+
+    <div class="legal-section" id="s6">
+      <h2>6. Invited members and site access</h2>
+      <p>Account owners may invite other users to access specific sites within their account. Invited members may be assigned roles (owner, admin, or viewer) that determine the level of access they have.</p>
+      <p>You are responsible for the users you invite to your account. By inviting a member, you confirm that you have the right to grant them access to the relevant site data.</p>
+      <p>Invited members who do not own a site and do not hold a paid subscription are subject to the same Terms as account owners. Access may be revoked by the site owner at any time.</p>
+    </div>
+
+    <div class="legal-section" id="s7">
+      <h2>7. Third-party integrations</h2>
+      <p>The Service integrates with third-party tools including Stripe (billing), Google Search Console (search data), Amazon SES (email), and Cloudflare (infrastructure). Your use of these integrations is also subject to the respective third-party terms of service.</p>
+      <p>By connecting your Google account, you grant TrackTrendy read-only access to your Google Search Console data. You may revoke this access at any time from your Google account settings or from within the TrackTrendy dashboard.</p>
+      <p>We are not responsible for the availability, accuracy, or policies of any third-party services.</p>
+    </div>
+
+    <div class="legal-section" id="s8">
+      <h2>8. Intellectual property</h2>
+      <p>All content, design, code, and branding associated with TrackTrendy - including the dashboard, tracking script, logos, and marketing materials - are the intellectual property of TrackTrendy and are protected by applicable copyright and trademark laws.</p>
+      <p>You retain full ownership of your website data and any content you connect to the Service. You grant us a limited licence to process and display that data solely for the purpose of providing the Service to you.</p>
+    </div>
+
+    <div class="legal-section" id="s9">
+      <h2>9. Service availability</h2>
+      <p>We aim to provide a reliable and uninterrupted service, but we do not guarantee 100% uptime. The Service may be temporarily unavailable due to maintenance, technical issues, or circumstances beyond our control.</p>
+      <p>We are not liable for any losses or damages resulting from service interruptions, data delays, or inaccuracies in analytics data.</p>
+    </div>
+
+    <div class="legal-section" id="s10">
+      <h2>10. Limitation of liability</h2>
+      <p>To the fullest extent permitted by law, TrackTrendy shall not be liable for any indirect, incidental, special, consequential, or punitive damages arising from your use of, or inability to use, the Service - including but not limited to loss of data, loss of revenue, or loss of business opportunities.</p>
+      <p>Our total liability to you for any claim arising out of or relating to these Terms or the Service shall not exceed the amount you paid to us in the 12 months preceding the claim.</p>
+      <p>Your use of the Service is also governed by our <a href="/privacy.html" style="color:var(--purple-light);">Privacy Policy</a>, which is incorporated into these Terms by reference.</p>
+    </div>
+
+    <div class="legal-section" id="s11">
+      <h2>11. Changes to these terms</h2>
+      <p>We may update these Terms from time to time. The updated version will be indicated by a revised date at the top of this page. If we make material changes, we will notify you by email or by a prominent notice in the dashboard. Your continued use of the Service after changes are posted constitutes your acceptance of the updated Terms.</p>
+      <p>These Terms shall be governed by and construed in accordance with the laws of the European Union. Any disputes arising under these Terms shall be subject to the exclusive jurisdiction of the competent courts.</p>
+    </div>
+
+    <div class="legal-section" id="s12">
+      <h2>12. Contact</h2>
+      <p>If you have any questions about these Terms, please contact us at <a href="mailto:legal@tracktrendy.com" style="color:var(--purple-light);">legal@tracktrendy.com</a>.</p>
+    </div>
+  </main>
+
+  <footer class="footer">
+    <a href="/" class="footer-logo">
+      <img src="logo.png" alt="TrackTrendy">
+      <span>TrackTrendy</span>
+    </a>
+    <div class="footer-links">
+      <a href="/privacy.html">Privacy policy</a>
+      <a href="/terms.html">Terms of service</a>
+      <a href="mailto:support@tracktrendy.com">Contact</a>
+    </div>
+    <p class="footer-copy">&copy; <span id="yr"></span> TrackTrendy</p>
+  </footer>
+
+  <script>document.getElementById('yr').textContent = new Date().getFullYear();</script>
+</body>
+</html>

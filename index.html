@@ -1,0 +1,2071 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- SEO -->
+  <title>TrackTrendy - Privacy-First Analytics | GDPR-Compliant Google Analytics Alternative</title>
+  <meta name="description" content="TrackTrendy gives you powerful website analytics without cookies or consent banners. 100% GDPR compliant. Track visitors, revenue and goals from €4/month. Try free for 30 days.">
+  <meta name="keywords" content="Google Analytics alternative, privacy analytics, cookie-free analytics, GDPR analytics, website analytics Europe, privacy-first tracking">
+  <link rel="canonical" href="https://tracktrendy.com/">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://tracktrendy.com/">
+  <meta property="og:title" content="TrackTrendy - Privacy-First Analytics | No Cookies. No Consent Banners.">
+  <meta property="og:description" content="Powerful website analytics without the privacy baggage. GDPR compliant by design, from €4/month. 30-day free trial.">
+  <meta property="og:image" content="https://tracktrendy.com/og.png">
+  <meta property="og:locale" content="en_GB">
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="TrackTrendy - Privacy-First Analytics">
+  <meta name="twitter:description" content="Cookie-free analytics for European businesses. GDPR compliant. From €4/month.">
+
+  <!-- Schema: SoftwareApplication -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "TrackTrendy",
+    "applicationCategory": "BusinessApplication",
+    "operatingSystem": "Web",
+    "description": "Privacy-first website analytics platform. Cookie-free, GDPR compliant, with real-time data, revenue tracking and Google Search Console integration.",
+    "url": "https://tracktrendy.com",
+    "offers": [
+      {
+        "@type": "Offer",
+        "name": "Single Site",
+        "price": "4.00",
+        "priceCurrency": "EUR",
+        "priceValidUntil": "2027-12-31",
+        "description": "Full analytics for one website. 30-day free trial."
+      },
+      {
+        "@type": "Offer",
+        "name": "Multi-Site",
+        "price": "15.00",
+        "priceCurrency": "EUR",
+        "priceValidUntil": "2027-12-31",
+        "description": "Analytics for up to 15 websites."
+      }
+    ],
+    "featureList": [
+      "Cookie-free tracking",
+      "GDPR compliant",
+      "Real-time analytics",
+      "Revenue tracking",
+      "Google Search Console integration",
+      "Team access with roles",
+      "UTM campaign builder",
+      "Embeddable dashboards",
+      "Traffic spike alerts"
+    ]
+  }
+  </script>
+
+  <!-- Schema: FAQPage (injected inline below) -->
+
+  <!-- Schema: Organization -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "TrackTrendy",
+    "url": "https://tracktrendy.com",
+    "logo": "https://tracktrendy.com/logo.png",
+    "contactPoint": {
+      "@type": "ContactPoint",
+      "contactType": "customer support",
+      "email": "support@tracktrendy.com"
+    }
+  }
+  </script>
+
+  <link rel="icon" href="favicon.png" type="image/png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@200;300;400;500;600;700&display=swap" rel="stylesheet">
+  <script type="importmap">{"imports":{"three":"https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.module.min.js"}}</script>
+
+  <style>
+    /* ===========================
+       RESET & BASE
+    =========================== */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --black:        #000000;
+      --surface:      #07050f;   /* dark purple-black - alt sections */
+      --surface2:     #0f0c1e;   /* slightly lighter purple-black */
+      --sep:          #1e1830;   /* purple-tinted separator */
+      --purple:       #7b5cdc;
+      --purple-light: #a78bfa;
+      --purple-pale:  #c4b5fd;
+      --purple-glow:  rgba(123,92,220,0.14);
+      --white:        #ffffff;
+      --t1:           #f1f1f1;
+      --t2:           rgba(255,255,255,0.68);
+      --t3:           rgba(255,255,255,0.35);
+      --green:        #4ade80;
+      --red:          #f87171;
+
+      --font: 'Be Vietnam Pro', -apple-system, sans-serif;
+      --max-w: 1140px;
+      --pad-x: 5%;
+    }
+
+    /* ===========================
+       LIGHT THEME
+    =========================== */
+    body.light {
+      --black:        #F9F9F9;
+      --surface:      #ffffff;
+      --surface2:     #f0eefe;
+      --sep:          #e4e0f5;
+      --t1:           #1E1E2F;
+      --t2:           rgba(30,30,47,0.72);
+      --t3:           rgba(30,30,47,0.4);
+      --purple-glow:  rgba(123,92,220,0.08);
+      --green:        #16a34a;
+      --red:          #dc2626;
+    }
+
+    /* light mode - fix all white/invisible text */
+    body.light h1,
+    body.light h2,
+    body.light h3 { color: var(--t1); }
+
+    body.light .p-price { color: var(--t1); }
+    body.light .p-price sup,
+    body.light .p-price sub { color: var(--t2); }
+    body.light .traction-num { color: var(--t1); }
+    body.light .faq-q { color: var(--t1); }
+    body.light .ai-chat-name { color: var(--t1); }
+    body.light .hero-stat-num { color: var(--t1); }
+    body.light .hero-stat-label { color: var(--t3); }
+    body.light .how-code { color: var(--purple); background: var(--surface2); border-color: var(--sep); }
+    body.light .dash-tile-val { color: var(--t1); }
+    body.light .dash-row-n { color: var(--t2); }
+    body.light .legal-highlight { background: var(--surface2); border-color: var(--sep); color: var(--t2); }
+
+    /* hero also responds to light mode */
+    body.light .hero-canvas-wrap::after {
+      background: linear-gradient(
+        90deg,
+        rgba(245,241,255,0.92) 0%,
+        rgba(245,241,255,0.65) 52%,
+        rgba(245,241,255,0.08) 100%
+      );
+    }
+
+    body.light .hero-eyebrow { color: var(--purple); }
+    body.light .hero-sub { color: var(--t2); }
+    body.light .hero-note { color: var(--t3); }
+    body.light .hero-stats { border-top-color: var(--sep); }
+
+    /* light mode nav */
+    body.light .nav {
+      background: rgba(249,249,249,0.92);
+      border-bottom-color: rgba(123,92,220,0.15);
+    }
+
+    body.light .nav-links a,
+    body.light .nav-login { color: rgba(30,30,47,0.65); }
+    body.light .nav-links a:hover,
+    body.light .nav-login:hover { color: #1E1E2F; }
+    body.light .nav-wordmark { color: #1E1E2F; }
+
+    /* light mode footer */
+    body.light .footer { background: var(--surface); border-color: var(--sep); }
+    body.light .footer-logo span,
+    body.light .footer-links a,
+    body.light .footer-copy { color: rgba(30,30,47,0.5); }
+    body.light .footer-links a:hover { color: #1E1E2F; }
+
+    /* light mode trust bar */
+    body.light .trust-bar { background: var(--black); border-color: var(--sep); }
+
+    /* light mode cards */
+    body.light .who-card { background: var(--surface); }
+    body.light .p-card { background: var(--surface); }
+    body.light .p-card.featured { background: linear-gradient(135deg, rgba(123,92,220,0.06) 0%, var(--surface) 60%); }
+    body.light .faq-item { background: var(--surface); }
+    body.light .how-step { background: var(--surface2); }
+    body.light .feature-card { background: var(--surface); }
+    body.light .feature-card:hover { background: var(--surface2); }
+    body.light .compare-table tbody td { background: var(--surface); }
+    body.light .compare-table tbody tr:nth-child(odd) td { background: var(--black); }
+    body.light .compare-table tbody tr:nth-child(odd) td.featured { background: rgba(123,92,220,0.04); }
+    body.light .compare-table thead th { background: var(--surface2); color: #1E1E2F; }
+    body.light .compare-table thead th.featured { background: rgba(123,92,220,0.1); }
+    body.light .browser-frame { border-color: rgba(123,92,220,0.2); }
+    body.light .browser-bar { background: #f0eefc; }
+    body.light .dash-mock { background: #F9F9F9; }
+    body.light .dash-tile,
+    body.light .dash-chart,
+    body.light .dash-panel { background: var(--surface); }
+    body.light .browser-url { background: #ede9fe; color: rgba(30,30,47,0.5); }
+    body.light .btn-outline { border-color: var(--sep); color: rgba(30,30,47,0.7); }
+    body.light .btn-outline:hover { border-color: var(--purple); color: #1E1E2F; }
+    body.light .ai-chat { border-color: rgba(123,92,220,0.2); }
+    body.light .ai-chat-head,
+    body.light .ai-chat-foot { background: var(--surface2); }
+    body.light .ai-msg.bot { background: var(--surface2); border-color: var(--sep); color: #1E1E2F; }
+    body.light .stack-pill { background: var(--surface); border-color: var(--sep); }
+    body.light .traction-item { background: var(--surface); }
+    body.light .legal-toc,
+    body.light .legal-section { background: transparent; }
+    body.light .sep-line { background: linear-gradient(90deg,transparent,rgba(123,92,220,0.25),transparent); }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: var(--font);
+      background: var(--black);
+      color: var(--t1);
+      line-height: 1.65;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* ===========================
+       UTILITIES
+    =========================== */
+    .inner { max-width: var(--max-w); margin: 0 auto; padding: 0 var(--pad-x); }
+    .section { padding: 96px var(--pad-x); }
+    .section.alt { background: var(--surface); }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 9px;
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--purple-light);
+    }
+    .eyebrow::before { content:''; width:22px; height:1px; background:var(--purple-light); }
+    .eyebrow.center { justify-content: center; }
+    .eyebrow.center::before { display: none; }
+
+    .sep-line { height:1px; background:linear-gradient(90deg,transparent,rgba(123,92,220,0.3),transparent); border:none; }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 13px 26px;
+      border-radius: 8px;
+      font-family: var(--font);
+      font-size: 14px;
+      font-weight: 600;
+      text-decoration: none;
+      transition: all 0.18s;
+      cursor: pointer;
+      border: none;
+    }
+    .btn-primary { background: var(--purple); color: #fff; }
+    .btn-primary:hover { background: #6948c8; transform: translateY(-2px); box-shadow: 0 8px 28px rgba(123,92,220,0.35); }
+    .btn-outline { background: transparent; color: var(--t2); border: 1px solid var(--sep); }
+    .btn-outline:hover { border-color: rgba(123,92,220,0.5); color: var(--white); }
+
+    /* SVG icon color inherit */
+    .icon { color: var(--purple-light); display: flex; }
+
+    /* Check / X */
+    .chk, .xmk { width:20px; height:20px; min-width:20px; border-radius:50%; display:flex; align-items:center; justify-content:center; }
+    .chk { background: rgba(74,222,128,0.1); border: 1px solid rgba(74,222,128,0.25); }
+    .xmk { background: rgba(248,113,113,0.08); border: 1px solid rgba(248,113,113,0.2); }
+
+    /* ===========================
+       NAV
+    =========================== */
+    .nav {
+      position: fixed;
+      inset: 0 0 auto 0;
+      z-index: 100;
+      padding: 14px var(--pad-x);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: rgba(0,0,0,0.88);
+      backdrop-filter: blur(18px);
+      -webkit-backdrop-filter: blur(18px);
+      border-bottom: 1px solid rgba(123,92,220,0.12);
+    }
+
+    .nav-logo { display:flex; align-items:center; gap:9px; text-decoration:none; }
+    .nav-logo img { height:24px; }
+    .nav-wordmark { font-size:13px; font-weight:700; letter-spacing:0.1em; text-transform:uppercase; color:var(--white); }
+
+    .nav-links { display:flex; align-items:center; gap:28px; }
+    .nav-links a { font-size:13px; color:var(--t2); text-decoration:none; transition:color 0.15s; }
+    .nav-links a:hover { color:var(--white); }
+
+    .nav-right { display:flex; align-items:center; gap:12px; }
+    .nav-login { font-size:13px; color:var(--t2); text-decoration:none; transition:color 0.15s; }
+    .nav-login:hover { color:var(--white); }
+    .nav-cta { padding: 8px 18px; font-size:13px; }
+
+    .theme-toggle {
+      width: 34px; height: 34px;
+      border-radius: 8px;
+      background: transparent;
+      border: 1px solid var(--sep);
+      display: flex; align-items: center; justify-content: center;
+      cursor: pointer;
+      color: var(--t2);
+      transition: background 0.18s, border-color 0.18s, color 0.18s;
+      flex-shrink: 0;
+    }
+    .theme-toggle:hover { background: var(--surface2); border-color: rgba(123,92,220,0.4); color: var(--t1); }
+    .theme-toggle .icon-moon { display: block; }
+    .theme-toggle .icon-sun  { display: none; }
+    body.light .theme-toggle .icon-moon { display: none; }
+    body.light .theme-toggle .icon-sun  { display: block; }
+    body.light .theme-toggle { border-color: var(--sep); color: rgba(30,30,47,0.6); }
+    body.light .theme-toggle:hover { background: var(--surface2); color: #1E1E2F; }
+
+    /* light mode - fix remaining invisible elements */
+    body.light .toggle-btn { color: rgba(30,30,47,0.45); }
+    body.light .toggle-btn.active { background: #ffffff; color: #1E1E2F; box-shadow: 0 1px 4px rgba(0,0,0,0.1); }
+    body.light .pricing-toggle { background: var(--surface2); border-color: var(--sep); }
+    body.light .save-badge { background: rgba(22,163,74,0.1); color: #16a34a; border-color: rgba(22,163,74,0.25); }
+    body.light .ct-partial { color: rgba(30,30,47,0.45); }
+    body.light .compare-table tbody td { color: rgba(30,30,47,0.65); }
+    body.light .ct-yes { color: #16a34a; }
+    body.light .ct-no  { color: #dc2626; opacity: 0.8; }
+    body.light .cta-note { color: rgba(30,30,47,0.4); }
+    body.light .stack-pill-dot { background: var(--purple); }
+    body.light .how-icon { background: rgba(123,92,220,0.08); }
+    body.light .browser-dots span:nth-child(1) { background: #ef4444; }
+    body.light .browser-dots span:nth-child(2) { background: #f59e0b; }
+    body.light .browser-dots span:nth-child(3) { background: #22c55e; }
+    body.light .dash-tile-up { color: #16a34a; }
+    body.light .dash-tile-dn { color: #dc2626; }
+    body.light .dash-bar { background: var(--purple); }
+    body.light .dash-pill { background: var(--surface); border-color: var(--sep); color: rgba(30,30,47,0.65); }
+    body.light .dash-pill.live { background: rgba(123,92,220,0.08); border-color: rgba(123,92,220,0.25); color: var(--purple); }
+    body.light .soon-badge { background: rgba(123,92,220,0.08); border-color: rgba(123,92,220,0.25); }
+    body.light .ai-field { background: var(--surface); border-color: var(--sep); color: rgba(30,30,47,0.4); }
+    body.light .trust-dot { background: #16a34a; }
+    body.light .trust-item { color: rgba(30,30,47,0.65); }
+    body.light .trust-label { color: rgba(30,30,47,0.35); }
+    body.light .traction-label { color: rgba(30,30,47,0.65); }
+    body.light .traction-sub { color: rgba(30,30,47,0.4); }
+    body.light .traction-grid { background: var(--sep); border-color: var(--sep); }
+    body.light .section-head p { color: var(--t2); }
+    body.light .p-tagline { color: var(--t2); }
+    body.light .p-trial { color: rgba(30,30,47,0.4); }
+    body.light .p-sep { background: var(--sep); }
+    body.light .pain-icon { background: rgba(220,38,38,0.08); border-color: rgba(220,38,38,0.2); }
+
+    /* ===========================
+       HERO
+    =========================== */
+    .hero-wrap {
+      position: relative;
+      overflow: hidden;
+      background: var(--black);
+    }
+
+    .hero-wrap::after {
+      content:'';
+      position:absolute; bottom:0; left:0; right:0; z-index:2;
+      height:1px;
+      background:linear-gradient(90deg,transparent,rgba(123,92,220,0.3),transparent);
+    }
+
+    /* canvas fills entire hero area */
+    .hero-canvas-wrap {
+      position: absolute;
+      inset: 0;
+    }
+
+    .hero-canvas-wrap canvas {
+      display: block;
+      width: 100% !important;
+      height: 100% !important;
+    }
+
+    /* subtle gradient so text stays readable over canvas */
+    .hero-canvas-wrap::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(
+        90deg,
+        rgba(0,0,0,0.82) 0%,
+        rgba(0,0,0,0.55) 50%,
+        rgba(0,0,0,0.15) 100%
+      );
+      pointer-events: none;
+    }
+
+    .hero {
+      position: relative;
+      z-index: 1;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 130px var(--pad-x) 80px;
+    }
+
+    .hero-inner { max-width: 580px; }
+
+    .hero-eyebrow {
+      display:flex; align-items:center; gap:10px;
+      font-size:11px; font-weight:600; letter-spacing:0.2em; text-transform:uppercase;
+      color:var(--purple-light); margin-bottom:28px;
+    }
+    .hero-eyebrow::before { content:''; width:26px; height:1px; background:var(--purple-light); }
+
+    .hero h1 {
+      font-size: clamp(38px, 5.8vw, 76px);
+      font-weight: 300;
+      color: var(--white);
+      line-height: 1.07;
+      letter-spacing: -0.025em;
+      margin-bottom: 26px;
+    }
+
+    .hero h1 strong { font-weight: 700; }
+    .hero h1 .accent { color: var(--purple-light); }
+
+    .hero-sub {
+      font-size: 17px;
+      font-weight: 300;
+      color: var(--t2);
+      max-width: 520px;
+      line-height: 1.78;
+      margin-bottom: 40px;
+    }
+
+    .hero-actions { display:flex; align-items:center; gap:16px; flex-wrap:wrap; }
+
+    .hero-note { font-size:12px; color:var(--t3); margin-top:16px; }
+
+    .hero-stats {
+      display:flex; gap:40px; flex-wrap:nowrap;
+      margin-top:64px; padding-top:36px;
+      border-top:1px solid var(--sep);
+    }
+
+    .hero-stat-num { font-size:26px; font-weight:700; color:var(--white); line-height:1; margin-bottom:5px; }
+    .hero-stat-label { font-size:12px; color:var(--t3); letter-spacing:0.03em; }
+
+    /* ===========================
+       TRUST BAR
+    =========================== */
+    .trust-bar {
+      padding: 28px var(--pad-x);
+      background: var(--black);
+      border-top: 1px solid var(--sep);
+      border-bottom: 1px solid var(--sep);
+    }
+
+    .trust-bar-inner {
+      max-width: var(--max-w);
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      gap: 32px;
+      flex-wrap: wrap;
+    }
+
+    .trust-label { font-size:11px; color:var(--t3); letter-spacing:0.12em; text-transform:uppercase; white-space:nowrap; }
+
+    .trust-items { display:flex; align-items:center; gap:28px; flex-wrap:wrap; }
+
+    .trust-item {
+      display:flex; align-items:center; gap:7px;
+      font-size:13px; color:var(--t2);
+    }
+
+    .trust-dot { width:6px; height:6px; border-radius:50%; background:var(--green); flex-shrink:0; }
+
+    /* ===========================
+       PROBLEM
+    =========================== */
+    .problem-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 72px;
+      align-items: center;
+      margin-top: 52px;
+    }
+
+    .problem-text h2 {
+      font-size: clamp(26px, 3.2vw, 42px);
+      font-weight: 300;
+      color: var(--white);
+      line-height: 1.22;
+      letter-spacing: -0.015em;
+      margin: 16px 0 18px;
+    }
+
+    .problem-text p { font-size:15px; color:var(--t2); line-height:1.8; margin-bottom:14px; }
+
+    .pain-list { list-style:none; display:flex; flex-direction:column; gap:14px; }
+
+    .pain-list li {
+      display:flex; align-items:flex-start; gap:13px;
+      font-size:14px; color:var(--t2); line-height:1.6;
+    }
+
+    .pain-icon {
+      width:20px; height:20px; min-width:20px;
+      border-radius:50%;
+      background:rgba(248,113,113,0.1);
+      border:1px solid rgba(248,113,113,0.25);
+      display:flex; align-items:center; justify-content:center;
+      margin-top:2px;
+    }
+
+    /* ===========================
+       HOW IT WORKS
+    =========================== */
+    .how-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2px;
+      background: var(--sep);
+      border: 1px solid var(--sep);
+      border-radius: 14px;
+      overflow: hidden;
+      margin-top: 52px;
+    }
+
+    .how-step {
+      background: var(--surface2);
+      padding: 36px 28px;
+      position: relative;
+    }
+
+    .how-num {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.15em;
+      color: var(--purple-light);
+      margin-bottom: 20px;
+    }
+
+    .how-icon {
+      width: 44px; height: 44px;
+      border-radius: 12px;
+      background: var(--purple-glow);
+      border: 1px solid rgba(123,92,220,0.22);
+      display: flex; align-items: center; justify-content: center;
+      color: var(--purple-light);
+      margin-bottom: 18px;
+    }
+
+    .how-step h3 { font-size:16px; font-weight:600; color:var(--white); margin-bottom:10px; }
+    .how-step p { font-size:13px; color:var(--t2); line-height:1.75; }
+
+    .how-code {
+      margin-top: 14px;
+      background: var(--black);
+      border: 1px solid var(--sep);
+      border-radius: 6px;
+      padding: 10px 14px;
+      font-family: 'Courier New', monospace;
+      font-size: 11px;
+      color: var(--purple-pale);
+      line-height: 1.6;
+      word-break: break-all;
+    }
+
+    /* ===========================
+       FEATURES
+    =========================== */
+    .section-head { text-align:center; margin-bottom:52px; }
+
+    .section-head h2 {
+      font-size: clamp(26px, 3.5vw, 44px);
+      font-weight: 300;
+      color: var(--white);
+      line-height: 1.18;
+      letter-spacing: -0.015em;
+      margin: 16px 0 14px;
+      max-width: 640px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .section-head p { font-size:15px; color:var(--t2); max-width:500px; margin:0 auto; line-height:1.78; font-weight:300; }
+
+    .features-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2px;
+      background: var(--sep);
+      border: 1px solid var(--sep);
+      border-radius: 14px;
+      overflow: hidden;
+    }
+
+    .feature-card {
+      background: var(--surface);
+      padding: 30px 26px;
+      transition: background 0.2s;
+    }
+
+    .feature-card:hover { background: var(--surface2); }
+
+    .feature-icon {
+      width: 40px; height: 40px;
+      border-radius: 10px;
+      background: var(--purple-glow);
+      border: 1px solid rgba(123,92,220,0.22);
+      display: flex; align-items: center; justify-content: center;
+      color: var(--purple-light);
+      margin-bottom: 16px;
+    }
+
+    .feature-card h3 { font-size:14px; font-weight:600; color:var(--white); margin-bottom:7px; }
+    .feature-card p { font-size:13px; color:var(--t2); line-height:1.72; }
+
+    /* ===========================
+       DASHBOARD PREVIEW
+    =========================== */
+    .browser-frame {
+      max-width: 960px; margin: 52px auto 0;
+      border-radius: 12px; overflow: hidden;
+      border: 1px solid rgba(123,92,220,0.22);
+      box-shadow: 0 0 80px rgba(123,92,220,0.1), 0 40px 80px rgba(0,0,0,0.55);
+    }
+
+    .browser-bar {
+      background: #161616;
+      padding: 11px 16px;
+      display: flex; align-items: center; gap: 12px;
+      border-bottom: 1px solid var(--sep);
+    }
+
+    .browser-dots { display:flex; gap:6px; }
+    .browser-dots span { width:9px; height:9px; border-radius:50%; background:#333; }
+    .browser-dots span:nth-child(1) { background:#ef4444; }
+    .browser-dots span:nth-child(2) { background:#f59e0b; }
+    .browser-dots span:nth-child(3) { background:#22c55e; }
+
+    .browser-url {
+      flex:1; background:#0d0d0d;
+      border:1px solid var(--sep); border-radius:5px;
+      padding:4px 12px; font-size:11px;
+      color:var(--t3); font-family:monospace; text-align:center;
+    }
+
+    .dash-mock {
+      background: var(--black);
+      padding: 20px;
+      display: flex; flex-direction: column; gap: 12px;
+    }
+
+    .dash-top { display:flex; justify-content:space-between; align-items:center; gap:10px; }
+
+    .dash-pill {
+      background:var(--surface); border:1px solid var(--sep);
+      border-radius:6px; padding:6px 13px;
+      font-size:11px; color:var(--t2);
+      display:flex; align-items:center; gap:7px;
+    }
+
+    .dash-pill.live { background:rgba(123,92,220,0.12); border-color:rgba(123,92,220,0.3); color:var(--purple-pale); }
+
+    .dash-stats { display:grid; grid-template-columns:repeat(6,1fr); gap:8px; }
+
+    .dash-tile {
+      background:var(--surface); border:1px solid var(--sep);
+      border-radius:8px; padding:11px 12px;
+    }
+
+    .dash-tile-lbl { font-size:9px; color:var(--t3); text-transform:uppercase; letter-spacing:0.06em; margin-bottom:4px; }
+    .dash-tile-val { font-size:15px; font-weight:700; color:var(--white); }
+    .dash-tile-up { font-size:9px; color:var(--green); margin-top:2px; }
+    .dash-tile-dn { font-size:9px; color:var(--red); margin-top:2px; }
+
+    .dash-chart {
+      background:var(--surface); border:1px solid var(--sep);
+      border-radius:8px; padding:12px 14px; overflow:hidden;
+    }
+
+    .dash-chart-lbl { font-size:9px; color:var(--t3); text-transform:uppercase; letter-spacing:0.07em; margin-bottom:8px; }
+    .chart-svg { width:100%; height:52px; }
+
+    .dash-panels { display:grid; grid-template-columns:1fr 1fr 1fr; gap:8px; }
+
+    .dash-panel {
+      background:var(--surface); border:1px solid var(--sep);
+      border-radius:8px; padding:12px;
+    }
+
+    .dash-panel-lbl { font-size:9px; color:var(--t3); text-transform:uppercase; letter-spacing:0.07em; margin-bottom:8px; font-weight:600; }
+
+    .dash-row { display:flex; justify-content:space-between; align-items:center; padding:4px 0; border-bottom:1px solid var(--sep); }
+    .dash-row:last-child { border:none; }
+    .dash-row-n { font-size:10px; color:var(--t2); }
+    .dash-row-v { font-size:10px; color:var(--t3); }
+    .dash-bar-wrap { height:3px; background:var(--sep); border-radius:2px; margin-top:3px; }
+    .dash-bar { height:100%; background:var(--purple); border-radius:2px; }
+
+    /* ===========================
+       COMPARISON
+    =========================== */
+    .compare-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 52px;
+      border: 1px solid var(--sep);
+      border-radius: 14px;
+      overflow: hidden;
+      font-size: 13px;
+    }
+
+    .compare-table thead th {
+      background: var(--surface2);
+      padding: 18px 20px;
+      text-align: left;
+      font-weight: 600;
+      color: var(--white);
+      border-bottom: 1px solid var(--sep);
+    }
+
+    .compare-table thead th:first-child { color: var(--t3); font-weight: 400; }
+
+    .compare-table thead th.featured {
+      background: rgba(123,92,220,0.12);
+      color: var(--purple-light);
+      border-bottom-color: rgba(123,92,220,0.3);
+    }
+
+    .compare-table tbody tr { border-bottom: 1px solid var(--sep); }
+    .compare-table tbody tr:last-child { border-bottom: none; }
+
+    .compare-table tbody td {
+      padding: 14px 20px;
+      color: var(--t2);
+      background: var(--surface);
+    }
+
+    .compare-table tbody td:first-child { color: var(--t2); }
+    .compare-table tbody td.featured { background: rgba(123,92,220,0.06); }
+
+    .compare-table tbody tr:nth-child(odd) td { background: var(--black); }
+    .compare-table tbody tr:nth-child(odd) td.featured { background: rgba(123,92,220,0.05); }
+
+    .ct-yes { display:flex; align-items:center; gap:7px; color:var(--green); font-weight:500; }
+    .ct-no  { display:flex; align-items:center; gap:7px; color:var(--red); opacity:0.7; }
+    .ct-partial { color:var(--t3); }
+
+    /* ===========================
+       AI TEASER
+    =========================== */
+    .ai-wrap {
+      display:grid; grid-template-columns:1fr 1fr;
+      gap:72px; align-items:center;
+    }
+
+    .ai-text .eyebrow { margin-bottom:18px; }
+
+    .ai-text h2 {
+      font-size: clamp(26px, 3.2vw, 42px);
+      font-weight: 300; color:var(--white);
+      line-height:1.2; letter-spacing:-0.015em;
+      margin-bottom:16px;
+    }
+
+    .ai-text h2 strong { font-weight:700; }
+    .ai-text p { font-size:15px; color:var(--t2); line-height:1.8; margin-bottom:13px; }
+
+    .soon-badge {
+      display:inline-flex; align-items:center; gap:6px;
+      padding:5px 12px;
+      background:rgba(123,92,220,0.1);
+      border:1px solid rgba(123,92,220,0.28);
+      border-radius:20px;
+      font-size:11px; font-weight:600; color:var(--purple-light);
+      letter-spacing:0.07em; text-transform:uppercase;
+      margin-top:6px;
+    }
+
+    .soon-badge::before {
+      content:''; width:6px; height:6px;
+      background:var(--purple-light); border-radius:50%;
+      animation:pulse 1.8s ease-in-out infinite;
+    }
+
+    @keyframes pulse { 0%,100%{opacity:1;transform:scale(1)} 50%{opacity:0.5;transform:scale(0.8)} }
+
+    .ai-chat {
+      background:var(--surface);
+      border:1px solid rgba(123,92,220,0.22);
+      border-radius:14px; overflow:hidden;
+      box-shadow:0 0 60px rgba(123,92,220,0.09),0 24px 60px rgba(0,0,0,0.5);
+    }
+
+    .ai-chat-head {
+      background:var(--surface2); padding:13px 17px;
+      display:flex; align-items:center; gap:9px;
+      border-bottom:1px solid var(--sep);
+    }
+
+    .ai-av {
+      width:28px; height:28px; border-radius:50%;
+      background:linear-gradient(135deg,var(--purple),var(--purple-light));
+      display:flex; align-items:center; justify-content:center;
+    }
+
+    .ai-chat-name { font-size:13px; font-weight:600; color:var(--white); }
+    .ai-online { font-size:11px; color:var(--green); margin-left:auto; display:flex; align-items:center; gap:5px; }
+    .ai-online::before { content:''; width:6px; height:6px; background:var(--green); border-radius:50%; }
+
+    .ai-chat-body { padding:16px; display:flex; flex-direction:column; gap:12px; min-height:260px; }
+
+    .ai-msg { max-width:86%; padding:9px 13px; border-radius:10px; font-size:12px; line-height:1.65; }
+    .ai-msg.bot { background:var(--surface2); color:var(--t1); border:1px solid var(--sep); border-radius:2px 10px 10px 10px; align-self:flex-start; }
+    .ai-msg.usr { background:var(--purple); color:#fff; border-radius:10px 2px 10px 10px; align-self:flex-end; }
+
+    .ai-typing {
+      display:flex; align-items:center; gap:4px;
+      padding:9px 13px;
+      background:var(--surface2); border:1px solid var(--sep);
+      border-radius:2px 10px 10px 10px;
+      align-self:flex-start; width:fit-content;
+    }
+
+    .ai-typing span { width:5px; height:5px; background:var(--t3); border-radius:50%; animation:tdot 1.2s ease-in-out infinite; }
+    .ai-typing span:nth-child(2) { animation-delay:0.2s; }
+    .ai-typing span:nth-child(3) { animation-delay:0.4s; }
+
+    @keyframes tdot { 0%,80%,100%{transform:scale(1);opacity:0.4} 40%{transform:scale(1.2);opacity:1} }
+
+    .ai-chat-foot {
+      padding:12px 17px; background:var(--surface2);
+      border-top:1px solid var(--sep);
+      display:flex; align-items:center; gap:9px;
+    }
+
+    .ai-field {
+      flex:1; background:var(--black);
+      border:1px solid var(--sep); border-radius:7px;
+      padding:7px 11px; font-size:11px; color:var(--t3);
+    }
+
+    .ai-send {
+      width:29px; height:29px; background:var(--purple);
+      border-radius:6px; display:flex; align-items:center; justify-content:center;
+    }
+
+    /* ===========================
+       WHO IT'S FOR
+    =========================== */
+    .who-grid {
+      display: grid;
+      grid-template-columns: repeat(4,1fr);
+      gap: 14px;
+      margin-top: 48px;
+    }
+
+    .who-card {
+      background: var(--surface2);
+      border: 1px solid var(--sep);
+      border-radius: 12px;
+      padding: 26px 20px;
+      transition: border-color 0.2s, transform 0.2s;
+    }
+
+    .who-card:hover { border-color:rgba(123,92,220,0.38); transform:translateY(-3px); }
+
+    .who-icon { color:var(--purple-light); margin-bottom:14px; }
+    .who-card h3 { font-size:14px; font-weight:600; color:var(--white); margin-bottom:7px; }
+    .who-card p { font-size:13px; color:var(--t2); line-height:1.7; }
+
+    /* ===========================
+       PRICING
+    =========================== */
+    /* Pricing toggle */
+    .pricing-toggle {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0;
+      margin: 36px auto 0;
+      background: var(--surface2);
+      border: 1px solid var(--sep);
+      border-radius: 10px;
+      padding: 4px;
+      width: fit-content;
+    }
+
+    .toggle-btn {
+      padding: 9px 22px;
+      border-radius: 7px;
+      font-family: var(--font);
+      font-size: 13px;
+      font-weight: 500;
+      color: var(--t3);
+      background: transparent;
+      border: none;
+      cursor: pointer;
+      transition: all 0.18s;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .toggle-btn.active {
+      background: var(--surface);
+      color: var(--white);
+      box-shadow: 0 1px 4px rgba(0,0,0,0.4);
+    }
+
+    .save-badge {
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      background: rgba(74,222,128,0.15);
+      color: var(--green);
+      border: 1px solid rgba(74,222,128,0.25);
+      padding: 2px 7px;
+      border-radius: 20px;
+    }
+
+    .pricing-cards {
+      display: grid;
+      grid-template-columns: repeat(2,1fr);
+      gap: 16px;
+      max-width: 700px;
+      margin: 20px auto 0;
+    }
+
+    /* toggle: price content divs use price-monthly/yearly (block) */
+    .price-yearly { display: none !important; }
+    .price-monthly { display: block !important; }
+    body.yearly .price-yearly { display: block !important; }
+    body.yearly .price-monthly { display: none !important; }
+
+    /* toggle: buttons use btn-monthly/yearly (flex) */
+    .btn-yearly { display: none !important; }
+    body.yearly .btn-yearly { display: flex !important; }
+    body.yearly .btn-monthly { display: none !important; }
+
+    /* consistent trial text height so prices always align */
+    .p-trial { font-size: 12px; color: var(--t3); margin-bottom: 6px; min-height: 18px; }
+
+    /* remove conflicting min-height */
+    .price-monthly, .price-yearly { min-height: unset; }
+
+    .p-card {
+      background: var(--surface2);
+      border: 1px solid var(--sep);
+      border-radius: 14px;
+      padding: 30px 26px;
+      position: relative;
+      transition: border-color 0.2s;
+    }
+
+    .p-card.featured {
+      border-color: var(--purple);
+      background: linear-gradient(135deg, rgba(123,92,220,0.07) 0%, var(--surface2) 60%);
+    }
+
+    .p-badge {
+      position:absolute; top:-11px; left:50%; transform:translateX(-50%);
+      background:var(--purple); color:#fff;
+      font-size:10px; font-weight:700; letter-spacing:0.1em; text-transform:uppercase;
+      padding:4px 13px; border-radius:20px; white-space:nowrap;
+    }
+
+    .p-plan { font-size:11px; font-weight:600; letter-spacing:0.15em; text-transform:uppercase; color:var(--purple-light); margin-bottom:10px; }
+
+    .p-trial { font-size:12px; color:var(--t3); margin-bottom:4px; }
+
+    .p-price { font-size:34px; font-weight:700; color:var(--white); line-height:1; margin-bottom:3px; }
+    .p-price sup { font-size:16px; font-weight:400; color:var(--t2); vertical-align:super; }
+    .p-price sub { font-size:12px; font-weight:400; color:var(--t3); vertical-align:baseline; }
+
+    .p-tagline { font-size:13px; color:var(--t2); margin-bottom:24px; line-height:1.5; }
+    .p-sep { height:1px; background:var(--sep); margin-bottom:20px; }
+
+    .p-features { list-style:none; display:flex; flex-direction:column; gap:9px; margin-bottom:24px; }
+
+    .p-features li {
+      display:flex; align-items:flex-start; gap:9px;
+      font-size:13px; color:var(--t2); line-height:1.5;
+    }
+
+    .p-cta {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 44px;
+      padding: 0 16px;
+      border-radius: 8px;
+      font-size: 13px;
+      font-weight: 600;
+      text-decoration: none;
+      line-height: 1;
+      margin-top: 20px;
+      transition: all 0.18s;
+    }
+
+    .p-cta.pri { background:var(--purple); color:#fff; }
+    .p-cta.pri:hover { background:#6948c8; transform:translateY(-1px); }
+    .p-cta.out { background:transparent; color:var(--t2); border:1px solid var(--sep); }
+    .p-cta.out:hover { border-color:rgba(123,92,220,0.4); color:var(--white); }
+
+    /* ===========================
+       FAQ
+    =========================== */
+    .faq-list { display:flex; flex-direction:column; gap:2px; margin-top:48px; }
+
+    .faq-item {
+      background:var(--surface);
+      border:1px solid var(--sep);
+      border-radius:10px;
+      overflow:hidden;
+    }
+
+    .faq-q {
+      display:flex; justify-content:space-between; align-items:center;
+      padding:18px 22px;
+      font-size:14px; font-weight:500; color:var(--white);
+      cursor:pointer;
+      list-style:none;
+      user-select:none;
+    }
+
+    .faq-q::-webkit-details-marker { display:none; }
+
+    .faq-q svg { flex-shrink:0; color:var(--t3); transition:transform 0.22s; }
+    details[open] .faq-q svg { transform:rotate(180deg); color:var(--purple-light); }
+
+    .faq-a { padding:0 22px 18px; font-size:14px; color:var(--t2); line-height:1.78; }
+
+    /* ===========================
+       CTA SECTION
+    =========================== */
+    .cta-section {
+      padding: 96px var(--pad-x);
+      background: var(--black);
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .cta-section::before {
+      content:''; position:absolute; top:50%; left:50%;
+      transform:translate(-50%,-50%);
+      width:70vw; height:70vw;
+      background:radial-gradient(circle,rgba(123,92,220,0.09) 0%,transparent 65%);
+      pointer-events:none;
+    }
+
+    .cta-inner { position:relative; z-index:1; max-width:580px; margin:0 auto; }
+
+    .cta-section h2 {
+      font-size:clamp(28px,4vw,50px);
+      font-weight:300; color:var(--white);
+      line-height:1.15; letter-spacing:-0.02em;
+      margin:18px 0 15px;
+    }
+
+    .cta-section h2 strong { font-weight:700; }
+
+    .cta-section p { font-size:15px; color:var(--t2); line-height:1.78; font-weight:300; margin-bottom:36px; }
+
+    .cta-actions { display:flex; align-items:center; justify-content:center; gap:16px; flex-wrap:wrap; }
+    .cta-note { font-size:12px; color:var(--t3); margin-top:18px; }
+
+    /* ===========================
+       FOOTER
+    =========================== */
+    .footer {
+      background: var(--surface);
+      border-top: 1px solid var(--sep);
+      padding: 52px var(--pad-x) 32px;
+    }
+
+    .footer-top {
+      max-width: var(--max-w);
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr 1fr;
+      gap: 48px;
+      padding-bottom: 40px;
+      border-bottom: 1px solid var(--sep);
+    }
+
+    .footer-brand { }
+    .footer-logo { display:flex; align-items:center; gap:9px; text-decoration:none; margin-bottom:14px; }
+    .footer-logo img { height:22px; }
+    .footer-logo span { font-size:13px; font-weight:700; letter-spacing:0.1em; text-transform:uppercase; color:var(--t2); }
+    .footer-desc { font-size:13px; color:var(--t3); line-height:1.75; max-width:260px; }
+
+    .footer-col h4 { font-size:12px; font-weight:600; letter-spacing:0.12em; text-transform:uppercase; color:var(--t3); margin-bottom:14px; }
+
+    .footer-col ul { list-style:none; display:flex; flex-direction:column; gap:9px; }
+    .footer-col ul li a { font-size:13px; color:var(--t2); text-decoration:none; transition:color 0.15s; }
+    .footer-col ul li a:hover { color:var(--white); }
+
+    .footer-bottom {
+      max-width:var(--max-w); margin:0 auto;
+      display:flex; justify-content:space-between; align-items:center;
+      padding-top:24px;
+      flex-wrap:wrap; gap:12px;
+    }
+
+    .footer-copy { font-size:12px; color:var(--t3); }
+
+    .footer-legal { display:flex; gap:20px; }
+    .footer-legal a { font-size:12px; color:var(--t3); text-decoration:none; transition:color 0.15s; }
+    .footer-legal a:hover { color:var(--t1); }
+
+    /* ===========================
+       RESPONSIVE
+    =========================== */
+    @media (max-width: 960px) {
+      .problem-grid, .ai-wrap { grid-template-columns:1fr; gap:48px; }
+      .features-grid { grid-template-columns:1fr 1fr; }
+      .who-grid { grid-template-columns:1fr 1fr; }
+      .how-grid { grid-template-columns:1fr; }
+      .footer-top { grid-template-columns:1fr 1fr; }
+      .dash-stats { grid-template-columns:repeat(3,1fr); }
+      .dash-panels { grid-template-columns:1fr 1fr; }
+    }
+
+    @media (max-width: 620px) {
+      .nav-links { display:none; }
+      .features-grid { grid-template-columns:1fr; }
+      .who-grid { grid-template-columns:1fr; }
+      .pricing-cards { grid-template-columns:1fr; max-width:360px; }
+      .hero-stats { gap:24px; }
+      .footer-top { grid-template-columns:1fr; gap:28px; }
+      .dash-stats { grid-template-columns:repeat(2,1fr); }
+      .dash-panels { grid-template-columns:1fr; }
+      .compare-table { font-size:11px; }
+      .compare-table thead th, .compare-table tbody td { padding:11px 12px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav class="nav" role="navigation" aria-label="Main navigation">
+    <a href="/" class="nav-logo" aria-label="TrackTrendy home">
+      <img src="logo.png" alt="TrackTrendy logo" width="24" height="24">
+      <span class="nav-wordmark">TrackTrendy</span>
+    </a>
+    <div class="nav-links">
+      <a href="#features">Features</a>
+      <a href="#compare">Compare</a>
+      <a href="#pricing">Pricing</a>
+      <a href="#faq">FAQ</a>
+    </div>
+    <div class="nav-right">
+      <a href="https://app.tracktrendy.com" class="nav-login" target="_blank">Log in</a>
+      <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">
+        <span class="icon-moon"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg></span>
+        <span class="icon-sun"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg></span>
+      </button>
+      <a href="https://buy.stripe.com/eVaaIhfiL77Y6uA6oo" class="btn btn-primary nav-cta" target="_blank">Try free &rarr;</a>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <main>
+  <div class="hero-wrap">
+    <!-- Three.js wave canvas - full bleed background -->
+    <div class="hero-canvas-wrap">
+      <canvas id="heroCanvas"></canvas>
+    </div>
+
+    <section class="hero" aria-labelledby="hero-h1">
+      <div class="hero-inner">
+        <div class="hero-eyebrow">Google Analytics alternative</div>
+        <h1 id="hero-h1">
+          Know your traffic.<br>
+          <span class="accent">Respect your visitors.</span>
+        </h1>
+        <p class="hero-sub">
+          TrackTrendy gives you complete website analytics without cookies or consent banners. 100% GDPR compliant by design - from <strong>€4/month</strong>.
+        </p>
+        <div class="hero-actions">
+          <a href="https://buy.stripe.com/eVaaIhfiL77Y6uA6oo" class="btn btn-primary" target="_blank">Start free for 30 days &rarr;</a>
+          <a href="#features" class="btn btn-outline">See all features</a>
+        </div>
+        <p class="hero-note">No credit card required &nbsp;&middot;&nbsp; No cookie banner needed &nbsp;&middot;&nbsp; Cancel anytime</p>
+        <div class="hero-stats">
+          <div>
+            <div class="hero-stat-num">0</div>
+            <div class="hero-stat-label">Cookies set on your visitors</div>
+          </div>
+          <div>
+            <div class="hero-stat-num">100%</div>
+            <div class="hero-stat-label">GDPR compliant</div>
+          </div>
+          <div>
+            <div class="hero-stat-num">30s</div>
+            <div class="hero-stat-label">Real-time data refresh</div>
+          </div>
+          <div>
+            <div class="hero-stat-num">€4</div>
+            <div class="hero-stat-label">Per month, single site</div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <!-- TRUST BAR -->
+  <div class="trust-bar" aria-label="Trust signals">
+    <div class="trust-bar-inner">
+      <span class="trust-label">Trusted by</span>
+      <div class="trust-items">
+        <div class="trust-item"><span class="trust-dot"></span>E-commerce stores</div>
+        <div class="trust-item"><span class="trust-dot"></span>Digital agencies</div>
+        <div class="trust-item"><span class="trust-dot"></span>SaaS products</div>
+        <div class="trust-item"><span class="trust-dot"></span>Content creators</div>
+        <div class="trust-item"><span class="trust-dot"></span>WooCommerce shops</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- PROBLEM -->
+  <section class="section alt" aria-labelledby="problem-h2">
+    <div class="inner">
+      <div class="eyebrow">The problem</div>
+      <div class="problem-grid">
+        <div class="problem-text">
+          <h2 id="problem-h2">Analytics tools got complicated. And risky.</h2>
+          <p>Google Analytics 4 is powerful - but in the EU, using it without proper consent is a legal grey area. Cookie banners damage conversions. And most alternatives are either too simple or too expensive.</p>
+          <p>There should be a better way to understand your website traffic without putting your visitors' privacy at risk.</p>
+        </div>
+        <ul class="pain-list" aria-label="Problems with current analytics tools">
+          <li>
+            <span class="pain-icon"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="#f87171" stroke-width="2.5" stroke-linecap="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></span>
+            GA4 requires cookie consent in the EU - and most banners reduce conversions by up to 10%
+          </li>
+          <li>
+            <span class="pain-icon"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="#f87171" stroke-width="2.5" stroke-linecap="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></span>
+            GA4's interface is complex - most users can't find the data they actually need
+          </li>
+          <li>
+            <span class="pain-icon"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="#f87171" stroke-width="2.5" stroke-linecap="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></span>
+            Your visitor data is sent to Google's servers and used to build advertising profiles
+          </li>
+          <li>
+            <span class="pain-icon"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="#f87171" stroke-width="2.5" stroke-linecap="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></span>
+            Privacy-first alternatives like Plausible lack revenue tracking, goals, and GSC integration
+          </li>
+          <li>
+            <span class="pain-icon"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="#f87171" stroke-width="2.5" stroke-linecap="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></span>
+            No analytics tool explains what your numbers actually mean - you need a data analyst
+          </li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- HOW IT WORKS -->
+  <section class="section" aria-labelledby="how-h2">
+    <div class="inner">
+      <div class="section-head">
+        <div class="eyebrow center">How it works</div>
+        <h2 id="how-h2">Up and running in under 5 minutes</h2>
+        <p>Add one line of code. See your data. Understand what it means - with AI.</p>
+      </div>
+      <div class="how-grid">
+        <div class="how-step">
+          <div class="how-num">01</div>
+          <div class="how-icon">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
+          </div>
+          <h3>Add the snippet</h3>
+          <p>Paste one line of JavaScript into your site. Works with WordPress, Shopify, any CMS or custom code.</p>
+          <div class="how-code">&lt;script defer data-site="yoursite.com" src="https://track.tracktrendy.com/js/t.js"&gt;&lt;/script&gt;</div>
+        </div>
+        <div class="how-step">
+          <div class="how-num">02</div>
+          <div class="how-icon">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+          </div>
+          <h3>Watch your data flow in</h3>
+          <p>Traffic, sources, pages, countries, devices - all your metrics appear in real time. No sampling, no delays.</p>
+        </div>
+        <div class="how-step">
+          <div class="how-num">03</div>
+          <div class="how-icon">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 8v4l3 3"/></svg>
+          </div>
+          <h3>Understand and grow</h3>
+          <p>Set goals, track revenue, connect Search Console, and let our AI assistant explain what your data means in plain language.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FEATURES -->
+  <section class="section alt" id="features" aria-labelledby="features-h2">
+    <div class="inner">
+      <div class="section-head">
+        <div class="eyebrow center">Features</div>
+        <h2 id="features-h2">Everything you need to understand your traffic</h2>
+        <p>No learning curve. No dashboards you never open. Just the data that matters, presented clearly.</p>
+      </div>
+      <div class="features-grid">
+        <div class="feature-card">
+          <div class="feature-icon">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+          </div>
+          <h3>Cookie-free tracking</h3>
+          <p>No cookies, no consent banners. Fully GDPR, CCPA and PECR compliant out of the box - no legal configuration required.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+          </div>
+          <h3>Real-time analytics</h3>
+          <p>See live visitors, traffic sources, top pages, countries and devices updated every 30 seconds.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg>
+          </div>
+          <h3>Revenue tracking</h3>
+          <p>Connect WooCommerce and track purchase events, average order value and total revenue - broken down per traffic channel.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+          </div>
+          <h3>Google Search Console</h3>
+          <p>Connect GSC and see which keywords bring organic visitors - without switching between tools.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+          </div>
+          <h3>Team access and roles</h3>
+          <p>Invite teammates or clients as owners, admins, or viewers. Everyone sees the right data, nothing more.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 0 1-3.46 0"/></svg>
+          </div>
+          <h3>Spike and report alerts</h3>
+          <p>Get notified by email when your traffic spikes. Receive weekly or monthly digests automatically.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg>
+          </div>
+          <h3>Goals and custom events</h3>
+          <p>Track sign-ups, form submits, downloads, purchases - any action that matters to your business.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></svg>
+          </div>
+          <h3>UTM campaign builder</h3>
+          <p>Build tracking URLs and analyse all 5 UTM parameters in one unified campaign view.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/><path d="M21 16v5a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5"/></svg>
+          </div>
+          <h3>Public and embeddable dashboards</h3>
+          <p>Share a public stats page or embed your analytics directly into a client report or your own product.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- DASHBOARD PREVIEW -->
+  <section class="section" aria-label="Dashboard preview">
+    <div class="inner">
+      <div class="section-head">
+        <div class="eyebrow center">The dashboard</div>
+        <h2>Clean data. Fast answers.</h2>
+        <p>Everything in one view. No analyst required.</p>
+      </div>
+      <div class="browser-frame">
+        <div class="browser-bar">
+          <div class="browser-dots"><span></span><span></span><span></span></div>
+          <div class="browser-url">app.tracktrendy.com &mdash; analytics dashboard</div>
+        </div>
+        <div class="dash-mock">
+          <div class="dash-top">
+            <div class="dash-pill">
+              <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+              mystore.com
+            </div>
+            <div style="display:flex;gap:8px;">
+              <div class="dash-pill">Last 30 days</div>
+              <div class="dash-pill live">&#9679; 23 live</div>
+            </div>
+          </div>
+          <div class="dash-stats">
+            <div class="dash-tile"><div class="dash-tile-lbl">Visitors</div><div class="dash-tile-val">14,821</div><div class="dash-tile-up">+12%</div></div>
+            <div class="dash-tile"><div class="dash-tile-lbl">Visits</div><div class="dash-tile-val">21,403</div><div class="dash-tile-up">+8%</div></div>
+            <div class="dash-tile"><div class="dash-tile-lbl">Pageviews</div><div class="dash-tile-val">67,190</div><div class="dash-tile-up">+14%</div></div>
+            <div class="dash-tile"><div class="dash-tile-lbl">Bounce rate</div><div class="dash-tile-val">38%</div><div class="dash-tile-dn">+3%</div></div>
+            <div class="dash-tile"><div class="dash-tile-lbl">Duration</div><div class="dash-tile-val">2m 14s</div></div>
+            <div class="dash-tile"><div class="dash-tile-lbl">Revenue</div><div class="dash-tile-val">€4,290</div><div class="dash-tile-up">+21%</div></div>
+          </div>
+          <div class="dash-chart">
+            <div class="dash-chart-lbl">Visitors over time</div>
+            <svg class="chart-svg" viewBox="0 0 900 52" preserveAspectRatio="none">
+              <defs>
+                <linearGradient id="cg" x1="0" y1="0" x2="0" y2="1">
+                  <stop offset="0%" stop-color="#7b5cdc" stop-opacity="0.32"/>
+                  <stop offset="100%" stop-color="#7b5cdc" stop-opacity="0.02"/>
+                </linearGradient>
+              </defs>
+              <path d="M0,46 C30,41 60,39 90,31 C120,23 150,29 180,21 C210,13 240,19 270,11 C300,6 330,16 360,13 C390,10 420,19 450,15 C480,11 510,23 540,17 C570,11 600,7 630,13 C660,19 690,9 720,5 C750,2 780,11 810,9 C840,7 870,15 900,11 L900,52 L0,52 Z" fill="url(#cg)"/>
+              <path d="M0,46 C30,41 60,39 90,31 C120,23 150,29 180,21 C210,13 240,19 270,11 C300,6 330,16 360,13 C390,10 420,19 450,15 C480,11 510,23 540,17 C570,11 600,7 630,13 C660,19 690,9 720,5 C750,2 780,11 810,9 C840,7 870,15 900,11" fill="none" stroke="#7b5cdc" stroke-width="2"/>
+            </svg>
+          </div>
+          <div class="dash-panels">
+            <div class="dash-panel">
+              <div class="dash-panel-lbl">Top Sources</div>
+              <div class="dash-row"><span class="dash-row-n">Google / Organic</span><span class="dash-row-v">6,210</span></div>
+              <div class="dash-bar-wrap"><div class="dash-bar" style="width:80%"></div></div>
+              <div class="dash-row" style="margin-top:5px;"><span class="dash-row-n">Direct</span><span class="dash-row-v">4,100</span></div>
+              <div class="dash-bar-wrap"><div class="dash-bar" style="width:52%"></div></div>
+              <div class="dash-row" style="margin-top:5px;"><span class="dash-row-n">Instagram</span><span class="dash-row-v">1,840</span></div>
+              <div class="dash-bar-wrap"><div class="dash-bar" style="width:24%"></div></div>
+            </div>
+            <div class="dash-panel">
+              <div class="dash-panel-lbl">Top Pages</div>
+              <div class="dash-row"><span class="dash-row-n">/</span><span class="dash-row-v">8,401</span></div>
+              <div class="dash-bar-wrap"><div class="dash-bar" style="width:88%"></div></div>
+              <div class="dash-row" style="margin-top:5px;"><span class="dash-row-n">/shop</span><span class="dash-row-v">5,120</span></div>
+              <div class="dash-bar-wrap"><div class="dash-bar" style="width:58%"></div></div>
+              <div class="dash-row" style="margin-top:5px;"><span class="dash-row-n">/blog/top-picks</span><span class="dash-row-v">2,100</span></div>
+              <div class="dash-bar-wrap"><div class="dash-bar" style="width:26%"></div></div>
+            </div>
+            <div class="dash-panel">
+              <div class="dash-panel-lbl">Countries</div>
+              <div class="dash-row"><span class="dash-row-n">Germany</span><span class="dash-row-v">5,200</span></div>
+              <div class="dash-bar-wrap"><div class="dash-bar" style="width:72%"></div></div>
+              <div class="dash-row" style="margin-top:5px;"><span class="dash-row-n">France</span><span class="dash-row-v">3,100</span></div>
+              <div class="dash-bar-wrap"><div class="dash-bar" style="width:42%"></div></div>
+              <div class="dash-row" style="margin-top:5px;"><span class="dash-row-n">Netherlands</span><span class="dash-row-v">1,900</span></div>
+              <div class="dash-bar-wrap"><div class="dash-bar" style="width:26%"></div></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- COMPARE -->
+  <section class="section alt" id="compare" aria-labelledby="compare-h2">
+    <div class="inner">
+      <div class="section-head">
+        <div class="eyebrow center">Comparison</div>
+        <h2 id="compare-h2">How TrackTrendy compares</h2>
+        <p>Privacy-first analytics that doesn't sacrifice depth - at a fraction of the price.</p>
+      </div>
+      <table class="compare-table" role="table" aria-label="Analytics platform comparison">
+        <thead>
+          <tr>
+            <th scope="col">Feature</th>
+            <th scope="col" class="featured">TrackTrendy</th>
+            <th scope="col">Google Analytics 4</th>
+            <th scope="col">Plausible</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Cookie-free tracking</td>
+            <td class="featured"><span class="ct-yes"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#4ade80" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>Yes</span></td>
+            <td><span class="ct-no"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#f87171" stroke-width="2.5" stroke-linecap="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>No</span></td>
+            <td><span class="ct-yes"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#4ade80" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>Yes</span></td>
+          </tr>
+          <tr>
+            <td>GDPR compliant (EU)</td>
+            <td class="featured"><span class="ct-yes"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#4ade80" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>Yes</span></td>
+            <td><span class="ct-partial">Requires consent setup</span></td>
+            <td><span class="ct-yes"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#4ade80" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>Yes</span></td>
+          </tr>
+          <tr>
+            <td>Revenue tracking</td>
+            <td class="featured"><span class="ct-yes"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#4ade80" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>Yes</span></td>
+            <td><span class="ct-yes"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#4ade80" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>Yes</span></td>
+            <td><span class="ct-no"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#f87171" stroke-width="2.5" stroke-linecap="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>No</span></td>
+          </tr>
+          <tr>
+            <td>Google Search Console</td>
+            <td class="featured"><span class="ct-yes"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#4ade80" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>Yes</span></td>
+            <td><span class="ct-yes"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#4ade80" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>Yes</span></td>
+            <td><span class="ct-partial">Paid plans only</span></td>
+          </tr>
+          <tr>
+            <td>Team access with roles</td>
+            <td class="featured"><span class="ct-yes"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#4ade80" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>Yes</span></td>
+            <td><span class="ct-yes"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#4ade80" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>Yes</span></td>
+            <td><span class="ct-partial">Paid plans only</span></td>
+          </tr>
+          <tr>
+            <td>UTM campaign builder</td>
+            <td class="featured"><span class="ct-yes"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#4ade80" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>Yes</span></td>
+            <td><span class="ct-partial">External tool</span></td>
+            <td><span class="ct-no"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#f87171" stroke-width="2.5" stroke-linecap="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>No</span></td>
+          </tr>
+          <tr>
+            <td>Traffic spike alerts</td>
+            <td class="featured"><span class="ct-yes"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#4ade80" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>Yes</span></td>
+            <td><span class="ct-no"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#f87171" stroke-width="2.5" stroke-linecap="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>No</span></td>
+            <td><span class="ct-yes"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#4ade80" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>Yes</span></td>
+          </tr>
+          <tr>
+            <td>AI assistant</td>
+            <td class="featured"><span class="ct-yes"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#4ade80" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>Coming soon</span></td>
+            <td><span class="ct-no"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#f87171" stroke-width="2.5" stroke-linecap="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>No</span></td>
+            <td><span class="ct-no"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#f87171" stroke-width="2.5" stroke-linecap="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>No</span></td>
+          </tr>
+          <tr>
+            <td>Data sent to third parties</td>
+            <td class="featured"><span class="ct-yes"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#4ade80" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>Never</span></td>
+            <td><span class="ct-no"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#f87171" stroke-width="2.5" stroke-linecap="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>Yes - Google</span></td>
+            <td><span class="ct-yes"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#4ade80" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>Never</span></td>
+          </tr>
+          <tr>
+            <td>Starting price</td>
+            <td class="featured" style="color:var(--purple-light);font-weight:600;">€4/month</td>
+            <td>Free (data goes to Google)</td>
+            <td>$9/month</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <!-- AI TEASER -->
+  <section class="section" aria-labelledby="ai-h2">
+    <div class="inner">
+      <div class="ai-wrap">
+        <div class="ai-text">
+          <div class="eyebrow">Coming soon</div>
+          <h2 id="ai-h2" style="margin-top:18px;">Your analytics,<br><strong>explained by AI.</strong></h2>
+          <p>Understanding your data shouldn't require a data analyst. The TrackTrendy AI assistant reads your dashboard, spots patterns you'd miss, and answers questions in plain language.</p>
+          <p>Ask "Why did my traffic drop on Tuesday?" and get a real answer. Ask "Which campaign is making me the most money?" and get a recommendation - not a spreadsheet.</p>
+          <div class="soon-badge">Coming soon</div>
+        </div>
+        <div class="ai-chat">
+          <div class="ai-chat-head">
+            <div class="ai-av">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/><circle cx="9" cy="16" r="1" fill="white" stroke="none"/><circle cx="15" cy="16" r="1" fill="white" stroke="none"/></svg>
+            </div>
+            <span class="ai-chat-name">TrackTrendy AI</span>
+            <span class="ai-online">Online</span>
+          </div>
+          <div class="ai-chat-body">
+            <div class="ai-msg usr">Why did my traffic drop on Tuesday?</div>
+            <div class="ai-msg bot">Your organic traffic dropped 34% on Tuesday. Your top landing page - <strong>/shop</strong> - saw the biggest fall. Google Search Console shows your average position for your main keyword slipped from position 3 to 8 that day. It looks like a brief Google ranking fluctuation - your traffic recovered by Thursday.</div>
+            <div class="ai-msg usr">Which campaign made the most revenue this month?</div>
+            <div class="ai-typing"><span></span><span></span><span></span></div>
+          </div>
+          <div class="ai-chat-foot">
+            <div class="ai-field">Ask anything about your analytics...</div>
+            <div class="ai-send">
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="19" x2="12" y2="5"/><polyline points="5 12 12 5 19 12"/></svg>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- WHO IT'S FOR -->
+  <section class="section alt" aria-labelledby="who-h2">
+    <div class="inner">
+      <div class="section-head">
+        <div class="eyebrow center">Who it's for</div>
+        <h2 id="who-h2">Built for European businesses that care about their visitors</h2>
+        <p>Any business that needs clean data without the legal headaches of traditional analytics.</p>
+      </div>
+      <div class="who-grid">
+        <div class="who-card">
+          <div class="who-icon">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 0 1-8 0"/></svg>
+          </div>
+          <h3>E-commerce stores</h3>
+          <p>Track purchases, revenue by source, and which product pages drive the most sales. WooCommerce built-in.</p>
+        </div>
+        <div class="who-card">
+          <div class="who-icon">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg>
+          </div>
+          <h3>Digital agencies</h3>
+          <p>Track all your clients in one dashboard. Give each client their own login with the right level of access.</p>
+        </div>
+        <div class="who-card">
+          <div class="who-icon">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+          </div>
+          <h3>SaaS products</h3>
+          <p>Understand your sign-up funnel, track conversion goals, and share live dashboards with stakeholders.</p>
+        </div>
+        <div class="who-card">
+          <div class="who-icon">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"/><path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"/></svg>
+          </div>
+          <h3>Content creators</h3>
+          <p>See which posts drive traffic, where your readers come from, and how long they stay - at a glance.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PRICING -->
+  <section class="section" id="pricing" aria-labelledby="pricing-h2">
+    <div class="inner">
+      <div class="section-head">
+        <div class="eyebrow center">Pricing</div>
+        <h2 id="pricing-h2">Simple, honest pricing</h2>
+        <p>One price per plan. No pageview limits. No surprise bills. Start free for 30 days.</p>
+      </div>
+      <!-- Toggle -->
+      <div class="pricing-toggle">
+        <button class="toggle-btn active" id="btn-monthly" onclick="setPricing('monthly')">Monthly</button>
+        <button class="toggle-btn" id="btn-yearly" onclick="setPricing('yearly')">Yearly <span class="save-badge">Save 20%</span></button>
+      </div>
+
+      <div class="pricing-cards">
+        <!-- Single Site -->
+        <div class="p-card">
+          <div class="p-plan">Single Site</div>
+
+          <div class="price-monthly">
+            <div class="p-trial">30 days free, then</div>
+            <div class="p-price"><sup>&euro;</sup>4<sub>/mo</sub></div>
+            <div class="p-tagline">One site. Every feature. No limits.</div>
+          </div>
+          <div class="price-yearly">
+            <div class="p-trial">Save 20% &mdash; billed annually</div>
+            <div class="p-price"><sup>&euro;</sup>40<sub>/yr</sub></div>
+            <div class="p-tagline">~&euro;3.33/month. One site. Every feature.</div>
+          </div>
+
+          <div class="p-sep"></div>
+          <ul class="p-features">
+            <li><span class="chk"><svg width="9" height="9" viewBox="0 0 24 24" fill="none" stroke="#4ade80" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>1 website</li>
+            <li><span class="chk"><svg width="9" height="9" viewBox="0 0 24 24" fill="none" stroke="#4ade80" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>Full analytics dashboard</li>
+            <li><span class="chk"><svg width="9" height="9" viewBox="0 0 24 24" fill="none" stroke="#4ade80" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>Revenue and goal tracking</li>
+            <li><span class="chk"><svg width="9" height="9" viewBox="0 0 24 24" fill="none" stroke="#4ade80" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>Google Search Console</li>
+            <li><span class="chk"><svg width="9" height="9" viewBox="0 0 24 24" fill="none" stroke="#4ade80" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>Email reports and spike alerts</li>
+            <li><span class="chk"><svg width="9" height="9" viewBox="0 0 24 24" fill="none" stroke="#4ade80" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>2FA security</li>
+          </ul>
+          <a href="https://buy.stripe.com/eVaaIhfiL77Y6uA6oo" class="p-cta out btn-monthly" target="_blank">Get started</a>
+          <a href="https://buy.stripe.com/14keYx4E71NE4msbIK" class="p-cta out btn-yearly" target="_blank">Get started</a>
+        </div>
+
+        <!-- 15 Sites -->
+        <div class="p-card featured">
+          <div class="p-badge">Best value</div>
+          <div class="p-plan">15 Sites</div>
+
+          <div class="price-monthly">
+            <div class="p-trial">&nbsp;</div>
+            <div class="p-price"><sup>&euro;</sup>15<sub>/mo</sub></div>
+            <div class="p-tagline">Up to 15 sites on one subscription.</div>
+          </div>
+          <div class="price-yearly">
+            <div class="p-trial">Save 20% &mdash; billed annually</div>
+            <div class="p-price"><sup>&euro;</sup>150<sub>/yr</sub></div>
+            <div class="p-tagline">~&euro;12.50/month. Up to 15 sites.</div>
+          </div>
+
+          <div class="p-sep"></div>
+          <ul class="p-features">
+            <li><span class="chk"><svg width="9" height="9" viewBox="0 0 24 24" fill="none" stroke="#4ade80" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>Up to 15 sites</li>
+            <li><span class="chk"><svg width="9" height="9" viewBox="0 0 24 24" fill="none" stroke="#4ade80" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>Everything in Single Site</li>
+            <li><span class="chk"><svg width="9" height="9" viewBox="0 0 24 24" fill="none" stroke="#4ade80" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>Invite team members with roles</li>
+            <li><span class="chk"><svg width="9" height="9" viewBox="0 0 24 24" fill="none" stroke="#4ade80" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>UTM campaign builder</li>
+            <li><span class="chk"><svg width="9" height="9" viewBox="0 0 24 24" fill="none" stroke="#4ade80" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>Public and embeddable dashboards</li>
+            <li><span class="chk"><svg width="9" height="9" viewBox="0 0 24 24" fill="none" stroke="#4ade80" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>AI assistant (early access)</li>
+          </ul>
+          <a href="https://buy.stripe.com/3csdUt4E73VM1ag6op" class="p-cta pri btn-monthly" target="_blank">Get started</a>
+          <a href="https://buy.stripe.com/3cs03D1rVaka2ek7sv" class="p-cta pri btn-yearly" target="_blank">Get started</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="section alt" id="faq" aria-labelledby="faq-h2">
+    <div class="inner">
+      <div class="section-head">
+        <div class="eyebrow center">FAQ</div>
+        <h2 id="faq-h2">Questions we get asked a lot</h2>
+      </div>
+      <div class="faq-list" role="list">
+
+        <details class="faq-item">
+          <summary class="faq-q">
+            What is TrackTrendy?
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+          </summary>
+          <p class="faq-a">TrackTrendy is a privacy-first website analytics platform. It gives you detailed insight into your website traffic - visitors, sources, pages, countries, goals and revenue - without using cookies or tracking your visitors across the web. It's designed as a GDPR-compliant alternative to Google Analytics 4.</p>
+        </details>
+
+        <details class="faq-item">
+          <summary class="faq-q">
+            Is TrackTrendy GDPR compliant?
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+          </summary>
+          <p class="faq-a">Yes, by design. TrackTrendy does not use cookies or persistent identifiers, does not collect personal data, and processes all data in compliance with GDPR, CCPA, and PECR. Your visitor data is never sent to third parties or used for advertising purposes.</p>
+        </details>
+
+        <details class="faq-item">
+          <summary class="faq-q">
+            Do I need a cookie consent banner with TrackTrendy?
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+          </summary>
+          <p class="faq-a">No. Because TrackTrendy does not use cookies or collect personal data, you do not need a cookie consent banner for analytics. This improves your conversion rate by removing a friction point from your visitors' experience.</p>
+        </details>
+
+        <details class="faq-item">
+          <summary class="faq-q">
+            How is TrackTrendy different from Google Analytics?
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+          </summary>
+          <p class="faq-a">The key differences: TrackTrendy is cookie-free (no consent banners needed), your data stays private and is never shared with or used by third parties, and the interface is designed to be immediately readable without training. GA4 requires cookie consent in the EU, sends data to Google's servers, and has a steep learning curve.</p>
+        </details>
+
+        <details class="faq-item">
+          <summary class="faq-q">
+            How does TrackTrendy compare to Plausible?
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+          </summary>
+          <p class="faq-a">Both are privacy-first and cookie-free. TrackTrendy adds revenue tracking (WooCommerce), a built-in UTM campaign builder, traffic spike email alerts, team roles on all plans, and an AI assistant (coming soon) - all from €4/month. Plausible starts at $9/month and reserves some features for higher tiers.</p>
+        </details>
+
+        <details class="faq-item">
+          <summary class="faq-q">
+            How do I add TrackTrendy to my website?
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+          </summary>
+          <p class="faq-a">Add one line of JavaScript to your site's <code>&lt;head&gt;</code> section. TrackTrendy works with any platform - WordPress, WooCommerce, Shopify, Webflow, or custom HTML. Your tracking snippet is shown in your dashboard after signing up, and is live in under a minute.</p>
+        </details>
+
+        <details class="faq-item">
+          <summary class="faq-q">
+            Does TrackTrendy work with WooCommerce?
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+          </summary>
+          <p class="faq-a">Yes. TrackTrendy has built-in WooCommerce revenue tracking. Add a short PHP snippet to your theme (or via Code Snippets) and purchase events, order values, and total revenue appear in your dashboard - broken down by traffic source, campaign, and channel.</p>
+        </details>
+
+        <details class="faq-item">
+          <summary class="faq-q">
+            Is there a free trial?
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+          </summary>
+          <p class="faq-a">Yes - every new account gets 30 days free with full access to all features. No credit card required to start. After the trial, the Single Site plan is €4/month and the Multi-Site plan (up to 15 sites) is €15/month.</p>
+        </details>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ SCHEMA -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      { "@type": "Question", "name": "Is TrackTrendy GDPR compliant?", "acceptedAnswer": { "@type": "Answer", "text": "Yes, by design. TrackTrendy does not use cookies or persistent identifiers, does not collect personal data, and processes all data in compliance with GDPR, CCPA, and PECR." } },
+      { "@type": "Question", "name": "Do I need a cookie consent banner with TrackTrendy?", "acceptedAnswer": { "@type": "Answer", "text": "No. Because TrackTrendy does not use cookies or collect personal data, you do not need a cookie consent banner for analytics." } },
+      { "@type": "Question", "name": "How is TrackTrendy different from Google Analytics?", "acceptedAnswer": { "@type": "Answer", "text": "TrackTrendy is cookie-free (no consent banners needed), your data stays private and is never shared with third parties, and the interface is designed to be immediately readable without training." } },
+      { "@type": "Question", "name": "Is there a free trial?", "acceptedAnswer": { "@type": "Answer", "text": "Yes - every new account gets 30 days free with full access to all features. No credit card required. After the trial, Single Site is €4/month and Multi-Site (up to 15 sites) is €15/month." } }
+    ]
+  }
+  </script>
+
+  <!-- CTA -->
+  <section class="cta-section" aria-labelledby="cta-h2">
+    <div class="cta-inner">
+      <div class="eyebrow center">Get started</div>
+      <h2 id="cta-h2">Ready to drop<br><strong>the cookie banner?</strong></h2>
+      <p>Join businesses across Europe that track their traffic the right way. 30-day free trial - no card required.</p>
+      <div class="cta-actions">
+        <a href="https://buy.stripe.com/eVaaIhfiL77Y6uA6oo" class="btn btn-primary" target="_blank">Start free for 30 days &rarr;</a>
+        <a href="#compare" class="btn btn-outline">See how we compare</a>
+      </div>
+      <p class="cta-note">No credit card &nbsp;&middot;&nbsp; No cookie banner &nbsp;&middot;&nbsp; Cancel anytime</p>
+    </div>
+  </section>
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="footer" role="contentinfo">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <a href="/" class="footer-logo" aria-label="TrackTrendy home">
+          <img src="logo.png" alt="TrackTrendy" width="22" height="22">
+          <span>TrackTrendy</span>
+        </a>
+        <p class="footer-desc">Privacy-first website analytics for European businesses. Cookie-free, GDPR compliant, and built for people who care about their visitors.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Product</h4>
+        <ul>
+          <li><a href="#features">Features</a></li>
+          <li><a href="#pricing">Pricing</a></li>
+          <li><a href="#compare">Compare</a></li>
+          <li><a href="https://app.tracktrendy.com" target="_blank">Dashboard</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Compare</h4>
+        <ul>
+          <li><a href="#compare">vs Google Analytics</a></li>
+          <li><a href="#compare">vs Plausible</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Support</h4>
+        <ul>
+          <li><a href="#faq">FAQ</a></li>
+          <li><a href="mailto:support@tracktrendy.com">Contact</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p class="footer-copy">&copy; <span id="yr"></span> TrackTrendy. Privacy-first analytics.</p>
+      <div class="footer-legal">
+        <a href="/privacy.html">Privacy policy</a>
+        <a href="/terms.html">Terms of service</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- TrackTrendy analytics snippet -->
+  <script defer data-site="tracktrendy.com" src="https://track.tracktrendy.com/js/t.js"></script>
+
+  <script>
+    document.getElementById('yr').textContent = new Date().getFullYear();
+
+    // Theme toggle
+    (function() {
+      const saved = localStorage.getItem('tt-site-theme');
+      if (saved === 'light') document.body.classList.add('light');
+    })();
+
+    document.getElementById('themeToggle').addEventListener('click', function() {
+      const isLight = document.body.classList.toggle('light');
+      localStorage.setItem('tt-site-theme', isLight ? 'light' : 'dark');
+    });
+
+    function setPricing(period) {
+      document.body.classList.toggle('yearly', period === 'yearly');
+      document.getElementById('btn-monthly').classList.toggle('active', period === 'monthly');
+      document.getElementById('btn-yearly').classList.toggle('active', period === 'yearly');
+    }
+  </script>
+
+  <script type="module">
+    import * as THREE from 'three';
+    (function() {
+      const wrap   = document.getElementById('heroCanvas').parentElement;
+      const canvas = document.getElementById('heroCanvas');
+
+      const scene = new THREE.Scene();
+
+      // initial bg set - lineMat not ready yet, just set background
+      scene.background = new THREE.Color(
+        document.body.classList.contains('light') ? 0xf5f0ff : 0x000000
+      );
+
+      let W = wrap.clientWidth;
+      let H = wrap.clientHeight;
+
+      const camera = new THREE.PerspectiveCamera(50, W / H, 0.1, 1000);
+      camera.position.set(0, 52, 90);
+      camera.lookAt(0, 0, 0);
+
+      const renderer = new THREE.WebGLRenderer({ canvas, antialias: true });
+      renderer.setSize(W, H);
+      renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+
+      // Particle wave grid
+      const COLS = 100, ROWS = 50, SEP = 2.2;
+      const count = COLS * ROWS;
+      const positions = new Float32Array(count * 3);
+      const colors    = new Float32Array(count * 3);
+      const bx = new Float32Array(count);
+      const bz = new Float32Array(count);
+
+      for (let r = 0; r < ROWS; r++) {
+        for (let c = 0; c < COLS; c++) {
+          const i = r * COLS + c;
+          bx[i] = (c - COLS / 2) * SEP;
+          bz[i] = (r - ROWS / 2) * SEP;
+          positions[i * 3]     = bx[i];
+          positions[i * 3 + 1] = 0;
+          positions[i * 3 + 2] = bz[i];
+        }
+      }
+
+      const geo = new THREE.BufferGeometry();
+      geo.setAttribute('position', new THREE.BufferAttribute(positions, 3));
+      geo.setAttribute('color',    new THREE.BufferAttribute(colors, 3));
+
+      const mat = new THREE.PointsMaterial({
+        size: 0.5,
+        vertexColors: true,
+        transparent: true,
+        opacity: 0.9,
+        sizeAttenuation: true,
+      });
+
+      scene.add(new THREE.Points(geo, mat));
+
+      // Grid lines
+      const lineCount = (COLS - 1) * ROWS + COLS * (ROWS - 1);
+      const linePos = new Float32Array(lineCount * 2 * 3);
+      const lineGeo = new THREE.BufferGeometry();
+      lineGeo.setAttribute('position', new THREE.BufferAttribute(linePos, 3));
+      const lineMat = new THREE.LineBasicMaterial({
+        color: 0x1a1030,
+        transparent: true,
+        opacity: 0.6,
+      });
+      scene.add(new THREE.LineSegments(lineGeo, lineMat));
+
+      // sync theme: bg + line visibility
+      function syncTheme() {
+        const isLight = document.body.classList.contains('light');
+        scene.background = new THREE.Color(isLight ? 0xf5f0ff : 0x000000);
+        lineMat.color.set(isLight ? 0xb8aaf0 : 0x1a1030);
+        lineMat.opacity = isLight ? 0.22 : 0.6;
+      }
+      syncTheme();
+      new MutationObserver(syncTheme).observe(document.body, { attributes: true, attributeFilter: ['class'] });
+
+      // Purple palette colors
+      const cLow    = new THREE.Color(0x08001a);
+      const cMid    = new THREE.Color(0x2a1060);
+      const cHigh   = new THREE.Color(0x7b5cdc);
+      const cPeak   = new THREE.Color(0xc4b5fd);
+      const cAccent = new THREE.Color(0xa78bfa);
+      const tmp = new THREE.Color();
+
+      function heightColor(y) {
+        const n = Math.max(0, Math.min(1, (y + 7) / 14));
+        if (n < 0.25) return tmp.lerpColors(cLow, cMid, n / 0.25);
+        if (n < 0.65) return tmp.lerpColors(cMid, cHigh, (n - 0.25) / 0.4);
+        if (n < 0.88) return tmp.lerpColors(cHigh, cPeak, (n - 0.65) / 0.23);
+        return cAccent;
+      }
+
+      function getY(x, z, t) {
+        return (
+          Math.sin(x * 0.15 + t)        * Math.cos(z * 0.10 + t * 0.55) * 5.5 +
+          Math.sin(x * 0.06 - t * 0.35) * 2.8 +
+          Math.cos(z * 0.18 + t * 0.8)  * 1.5
+        );
+      }
+
+      const posAttr     = geo.attributes.position;
+      const colAttr     = geo.attributes.color;
+      const linePosAttr = lineGeo.attributes.position;
+      let t = 0;
+
+      // Random glow particles - dots that randomly light up and fade
+      const GLOW_COUNT = 20;
+      const glows = Array.from({ length: GLOW_COUNT }, () => ({
+        idx:   Math.floor(Math.random() * count),
+        phase: Math.random() * Math.PI * 2,
+        speed: 0.025 + Math.random() * 0.045,
+      }));
+      const cGlow = new THREE.Color(0xffffff);
+
+      function animate() {
+        requestAnimationFrame(animate);
+        t += 0.011;
+
+        // Slow camera drift
+        camera.position.x = Math.sin(t * 0.07) * 12;
+        camera.position.y = 52 + Math.sin(t * 0.04) * 4;
+        camera.lookAt(0, 0, 0);
+
+        // Update particles with base height color
+        for (let i = 0; i < count; i++) {
+          const x = bx[i], z = bz[i];
+          const y = getY(x, z, t);
+          posAttr.setY(i, y);
+          const col = heightColor(y);
+          colAttr.setXYZ(i, col.r, col.g, col.b);
+        }
+
+        // Apply random glowing dots on top
+        glows.forEach(g => {
+          g.phase += g.speed;
+          const brightness = Math.max(0, Math.sin(g.phase));
+          if (brightness < 0.01 && g.phase > Math.PI) {
+            // fade complete - pick a new random particle
+            g.idx   = Math.floor(Math.random() * count);
+            g.phase = 0;
+          }
+          if (brightness > 0) {
+            // blend from base color toward white
+            const base = heightColor(posAttr.getY(g.idx));
+            colAttr.setXYZ(g.idx,
+              base.r + (cGlow.r - base.r) * brightness,
+              base.g + (cGlow.g - base.g) * brightness,
+              base.b + (cGlow.b - base.b) * brightness,
+            );
+          }
+        });
+
+        posAttr.needsUpdate = true;
+        colAttr.needsUpdate = true;
+
+        // Update grid lines
+        let li = 0;
+        for (let r = 0; r < ROWS; r++) {
+          for (let c = 0; c < COLS - 1; c++) {
+            const i = r * COLS + c, j = i + 1;
+            const b = li * 6;
+            linePosAttr.array[b]   = bx[i]; linePosAttr.array[b+1] = posAttr.getY(i); linePosAttr.array[b+2] = bz[i];
+            linePosAttr.array[b+3] = bx[j]; linePosAttr.array[b+4] = posAttr.getY(j); linePosAttr.array[b+5] = bz[j];
+            li++;
+          }
+        }
+        for (let r = 0; r < ROWS - 1; r++) {
+          for (let c = 0; c < COLS; c++) {
+            const i = r * COLS + c, j = i + COLS;
+            const b = li * 6;
+            linePosAttr.array[b]   = bx[i]; linePosAttr.array[b+1] = posAttr.getY(i); linePosAttr.array[b+2] = bz[i];
+            linePosAttr.array[b+3] = bx[j]; linePosAttr.array[b+4] = posAttr.getY(j); linePosAttr.array[b+5] = bz[j];
+            li++;
+          }
+        }
+        linePosAttr.needsUpdate = true;
+
+        renderer.render(scene, camera);
+      }
+      animate();
+
+      window.addEventListener('resize', () => {
+        W = wrap.clientWidth;
+        H = wrap.clientHeight;
+        camera.aspect = W / H;
+        camera.updateProjectionMatrix();
+        renderer.setSize(W, H);
+      });
+    })();
+  </script>
+
+</body>
+</html>
