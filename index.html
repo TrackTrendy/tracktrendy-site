@@ -1141,15 +1141,21 @@
 
     @media (max-width: 620px) {
       .nav-links { display:none; }
+      .nav-login { display:none; }
+      .nav-cta { padding:8px 14px; font-size:12px; }
       .features-grid { grid-template-columns:1fr; }
       .who-grid { grid-template-columns:1fr; }
       .pricing-cards { grid-template-columns:1fr; max-width:360px; }
-      .hero-stats { gap:24px; }
+      .hero-stats { gap:24px; flex-wrap:wrap; }
       .footer-top { grid-template-columns:1fr; gap:28px; }
       .dash-stats { grid-template-columns:repeat(2,1fr); }
       .dash-panels { grid-template-columns:1fr; }
       .compare-table { font-size:11px; }
       .compare-table thead th, .compare-table tbody td { padding:11px 12px; }
+    }
+
+    @media (max-width: 400px) {
+      .nav-wordmark { display:none; }
     }
   </style>
 </head>
