@@ -1175,8 +1175,10 @@
       position: relative;
       isolation: isolate;
       transform: translate3d(0, 0, 0.01px);
-      overflow: visible !important;
     }
+
+    /* only force overflow visible when outer glow is needed */
+    .border-glow-card:not(.bg-no-outer) { overflow: visible !important; }
 
     /* keep existing children above pseudo-elements */
     .border-glow-card > *:not(.bg-edge-light) {
@@ -1294,10 +1296,16 @@
     .p-card.featured.border-glow-card  { --card-bg: #0d0820; }
     .who-card.border-glow-card         { --card-bg: var(--surface2); }
     .how-step.border-glow-card         { --card-bg: var(--surface2); }
+    .browser-frame.border-glow-card    { --card-bg: var(--surface); }
+    .ai-chat.border-glow-card          { --card-bg: var(--surface); }
+    .btn-outline.border-glow-card      { --card-bg: transparent; }
+    .p-cta.out.border-glow-card        { --card-bg: transparent; }
     body.light .border-glow-card       { --card-bg: #ffffff; }
     body.light .p-card.border-glow-card { --card-bg: var(--surface); }
     body.light .who-card.border-glow-card { --card-bg: var(--surface); }
     body.light .how-step.border-glow-card { --card-bg: var(--surface2); }
+    body.light .browser-frame.border-glow-card { --card-bg: #f0eefc; }
+    body.light .ai-chat.border-glow-card { --card-bg: var(--surface); }
   </style>
 </head>
 <body>
@@ -2040,9 +2048,14 @@
       }
 
       function initCard(el, opts) {
-        const { borderRadius=12, glowRadius=18, edgeSensitivity=30, coneSpread=25, fillOpacity=0.25, glowIntensity=0.9 } = opts;
+        const {
+          borderRadius=12, glowRadius=18, edgeSensitivity=30,
+          coneSpread=25, fillOpacity=0.25, glowIntensity=0.9,
+          outerGlow=true,
+        } = opts;
 
         el.classList.add('border-glow-card');
+        if (!outerGlow) el.classList.add('bg-no-outer');
         el.style.setProperty('--border-radius', `${borderRadius}px`);
         el.style.setProperty('--glow-padding', `${glowRadius}px`);
         el.style.setProperty('--edge-sensitivity', edgeSensitivity);
@@ -2050,10 +2063,12 @@
         el.style.setProperty('--fill-opacity', fillOpacity);
         setVars(el, COLORS, GLOW_HSL, glowIntensity);
 
-        // inject outer glow span
-        const glow = document.createElement('span');
-        glow.className = 'bg-edge-light';
-        el.prepend(glow);
+        // inject outer glow span only when needed
+        if (outerGlow) {
+          const glow = document.createElement('span');
+          glow.className = 'bg-edge-light';
+          el.prepend(glow);
+        }
 
         el.addEventListener('pointermove', e => {
           const r = el.getBoundingClientRect();
@@ -2077,6 +2092,12 @@
       document.querySelectorAll('.who-card').forEach(el => initCard(el, { borderRadius: 12, glowRadius: 16 }));
       // how-it-works steps
       document.querySelectorAll('.how-step').forEach(el => initCard(el, { borderRadius: 0, glowRadius: 0, fillOpacity: 0.2 }));
+      // dashboard browser frame (overflow: hidden — no outer glow)
+      document.querySelectorAll('.browser-frame').forEach(el => initCard(el, { borderRadius: 12, outerGlow: false, fillOpacity: 0.15, edgeSensitivity: 20 }));
+      // AI chat illustration (overflow: hidden — no outer glow)
+      document.querySelectorAll('.ai-chat').forEach(el => initCard(el, { borderRadius: 14, outerGlow: false, fillOpacity: 0.18, edgeSensitivity: 20 }));
+      // outline buttons
+      document.querySelectorAll('.btn-outline, .p-cta.out').forEach(el => initCard(el, { borderRadius: 8, glowRadius: 8, edgeSensitivity: 15, coneSpread: 30, fillOpacity: 0.1, glowIntensity: 0.7 }));
     })();
   </script>
 
