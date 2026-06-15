@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Engagement Rate in GA4: What It Is and What's a Good Score | TrackTrendy</title>
+  <meta name="description" content="Engagement rate replaced bounce rate in GA4. Here's exactly what it measures, the formula, what counts as an engaged session, and what a healthy engagement rate looks like by industry.">
+  <link rel="canonical" href="https://tracktrendy.com/blog/engagement-rate-google-analytics-4.html">
+
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://tracktrendy.com/blog/engagement-rate-google-analytics-4.html">
+  <meta property="og:title" content="Engagement Rate in GA4: What It Is and What's a Good Score">
+  <meta property="og:description" content="Engagement rate replaced bounce rate in GA4. Here's exactly what it measures, the formula, what counts as an engaged session, and what a healthy engagement rate looks like by industry.">
+  <meta property="og:locale" content="en_GB">
+  <meta property="article:published_time" content="2026-06-15">
+  <meta property="article:author" content="TrackTrendy">
+
+  <!-- Article schema -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "Engagement Rate in GA4: What It Is and What's a Good Score",
+    "description": "Engagement rate replaced bounce rate in GA4. Here's exactly what it measures, the formula, what counts as an engaged session, and what a healthy engagement rate looks like by industry.",
+    "url": "https://tracktrendy.com/blog/engagement-rate-google-analytics-4.html",
+    "datePublished": "2026-06-15",
+    "dateModified": "2026-06-15",
+    "author": {
+      "@type": "Organization",
+      "name": "TrackTrendy",
+      "url": "https://tracktrendy.com"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "TrackTrendy",
+      "url": "https://tracktrendy.com",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://tracktrendy.com/logo.png"
+      }
+    },
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": "https://tracktrendy.com/blog/engagement-rate-google-analytics-4.html"
+    }
+  }
+  </script>
+
+  <!-- FAQPage schema -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "What is engagement rate in Google Analytics 4?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Engagement rate in GA4 is the percentage of sessions classified as \"engaged.\" GA4 defines an engaged session as one that lasted 10 seconds or more, included at least two page views, or triggered a conversion event. The formula is: engaged sessions divided by total sessions, multiplied by 100."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What is a good engagement rate in GA4?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "A good engagement rate varies by site type. Content sites and blogs typically see 50-70%; e-commerce sites 55-75%; B2B and SaaS sites 45-65%; single-page landing pages 20-45%. These are rough benchmarks - what matters more is the trend over time on your own site, and whether your engaged sessions lead to conversions."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Is engagement rate the same as bounce rate?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "No, but they are inversely related. Bounce rate measures sessions with no interaction (single page view, no events). GA4's engagement rate measures sessions that met one of three active criteria. GA4 calculates bounce rate as 1 minus engagement rate. A page with 65% engagement rate has a 35% bounce rate in GA4 terms."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Why is my engagement rate so low?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Common causes: slow page load time (users leave before the 10-second threshold is reached), poor intent match between ad copy and landing page content, content that answers the question immediately and the user leaves satisfied (not always a problem), or a high proportion of bot traffic. Check page speed with Core Web Vitals first, then look at which traffic sources show the lowest engagement rates."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Can I change the 10-second threshold for engaged sessions?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Not in standard GA4. The 10-second timer is hardcoded into how GA4 defines an engaged session and cannot be adjusted in the interface. You can create custom definitions of \"engagement\" using GA4's custom events and conversions, then build reports around those, but the platform's built-in engagement rate metric will always use the 10-second rule."
+        }
+      }
+    ]
+  }
+  </script>
+
+  <!-- BreadcrumbList schema -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Home",
+        "item": "https://tracktrendy.com/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "Blog",
+        "item": "https://tracktrendy.com/blog/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 3,
+        "name": "Engagement Rate in GA4: What It Is and What's a Good Score",
+        "item": "https://tracktrendy.com/blog/engagement-rate-google-analytics-4.html"
+      }
+    ]
+  }
+  </script>
+
+  <link rel="icon" href="/favicon.png" type="image/png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@200;300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="blog.css">
+</head>
+<body>
+
+  <nav class="nav" role="navigation" aria-label="Main navigation">
+    <a href="/" class="nav-logo" aria-label="TrackTrendy home">
+      <img src="/logo.png" alt="TrackTrendy logo" width="24" height="24">
+      <span class="nav-wordmark">TrackTrendy</span>
+    </a>
+    <div class="nav-links">
+      <a href="/#features">Features</a>
+      <a href="/#compare">Compare</a>
+      <a href="/#pricing">Pricing</a>
+      <a href="/blog/" class="active">Blog</a>
+    </div>
+    <div class="nav-right">
+      <a href="https://app.tracktrendy.com" class="nav-login" target="_blank">Log in</a>
+      <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">
+        <span class="icon-moon"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg></span>
+        <span class="icon-sun"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg></span>
+      </button>
+      <a href="https://buy.stripe.com/eVaaIhfiL77Y6uA6oo" class="nav-cta" target="_blank">Try free &rarr;</a>
+    </div>
+  </nav>
+
+  <main>
+    <article class="post-wrap">
+
+      <!-- Breadcrumb -->
+      <nav class="post-breadcrumb" aria-label="Breadcrumb">
+        <a href="/">Home</a>
+        <span aria-hidden="true">/</span>
+        <a href="/blog/">Blog</a>
+        <span aria-hidden="true">/</span>
+        <span>Engagement Rate in GA4</span>
+      </nav>
+
+      <!-- Category eyebrow -->
+      <p class="post-eyebrow">Google Analytics</p>
+
+      <h1>Engagement Rate in GA4: What It Is and What's a Good Score</h1>
+
+      <!-- Post meta -->
+      <div class="post-meta">
+        <span>June 15, 2026</span>
+        <span>&middot;</span>
+        <span>6 min read</span>
+      </div>
+
+      <!-- Quick answer box -->
+      <div class="quick-answer">
+        <strong>Quick answer:</strong> Engagement rate in Google Analytics 4 is the percentage of sessions where a user was "engaged" - defined as a session lasting 10 seconds or longer, triggering at least one conversion event, or including two or more page views. It is the inverse of bounce rate. A healthy engagement rate depends on your site type: blogs typically see 40-60%, e-commerce 55-70%, landing pages 20-40%.
+      </div>
+
+      <!-- Body copy -->
+      <div class="post-body">
+
+        <h2>What is an engaged session in GA4?</h2>
+        <p>GA4 considers a session "engaged" if it meets at least one of three conditions: it lasted 10 seconds or longer, it included two or more page views, or it triggered a conversion event. Only one of these needs to be true for the session to count.</p>
+        <p>The 10-second threshold is hardcoded. You cannot change it in the GA4 interface. That is deliberate - the timer is set long enough to filter out accidental clicks and bot crawlers, but short enough that any visitor who actually read a headline or scrolled the page will qualify. A person who opens your article, reads the intro, and closes the tab after 12 seconds still counts as an engaged session.</p>
+        <p>A conversion event pulling the session into "engaged" territory means any event you have marked as a conversion in GA4 - a form submission, a purchase, a button click you have designated as a goal. If that fires, the session is engaged regardless of how long the visitor stayed or how many pages they saw.</p>
+
+        <h2>What is the engagement rate formula?</h2>
+        <p>The formula is straightforward:</p>
+        <p><strong>Engagement Rate = (Engaged Sessions / Total Sessions) x 100</strong></p>
+        <p>If your site had 10,000 sessions in a month and 8,000 of them met at least one of the three criteria above, your engagement rate is 80%. GA4 surfaces this metric by default in the Acquisition and Engagement report sections, so you do not need to build a custom report to see it.</p>
+        <p>One thing worth noting: a single session can qualify on multiple criteria simultaneously. If a visitor spends 3 minutes on your site and views 5 pages, GA4 counts it once as an engaged session, not twice. The denominator is always the total number of sessions, not the total number of qualifying events.</p>
+
+        <h2>How does engagement rate differ from bounce rate?</h2>
+        <p>In Universal Analytics, bounce rate measured the percentage of sessions where a visitor landed on a page and left without triggering any additional interactions - no second page view, no event, nothing. A visitor who read a 2,000-word article and left without clicking anything was counted as a bounce, which made bounce rate a poor proxy for genuine user interest.</p>
+        <p>GA4's engagement rate inverts the framing. Instead of measuring what visitors did not do, it measures what they did. A "bounced" session in the old UA model can easily qualify as an engaged session in GA4, provided the visitor spent at least 10 seconds on the page. That distinction matters particularly for long-form content, where reading is the entire point and outbound clicks are rare.</p>
+        <p>GA4 still shows bounce rate - it calculates it as 1 minus the engagement rate. If your engagement rate is 65%, your GA4 bounce rate is 35%. But bounce rate is no longer the headline metric, and for most sites that is a more accurate reflection of how users actually behave.</p>
+
+        <h2>What is a good engagement rate in GA4?</h2>
+        <p>There is no universal benchmark. The right number depends on what kind of site you are measuring. Here are rough ranges by site type:</p>
+        <ul>
+          <li><strong>Blogs and content sites:</strong> 50-70%. Readers typically spend time on a single page, so the 10-second threshold is what drives engagement. If your content is genuinely useful, most visitors will clear it comfortably.</li>
+          <li><strong>E-commerce:</strong> 55-75%. Shoppers browse multiple pages and sessions tend to be longer, so engagement rates are naturally higher. If yours is below 50%, look at your category and product page load times first.</li>
+          <li><strong>B2B and SaaS sites:</strong> 45-65%. Visitors are often researching rather than buying, so sessions can be shorter. A well-structured page with clear navigation tends to push these numbers up.</li>
+          <li><strong>Landing pages:</strong> 20-45%. Single-page, single-action sites have lower engagement rates almost by design. If someone clicks your ad, reads your headline, and bounces in 8 seconds, they do not qualify. Focus on conversion rate alongside engagement for landing pages.</li>
+        </ul>
+        <p>Context matters more than industry averages. A landing page with a 35% engagement rate is performing well if those engaged sessions are converting at 12%. Compare against your own historical baseline and segment by traffic source - organic visitors and paid visitors often show very different engagement patterns.</p>
+
+        <h2>Where do you find engagement rate in GA4?</h2>
+        <p>Three places are worth knowing.</p>
+        <p><strong>Reports &gt; Acquisition &gt; Traffic Acquisition</strong> shows engagement rate broken down by channel - organic search, direct, paid, referral, and so on. This is the fastest way to see which traffic sources are bringing quality visitors versus those who click and leave.</p>
+        <p><strong>Reports &gt; Engagement &gt; Pages and Screens</strong> shows engagement rate at the page level. If you want to know which specific pages are holding attention and which are losing people immediately, this is where to look.</p>
+        <p><strong>Explore &gt; Funnel Exploration</strong> lets you connect engagement to conversion steps. You can see whether visitors who qualify as engaged are also the ones completing a purchase or filling in a form. This is useful when you want to check whether engagement rate is actually predictive of business outcomes for your site, or just a vanity metric in your particular context.</p>
+
+        <h2>How do you improve engagement rate?</h2>
+        <p>Most engagement problems come down to one of a small number of root causes.</p>
+        <p><strong>Page speed.</strong> If your page takes more than 3 seconds to load, a meaningful portion of visitors will leave before the 10-second timer can run. Target a Largest Contentful Paint (LCP) below 2.5 seconds. Check Core Web Vitals in Google Search Console to see where you stand - it will flag the pages dragging your score down.</p>
+        <p><strong>Intent alignment.</strong> When the ad, search result, or link that brought a visitor to your page promises one thing and the page delivers another, people leave fast. A blog post titled "best project management tools" that opens with a 500-word history of project management is a common example. Match the opening of the page to the exact expectation the visitor arrived with.</p>
+        <p><strong>Internal links.</strong> A visitor who finishes reading one page and has nowhere obvious to go next will leave. Related article links, contextual mentions of other content, and suggested next steps all give people a reason to click through rather than close the tab - which pushes your two-page-view criterion and increases engaged sessions.</p>
+        <p><strong>Video.</strong> Adding a relevant video to a page almost always increases average time-on-page past the 10-second threshold, even if visitors only watch 20 seconds of it. It does not need to be long - a short product demo or an explainer clip is enough to change the engagement calculation.</p>
+        <p><strong>Clear CTA above the fold.</strong> Confused visitors leave. If a first-time visitor cannot tell within a few seconds what the page is for and what they should do next, they will not stick around to figure it out. A single clear headline and one obvious next step reduce confusion-driven exits.</p>
+        <p>If you want to track engagement without the complexity of GA4's setup, TrackTrendy gives you session data, page-level performance, and traffic source breakdowns in a single dashboard - no configuration required, no cookie banner needed.</p>
+
+      </div>
+
+      <!-- FAQ section -->
+      <section class="faq-section" aria-labelledby="faq-heading">
+        <h2 id="faq-heading">Frequently asked questions</h2>
+
+        <div class="faq-item">
+          <h3>What is engagement rate in Google Analytics 4?</h3>
+          <p>Engagement rate in GA4 is the percentage of sessions classified as "engaged." GA4 defines an engaged session as one that lasted 10 seconds or more, included at least two page views, or triggered a conversion event. The formula is: engaged sessions divided by total sessions, multiplied by 100.</p>
+        </div>
+
+        <div class="faq-item">
+          <h3>What is a good engagement rate in GA4?</h3>
+          <p>A good engagement rate varies by site type. Content sites and blogs typically see 50-70%; e-commerce sites 55-75%; B2B and SaaS sites 45-65%; single-page landing pages 20-45%. These are rough benchmarks - what matters more is the trend over time on your own site, and whether your engaged sessions lead to conversions.</p>
+        </div>
+
+        <div class="faq-item">
+          <h3>Is engagement rate the same as bounce rate?</h3>
+          <p>No, but they are inversely related. Bounce rate measures sessions with no interaction (single page view, no events). GA4's engagement rate measures sessions that met one of three active criteria. GA4 calculates bounce rate as 1 minus engagement rate. A page with 65% engagement rate has a 35% bounce rate in GA4 terms.</p>
+        </div>
+
+        <div class="faq-item">
+          <h3>Why is my engagement rate so low?</h3>
+          <p>Common causes: slow page load time (users leave before the 10-second threshold is reached), poor intent match between ad copy and landing page content, content that answers the question immediately and the user leaves satisfied (not always a problem), or a high proportion of bot traffic. Check page speed with Core Web Vitals first, then look at which traffic sources show the lowest engagement rates.</p>
+        </div>
+
+        <div class="faq-item">
+          <h3>Can I change the 10-second threshold for engaged sessions?</h3>
+          <p>Not in standard GA4. The 10-second timer is hardcoded into how GA4 defines an engaged session and cannot be adjusted in the interface. You can create custom definitions of "engagement" using GA4's custom events and conversions, then build reports around those, but the platform's built-in engagement rate metric will always use the 10-second rule.</p>
+        </div>
+
+      </section>
+
+      <!-- Post CTA -->
+      <div class="post-cta">
+        <p class="post-cta-heading">See your real engagement at a glance.</p>
+        <p class="post-cta-sub">TrackTrendy shows you pages, sessions, and traffic sources in a single clean dashboard - no GA4 complexity, no cookie banners. From &euro;4/month.</p>
+        <a href="https://buy.stripe.com/eVaaIhfiL77Y6uA6oo" class="post-cta-btn" target="_blank">Start free trial &rarr;</a>
+      </div>
+
+      <!-- Related posts -->
+      <nav class="related" aria-labelledby="related-heading">
+        <h2 id="related-heading">Related posts</h2>
+        <div class="related-grid">
+          <a href="unique-visitors-google-analytics.html" class="related-card">
+            <span class="related-tag">Google Analytics</span>
+            <h3>Unique Visitors in Google Analytics: What the Number Actually Means</h3>
+            <span class="related-arrow">Read &rarr;</span>
+          </a>
+          <a href="google-analytics-pricing.html" class="related-card">
+            <span class="related-tag">Google Analytics</span>
+            <h3>Google Analytics Pricing: Is GA4 Really Free?</h3>
+            <span class="related-arrow">Read &rarr;</span>
+          </a>
+          <a href="what-do-website-analytics-do.html" class="related-card">
+            <span class="related-tag">Basics</span>
+            <h3>What Do Website Analytics Actually Do?</h3>
+            <span class="related-arrow">Read &rarr;</span>
+          </a>
+        </div>
+      </nav>
+
+    </article>
+  </main>
+
+  <footer class="footer" role="contentinfo">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <a href="/" class="footer-logo" aria-label="TrackTrendy home">
+          <img src="/logo.png" alt="TrackTrendy" width="22" height="22">
+          <span>TrackTrendy</span>
+        </a>
+        <p class="footer-desc">Privacy-first website analytics for European businesses. Cookie-free, GDPR compliant, and built for people who care about their visitors.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Product</h4>
+        <ul>
+          <li><a href="/#features">Features</a></li>
+          <li><a href="/#pricing">Pricing</a></li>
+          <li><a href="/#compare">Compare</a></li>
+          <li><a href="https://app.tracktrendy.com" target="_blank">Dashboard</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Learn</h4>
+        <ul>
+          <li><a href="/blog/">Blog</a></li>
+          <li><a href="/blog/analytics-without-cookie-banner.html">Cookie-free analytics</a></li>
+          <li><a href="/blog/privacy-first-analytics.html">Privacy-first analytics</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Support</h4>
+        <ul>
+          <li><a href="/#faq">FAQ</a></li>
+          <li><a href="mailto:support@tracktrendy.com">Contact</a></li>
+          <li><a href="/privacy.html">Privacy policy</a></li>
+          <li><a href="/terms.html">Terms of service</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p class="footer-copy">&copy; <span id="yr"></span> TrackTrendy. Privacy-first analytics.</p>
+      <div class="footer-legal">
+        <a href="/privacy.html">Privacy policy</a>
+        <a href="/terms.html">Terms of service</a>
+      </div>
+    </div>
+  </footer>
+
+  <script defer data-site="tracktrendy.com" src="https://track.tracktrendy.com/js/t.js"></script>
+  <script>
+    document.getElementById('yr').textContent = new Date().getFullYear();
+    (function() {
+      if (localStorage.getItem('tt-site-theme') === 'light') document.body.classList.add('light');
+    })();
+    document.getElementById('themeToggle').addEventListener('click', function() {
+      const isLight = document.body.classList.toggle('light');
+      localStorage.setItem('tt-site-theme', isLight ? 'light' : 'dark');
+    });
+  </script>
+
+</body>
+</html>
