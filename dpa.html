@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Data Processing Agreement - TrackTrendy</title>
+  <meta name="description" content="TrackTrendy data processing agreement - how we process visitor data on behalf of our customers under the GDPR.">
+  <link rel="canonical" href="https://tracktrendy.com/dpa">
+  <link rel="icon" href="favicon.png" type="image/png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --black: #000000; --surface: #0e0e0e; --surface2: #1a1a1a;
+      --sep: #252525; --purple: #7b5cdc; --purple-light: #a78bfa;
+      --white: #ffffff; --t1: #f1f1f1; --t2: rgba(255,255,255,0.68); --t3: rgba(255,255,255,0.35);
+      --font: 'Be Vietnam Pro', -apple-system, sans-serif;
+    }
+    html { scroll-behavior: smooth; }
+    body { font-family: var(--font); background: var(--black); color: var(--t1); line-height: 1.65; -webkit-font-smoothing: antialiased; }
+    .nav {
+      position: fixed; inset: 0 0 auto 0; z-index: 100;
+      padding: 14px 5%; display: flex; justify-content: space-between; align-items: center;
+      background: rgba(0,0,0,0.88); backdrop-filter: blur(18px); -webkit-backdrop-filter: blur(18px);
+      border-bottom: 1px solid rgba(123,92,220,0.12);
+    }
+    .nav-logo { display: flex; align-items: center; gap: 9px; text-decoration: none; }
+    .nav-logo img { height: 24px; }
+    .nav-logo span { font-size: 13px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--white); }
+    .nav-cta { padding: 8px 18px; background: var(--purple); color: #fff; border-radius: 7px; font-size: 13px; font-weight: 600; text-decoration: none; transition: background 0.18s; }
+    .nav-cta:hover { background: #6948c8; }
+    .legal-wrap { max-width: 760px; margin: 0 auto; padding: 120px 5% 80px; }
+    .legal-back { display: inline-flex; align-items: center; gap: 7px; font-size: 13px; color: var(--t3); text-decoration: none; margin-bottom: 40px; transition: color 0.15s; }
+    .legal-back:hover { color: var(--t1); }
+    .legal-eyebrow { font-size: 11px; font-weight: 600; letter-spacing: 0.2em; text-transform: uppercase; color: var(--purple-light); margin-bottom: 16px; }
+    .legal-wrap h1 { font-size: clamp(28px, 4vw, 44px); font-weight: 300; color: var(--white); line-height: 1.15; letter-spacing: -0.015em; margin-bottom: 10px; }
+    .legal-updated { font-size: 13px; color: var(--t3); margin-bottom: 48px; padding-bottom: 32px; border-bottom: 1px solid var(--sep); }
+    .legal-intro { font-size: 15px; color: var(--t2); line-height: 1.8; margin-bottom: 40px; }
+    .legal-section { margin-bottom: 44px; }
+    .legal-section h2 { font-size: 16px; font-weight: 700; color: var(--white); letter-spacing: 0.04em; text-transform: uppercase; margin-bottom: 16px; padding-bottom: 10px; border-bottom: 1px solid var(--sep); }
+    .legal-section p { font-size: 14px; color: var(--t2); line-height: 1.8; margin-bottom: 12px; }
+    .legal-section p:last-child { margin-bottom: 0; }
+    .legal-section ul, .legal-section ol { padding-left: 20px; display: flex; flex-direction: column; gap: 8px; margin-top: 10px; }
+    .legal-section li { font-size: 14px; color: var(--t2); line-height: 1.7; }
+    .legal-highlight { background: var(--surface); border: 1px solid var(--sep); border-left: 3px solid var(--purple); border-radius: 6px; padding: 14px 18px; margin: 16px 0; font-size: 13px; color: var(--t2); line-height: 1.7; font-style: italic; }
+    .footer { background: var(--surface); border-top: 1px solid var(--sep); padding: 28px 5%; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px; }
+    .footer-logo { display: flex; align-items: center; gap: 9px; text-decoration: none; }
+    .footer-logo img { height: 20px; }
+    .footer-logo span { font-size: 12px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--t2); }
+    .footer-links { display: flex; gap: 20px; }
+    .footer-links a { font-size: 12px; color: var(--t3); text-decoration: none; transition: color 0.15s; }
+    .footer-links a:hover { color: var(--t1); }
+    .footer-copy { font-size: 12px; color: var(--t3); }
+  </style>
+</head>
+<body>
+
+  <nav class="nav">
+    <a href="/" class="nav-logo">
+      <img src="logo.png" alt="TrackTrendy">
+      <span>TrackTrendy</span>
+    </a>
+    <a href="https://buy.stripe.com/eVaaIhfiL77Y6uA6oo" class="nav-cta" target="_blank">Try free &rarr;</a>
+  </nav>
+
+  <main class="legal-wrap">
+    <a href="/" class="legal-back">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg>
+      Back to home
+    </a>
+
+    <div class="legal-eyebrow">Legal</div>
+    <h1>Data Processing Agreement</h1>
+    <p class="legal-updated">Last updated July 14, 2026</p>
+
+    <p class="legal-intro">This Data Processing Agreement ("DPA") forms part of our <a href="/terms.html" style="color:var(--purple-light);">Terms of Service</a> between TrackTrendy ("we", "us", the "processor") and the customer using the Service ("you", the "controller"). It applies whenever we process personal data on your behalf under the GDPR - in particular, data about the visitors to the websites you track.</p>
+
+    <div class="legal-section" id="d1">
+      <h2>1. Roles and scope</h2>
+      <div class="legal-highlight">In short: you own your sites and are the controller of their visitor data. We process that data on your behalf, only to provide the analytics dashboard.</div>
+      <p>You are the data controller for the data collected from visitors to the websites you connect to the Service. Our tracking script is cookieless and privacy-first: it records page views, referrers, device and browser information, and approximate location (country level). We process that data only to provide the Service to you.</p>
+      <p>For the personal data in your own TrackTrendy account (your name, email, billing details), we act as the controller - see our <a href="/privacy.html" style="color:var(--purple-light);">Privacy Policy</a>.</p>
+    </div>
+
+    <div class="legal-section" id="d2">
+      <h2>2. Instructions</h2>
+      <p>We process visitor data only on your documented instructions - which are, in the first place, our Terms and your configuration of the Service - unless EU or member-state law requires otherwise, in which case we inform you before processing.</p>
+    </div>
+
+    <div class="legal-section" id="d3">
+      <h2>3. Confidentiality</h2>
+      <p>Anyone we authorise to process personal data is bound by a contractual or statutory duty of confidentiality.</p>
+    </div>
+
+    <div class="legal-section" id="d4">
+      <h2>4. Security</h2>
+      <ul>
+        <li>Data is hosted on servers in the European Union.</li>
+        <li>All traffic is encrypted in transit (TLS); credentials are stored hashed.</li>
+        <li>Access to production systems is limited to authorised personnel and protected accounts.</li>
+        <li>Automated backups are kept on separate storage.</li>
+      </ul>
+    </div>
+
+    <div class="legal-section" id="d5">
+      <h2>5. Subprocessors</h2>
+      <p>You authorise the following subprocessors:</p>
+      <ul>
+        <li><strong>Hetzner Online GmbH</strong> (Germany) - hosting.</li>
+        <li><strong>Cloudflare, Inc.</strong> (USA) - CDN, DNS, and security.</li>
+        <li><strong>Stripe, Inc.</strong> (USA) - payment processing.</li>
+        <li><strong>Amazon Web Services (SES)</strong> (EU region) - email delivery (reports, notifications).</li>
+        <li><strong>Anthropic, PBC</strong> (USA) - AI assistant features.</li>
+      </ul>
+      <p>Subprocessors outside the EU are engaged under appropriate safeguards (Standard Contractual Clauses or an adequacy decision such as the EU&ndash;US Data Privacy Framework). We give notice before adding or replacing a subprocessor; you may object on reasonable data-protection grounds.</p>
+    </div>
+
+    <div class="legal-section" id="d6">
+      <h2>6. Assistance</h2>
+      <p>Taking into account the nature of the processing, we assist you in responding to data-subject requests (access, rectification, erasure, objection) and in meeting your security, breach, and impact-assessment obligations.</p>
+    </div>
+
+    <div class="legal-section" id="d7">
+      <h2>7. Personal data breaches</h2>
+      <p>We notify you without undue delay after becoming aware of a personal data breach affecting your data, with the information reasonably needed for your own notification obligations.</p>
+    </div>
+
+    <div class="legal-section" id="d8">
+      <h2>8. Deletion and return</h2>
+      <p>On termination of your account we delete the visitor data we process on your behalf within 30 days, unless EU or member-state law requires longer storage. Deleting a site from your dashboard removes its analytics data in the same way.</p>
+    </div>
+
+    <div class="legal-section" id="d9">
+      <h2>9. Audit</h2>
+      <p>We make available the information reasonably necessary to demonstrate compliance with this DPA and allow audits you reasonably request, at your cost and with reasonable notice.</p>
+    </div>
+
+    <div class="legal-section" id="d10">
+      <h2>10. Duration and contact</h2>
+      <p>This DPA applies for as long as we process personal data on your behalf. If you have any questions, contact us at <a href="mailto:legal@tracktrendy.com" style="color:var(--purple-light);">legal@tracktrendy.com</a>.</p>
+    </div>
+  </main>
+
+  <footer class="footer">
+    <a href="/" class="footer-logo">
+      <img src="logo.png" alt="TrackTrendy">
+      <span>TrackTrendy</span>
+    </a>
+    <div class="footer-links">
+      <a href="/privacy.html">Privacy policy</a>
+      <a href="/terms.html">Terms of service</a>
+      <a href="/dpa.html">DPA</a>
+      <a href="mailto:support@tracktrendy.com">Contact</a>
+    </div>
+    <p class="footer-copy">&copy; <span id="yr"></span> TrackTrendy</p>
+  </footer>
+
+  <script>document.getElementById('yr').textContent = new Date().getFullYear();</script>
+</body>
+</html>
