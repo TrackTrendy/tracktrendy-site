@@ -143,7 +143,7 @@
 
     <div class="legal-eyebrow">Legal</div>
     <h1>Privacy Policy</h1>
-    <p class="legal-updated">Last updated May 21, 2026</p>
+    <p class="legal-updated">Last updated July 14, 2026</p>
 
     <p class="legal-intro">Thank you for choosing TrackTrendy ("Company", "we", "us", or "our"). We are committed to protecting your personal information and your right to privacy. If you have any questions or concerns about this policy, please contact us at <a href="mailto:privacy@tracktrendy.com" style="color:var(--purple-light);">privacy@tracktrendy.com</a>.</p>
 
@@ -168,8 +168,9 @@
       <div class="legal-highlight">In short: We collect information you provide when creating an account, using our services, or connecting third-party tools.</div>
       <p><strong style="color:var(--white)">Account data.</strong> When you sign up, we collect your name, email address, and a securely hashed password. If you enable two-factor authentication, we store an encrypted TOTP secret tied to your account.</p>
       <p><strong style="color:var(--white)">Billing data.</strong> Payments are processed by Stripe. We store your Stripe customer ID, subscription status, and renewal date. We never see or store your full card number - Stripe handles all card collection directly and securely.</p>
-      <p><strong style="color:var(--white)">Site analytics data.</strong> We collect aggregated, anonymised visitor data for the websites you connect to TrackTrendy - including page views, referral sources, countries, browsers, and devices. This data contains no personally identifiable information about your visitors. No IP addresses are stored. No cookies are used for visitor tracking.</p>
+      <p><strong style="color:var(--white)">Site analytics data - pseudonymised by design.</strong> For the websites you connect to TrackTrendy, we record page views, referrers, UTM campaign tags, approximate location (country/region/city), and browser/OS/device type. We do not store raw IP addresses or full user-agent strings. Instead they are combined with a secret salt that rotates every day and is then discarded, producing a one-way hashed visitor identifier. Because the salt is destroyed daily, we cannot re-identify a visitor across days, and we set no cookies on visitors.</p>
       <p><strong style="color:var(--white)">Google Search Console data.</strong> If you choose to connect your Google account, we store an OAuth access token to retrieve Search Console performance data (clicks, impressions, position) on your behalf. We request read-only access only and never modify your Google data.</p>
+      <p><strong style="color:var(--white)">AI features.</strong> If you use the AI insights or chat features, the relevant analytics figures and your questions are sent to our AI sub-processor (Anthropic) to generate a response. No visitor-identifying data is sent.</p>
       <p><strong style="color:var(--white)">Communications.</strong> We send transactional emails - such as account setup, password reset, subscription updates, and weekly analytics reports - via Amazon SES. We do not send marketing emails without your explicit consent.</p>
     </div>
 
@@ -186,6 +187,7 @@
         <li>Improve the security, performance, and reliability of our services</li>
       </ul>
       <p>We do not sell your data. We do not use your data for advertising. We do not share your data with third parties for their own marketing purposes.</p>
+      <p>Legal bases: for account holders, processing is necessary to perform our contract with you (providing the service). For visitor analytics, we rely on the legitimate interest of site owners in understanding aggregate traffic, balanced by the fact that no directly identifying data is retained.</p>
     </div>
 
     <div class="legal-section" id="s3">
@@ -198,8 +200,9 @@
         <li><strong style="color:var(--white)">Cloudflare</strong> - CDN, DDoS protection, and access control</li>
         <li><strong style="color:var(--white)">Hetzner</strong> - server infrastructure (Frankfurt, EU)</li>
         <li><strong style="color:var(--white)">Google</strong> - Search Console API access, when explicitly connected by you</li>
+        <li><strong style="color:var(--white)">Anthropic</strong> - AI insights and chat features, when used</li>
       </ul>
-      <p>All infrastructure is located in the EU. Your data does not leave the EU except where the above third-party services operate their own infrastructure. Each of these providers maintains their own privacy and data protection standards.</p>
+      <p>All infrastructure is located in the EU. Your data does not leave the EU except where the above third-party services operate their own infrastructure. Each of these providers maintains their own privacy and data protection standards. Where we process visitor analytics on behalf of site owners, our <a href="/dpa.html" style="color:var(--purple-light);">Data Processing Agreement</a> applies.</p>
       <p>We may also disclose your information if required to do so by law, court order, or to protect the rights and safety of our users or the public.</p>
     </div>
 
@@ -213,7 +216,7 @@
     <div class="legal-section" id="s5">
       <h2>5. How long do we keep your information?</h2>
       <div class="legal-highlight">In short: We keep your data for as long as your account is active, and delete it promptly when you close your account.</div>
-      <p>We retain your account information for as long as your account remains active. When you delete your account, your personal data (name, email, password, 2FA secret, Google tokens) is permanently removed immediately. Analytics data associated with your sites is removed within 30 days of account deletion.</p>
+      <p>We retain your account information for as long as your account remains active. When you delete your account, your personal data (name, email, password, 2FA secret, Google tokens) is permanently removed immediately. Analytics data associated with your sites is removed within 30 days of account deletion. Deleting an individual site from your dashboard removes all of its analytics data in the same way.</p>
       <p>Billing records may be retained for up to 7 years where required by tax and accounting law.</p>
     </div>
 
@@ -249,6 +252,7 @@
         <li>Request a portable copy of your data</li>
       </ul>
       <p>You can update your name and password directly in your account Settings. You can delete your account at any time from the Settings tab - this immediately and permanently removes your personal data.</p>
+      <p><strong style="color:var(--white)">Website visitors:</strong> because visitor data is pseudonymised and contains no stored IP address, user-agent string, or cross-day identifier, we are generally unable to isolate a single visitor's records (GDPR Art. 11). A site owner can delete all analytics for their site at once. If you believe identifying data was captured in a custom event, contact us and we will investigate.</p>
       <p>For any other requests, contact us at <a href="mailto:privacy@tracktrendy.com" style="color:var(--purple-light);">privacy@tracktrendy.com</a>. You also have the right to lodge a complaint with your national data protection authority.</p>
     </div>
 
@@ -272,6 +276,7 @@
     <div class="footer-links">
       <a href="/privacy.html">Privacy policy</a>
       <a href="/terms.html">Terms of service</a>
+      <a href="/dpa.html">DPA</a>
       <a href="mailto:support@tracktrendy.com">Contact</a>
     </div>
     <p class="footer-copy">&copy; <span id="yr"></span> TrackTrendy</p>
