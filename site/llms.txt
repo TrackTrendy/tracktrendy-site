@@ -1,0 +1,26 @@
+# TrackTrendy
+> Privacy-first, cookie-free website analytics for European businesses. GDPR compliant by design, from €4/month.
+
+## About
+TrackTrendy is a GDPR-compliant alternative to Google Analytics 4. It gives you full website analytics - visitors, sources, pages, countries, goals and revenue - without cookies, consent banners, or sending visitor data to third parties. It is designed to be readable without training, and includes revenue tracking, Google Search Console integration, team roles, a UTM campaign builder, and an AI assistant (coming soon).
+
+## Pricing
+- Single Site: 30 days free, then €4/month (or €40/year)
+- 15 Sites: €15/month (or €150/year)
+
+## Contact
+- Email: support@tracktrendy.com
+- Dashboard: https://app.tracktrendy.com
+- Website: https://tracktrendy.com
+
+## Blog
+- [Analytics without a cookie banner](https://tracktrendy.com/blog/analytics-without-cookie-banner.html): How to run analytics with no cookie consent banner.
+- [The California Delete Act](https://tracktrendy.com/blog/california-delete-act.html): What the Delete Act means for web analytics.
+- [CCPA and web analytics](https://tracktrendy.com/blog/ccpa-and-web-analytics.html): How CCPA applies to tracking website visitors.
+- [Engagement rate in Google Analytics 4](https://tracktrendy.com/blog/engagement-rate-google-analytics-4.html): What GA4 engagement rate measures.
+- [Google Analytics pricing](https://tracktrendy.com/blog/google-analytics-pricing.html): The real cost of Google Analytics.
+- [How to delete Google Analytics](https://tracktrendy.com/blog/how-to-delete-google-analytics.html): Removing GA from your site.
+- [Privacy-first analytics](https://tracktrendy.com/blog/privacy-first-analytics.html): What privacy-first analytics means.
+- [Unique visitors in Google Analytics](https://tracktrendy.com/blog/unique-visitors-google-analytics.html): How unique visitors are counted.
+- [What do website analytics do?](https://tracktrendy.com/blog/what-do-website-analytics-do.html): A plain-language intro to web analytics.
+- [What does Google know about me?](https://tracktrendy.com/blog/what-does-google-know-about-me.html): The data Google collects on visitors.

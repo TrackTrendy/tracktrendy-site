@@ -1,0 +1,199 @@
+{
+  "pages": {
+    "home": {
+      "sections": {
+        "hero": {
+          "eyebrow": "Google Analytics alternative",
+          "title1": "Know your traffic.",
+          "title2": "Respect your visitors.",
+          "sub": "TrackTrendy gives you complete website analytics without cookies or consent banners. 100% GDPR compliant by design - from <strong>€4/month</strong>.",
+          "cta1_label": "Start free for 30 days",
+          "cta1_url": "https://buy.stripe.com/eVaaIhfiL77Y6uA6oo",
+          "cta2_label": "See all features",
+          "note": "No credit card required &nbsp;&middot;&nbsp; No cookie banner needed &nbsp;&middot;&nbsp; Cancel anytime",
+          "stat1_num": "0",
+          "stat1_label": "Cookies set on your visitors",
+          "stat2_num": "100%",
+          "stat2_label": "GDPR compliant",
+          "stat3_num": "30s",
+          "stat3_label": "Real-time data refresh",
+          "stat4_num": "€4",
+          "stat4_label": "Per month, single site"
+        },
+        "trust": {
+          "label": "Trusted by",
+          "item1": "E-commerce stores",
+          "item2": "Digital agencies",
+          "item3": "SaaS products",
+          "item4": "Content creators",
+          "item5": "WooCommerce shops"
+        },
+        "problem": {
+          "heading": "Analytics tools got complicated. And risky.",
+          "para1": "Google Analytics 4 is powerful - but in the EU, using it without proper consent is a legal grey area. Cookie banners damage conversions. And most alternatives are either too simple or too expensive.",
+          "para2": "There should be a better way to understand your website traffic without putting your visitors' privacy at risk."
+        },
+        "pains": [
+          { "text": "GA4 requires cookie consent in the EU - and most banners reduce conversions by up to 10%" },
+          { "text": "GA4's interface is complex - most users can't find the data they actually need" },
+          { "text": "Your visitor data is sent to Google's servers and used to build advertising profiles" },
+          { "text": "Privacy-first alternatives like Plausible lack revenue tracking, goals, and GSC integration" },
+          { "text": "No analytics tool explains what your numbers actually mean - you need a data analyst" }
+        ],
+        "how": {
+          "eyebrow": "How it works",
+          "heading": "Up and running in under 5 minutes",
+          "sub": "Add one line of code. See your data. Understand what it means - with AI.",
+          "step1_title": "Add the snippet",
+          "step1_body": "Paste one line of JavaScript into your site. Works with WordPress, Shopify, any CMS or custom code.",
+          "step2_title": "Watch your data flow in",
+          "step2_body": "Traffic, sources, pages, countries, devices - all your metrics appear in real time. No sampling, no delays.",
+          "step3_title": "Understand and grow",
+          "step3_body": "Set goals, track revenue, connect Search Console, and let our AI assistant explain what your data means in plain language."
+        },
+        "features": {
+          "eyebrow": "Features",
+          "heading": "Everything you need to understand your traffic",
+          "sub": "No learning curve. No dashboards you never open. Just the data that matters, presented clearly."
+        },
+        "featureCards": [
+          { "icon": "<svg width=\"20\" height=\"20\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><rect x=\"3\" y=\"11\" width=\"18\" height=\"11\" rx=\"2\"/><path d=\"M7 11V7a5 5 0 0 1 10 0v4\"/></svg>", "title": "Cookie-free tracking", "body": "No cookies, no consent banners. Fully GDPR, CCPA and PECR compliant out of the box - no legal configuration required." },
+          { "icon": "<svg width=\"20\" height=\"20\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><polyline points=\"22 12 18 12 15 21 9 3 6 12 2 12\"/></svg>", "title": "Real-time analytics", "body": "See live visitors, traffic sources, top pages, countries and devices updated every 30 seconds." },
+          { "icon": "<svg width=\"20\" height=\"20\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><polyline points=\"23 6 13.5 15.5 8.5 10.5 1 18\"/><polyline points=\"17 6 23 6 23 12\"/></svg>", "title": "Revenue tracking", "body": "Connect WooCommerce and track purchase events, average order value and total revenue - broken down per traffic channel." },
+          { "icon": "<svg width=\"20\" height=\"20\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><circle cx=\"11\" cy=\"11\" r=\"8\"/><line x1=\"21\" y1=\"21\" x2=\"16.65\" y2=\"16.65\"/></svg>", "title": "Google Search Console", "body": "Connect GSC and see which keywords bring organic visitors - without switching between tools." },
+          { "icon": "<svg width=\"20\" height=\"20\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2\"/><circle cx=\"9\" cy=\"7\" r=\"4\"/><path d=\"M23 21v-2a4 4 0 0 0-3-3.87\"/><path d=\"M16 3.13a4 4 0 0 1 0 7.75\"/></svg>", "title": "Team access and roles", "body": "Invite teammates or clients as owners, admins, or viewers. Everyone sees the right data, nothing more." },
+          { "icon": "<svg width=\"20\" height=\"20\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9\"/><path d=\"M13.73 21a2 2 0 0 1-3.46 0\"/></svg>", "title": "Spike and report alerts", "body": "Get notified by email when your traffic spikes. Receive weekly or monthly digests automatically." },
+          { "icon": "<svg width=\"20\" height=\"20\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><circle cx=\"12\" cy=\"12\" r=\"10\"/><circle cx=\"12\" cy=\"12\" r=\"6\"/><circle cx=\"12\" cy=\"12\" r=\"2\"/></svg>", "title": "Goals and custom events", "body": "Track sign-ups, form submits, downloads, purchases - any action that matters to your business." },
+          { "icon": "<svg width=\"20\" height=\"20\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71\"/><path d=\"M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71\"/></svg>", "title": "UTM campaign builder", "body": "Build tracking URLs and analyse all 5 UTM parameters in one unified campaign view." },
+          { "icon": "<svg width=\"20\" height=\"20\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><polyline points=\"15 3 21 3 21 9\"/><line x1=\"10\" y1=\"14\" x2=\"21\" y2=\"3\"/><path d=\"M21 16v5a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5\"/></svg>", "title": "Public and embeddable dashboards", "body": "Share a public stats page or embed your analytics directly into a client report or your own product." }
+        ],
+        "dashboard": {
+          "eyebrow": "The dashboard",
+          "heading": "Clean data. Fast answers.",
+          "sub": "Everything in one view. No analyst required."
+        },
+        "compare": {
+          "eyebrow": "Comparison",
+          "heading": "How TrackTrendy compares",
+          "sub": "Privacy-first analytics that doesn't sacrifice depth - at a fraction of the price."
+        },
+        "ai": {
+          "eyebrow": "Coming soon",
+          "title1": "Your analytics,",
+          "title2": "explained by AI.",
+          "para1": "Understanding your data shouldn't require a data analyst. The TrackTrendy AI assistant reads your dashboard, spots patterns you'd miss, and answers questions in plain language.",
+          "para2": "Ask \"Why did my traffic drop on Tuesday?\" and get a real answer. Ask \"Which campaign is making me the most money?\" and get a recommendation - not a spreadsheet.",
+          "badge": "Coming soon"
+        },
+        "who": {
+          "eyebrow": "Who it's for",
+          "heading": "Built for European businesses that care about their visitors",
+          "sub": "Any business that needs clean data without the legal headaches of traditional analytics."
+        },
+        "whoCards": [
+          { "icon": "<svg width=\"24\" height=\"24\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z\"/><line x1=\"3\" y1=\"6\" x2=\"21\" y2=\"6\"/><path d=\"M16 10a4 4 0 0 1-8 0\"/></svg>", "title": "E-commerce stores", "body": "Track purchases, revenue by source, and which product pages drive the most sales. WooCommerce built-in." },
+          { "icon": "<svg width=\"24\" height=\"24\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><rect x=\"2\" y=\"7\" width=\"20\" height=\"14\" rx=\"2\"/><path d=\"M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16\"/></svg>", "title": "Digital agencies", "body": "Track all your clients in one dashboard. Give each client their own login with the right level of access." },
+          { "icon": "<svg width=\"24\" height=\"24\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><polygon points=\"13 2 3 14 12 14 11 22 21 10 12 10 13 2\"/></svg>", "title": "SaaS products", "body": "Understand your sign-up funnel, track conversion goals, and share live dashboards with stakeholders." },
+          { "icon": "<svg width=\"24\" height=\"24\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7\"/><path d=\"M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z\"/></svg>", "title": "Content creators", "body": "See which posts drive traffic, where your readers come from, and how long they stay - at a glance." }
+        ],
+        "pricing": {
+          "eyebrow": "Pricing",
+          "heading": "Simple, honest pricing",
+          "sub": "One price per plan. No pageview limits. No surprise bills. Start free for 30 days."
+        },
+        "plan1": {
+          "name": "Single Site",
+          "trial_mo": "30 days free, then",
+          "price_mo": "4",
+          "tagline_mo": "One site. Every feature. No limits.",
+          "price_yr": "40",
+          "tagline_yr": "~&euro;3.33/month. One site. Every feature.",
+          "cta_mo_url": "https://buy.stripe.com/eVaaIhfiL77Y6uA6oo",
+          "cta_yr_url": "https://buy.stripe.com/14keYx4E71NE4msbIK"
+        },
+        "plan2": {
+          "badge": "Best value",
+          "name": "15 Sites",
+          "price_mo": "15",
+          "tagline_mo": "Up to 15 sites on one subscription.",
+          "price_yr": "150",
+          "tagline_yr": "~&euro;12.50/month. Up to 15 sites.",
+          "cta_mo_url": "https://buy.stripe.com/3csdUt4E73VM1ag6op",
+          "cta_yr_url": "https://buy.stripe.com/3cs03D1rVaka2ek7sv"
+        },
+        "faq": {
+          "eyebrow": "FAQ",
+          "heading": "Questions we get asked a lot"
+        },
+        "faqItems": [
+          { "question": "What is TrackTrendy?", "answer": "TrackTrendy is a privacy-first website analytics platform. It gives you detailed insight into your website traffic - visitors, sources, pages, countries, goals and revenue - without using cookies or tracking your visitors across the web. It's designed as a GDPR-compliant alternative to Google Analytics 4." },
+          { "question": "Is TrackTrendy GDPR compliant?", "answer": "Yes, by design. TrackTrendy does not use cookies or persistent identifiers, does not collect personal data, and processes all data in compliance with GDPR, CCPA, and PECR. Your visitor data is never sent to third parties or used for advertising purposes." },
+          { "question": "Do I need a cookie consent banner with TrackTrendy?", "answer": "No. Because TrackTrendy does not use cookies or collect personal data, you do not need a cookie consent banner for analytics. This improves your conversion rate by removing a friction point from your visitors' experience." },
+          { "question": "How is TrackTrendy different from Google Analytics?", "answer": "The key differences: TrackTrendy is cookie-free (no consent banners needed), your data stays private and is never shared with or used by third parties, and the interface is designed to be immediately readable without training. GA4 requires cookie consent in the EU, sends data to Google's servers, and has a steep learning curve." },
+          { "question": "How does TrackTrendy compare to Plausible?", "answer": "Both are privacy-first and cookie-free. TrackTrendy adds revenue tracking (WooCommerce), a built-in UTM campaign builder, traffic spike email alerts, team roles on all plans, and an AI assistant (coming soon) - all from €4/month. Plausible starts at $9/month and reserves some features for higher tiers." },
+          { "question": "How do I add TrackTrendy to my website?", "answer": "Add one line of JavaScript to your site's <code>&lt;head&gt;</code> section. TrackTrendy works with any platform - WordPress, WooCommerce, Shopify, Webflow, or custom HTML. Your tracking snippet is shown in your dashboard after signing up, and is live in under a minute." },
+          { "question": "Does TrackTrendy work with WooCommerce?", "answer": "Yes. TrackTrendy has built-in WooCommerce revenue tracking. Add a short PHP snippet to your theme (or via Code Snippets) and purchase events, order values, and total revenue appear in your dashboard - broken down by traffic source, campaign, and channel." },
+          { "question": "Is there a free trial?", "answer": "Yes - every new account gets 30 days free with full access to all features. No credit card required to start. After the trial, the Single Site plan is €4/month and the Multi-Site plan (up to 15 sites) is €15/month." }
+        ],
+        "cta": {
+          "eyebrow": "Get started",
+          "title1": "Ready to drop",
+          "title2": "the cookie banner?",
+          "sub": "Join businesses across Europe that track their traffic the right way. 30-day free trial - no card required.",
+          "cta1_label": "Start free for 30 days",
+          "cta1_url": "https://buy.stripe.com/eVaaIhfiL77Y6uA6oo",
+          "cta2_label": "See how we compare",
+          "note": "No credit card &nbsp;&middot;&nbsp; No cookie banner &nbsp;&middot;&nbsp; Cancel anytime"
+        },
+        "footer": {
+          "desc": "Privacy-first website analytics for European businesses. Cookie-free, GDPR compliant, and built for people who care about their visitors.",
+          "copy": "TrackTrendy. Privacy-first analytics."
+        }
+      },
+      "seo": {
+        "title": "TrackTrendy - Privacy-First Analytics | GDPR-Compliant Google Analytics Alternative",
+        "description": "TrackTrendy gives you powerful website analytics without cookies or consent banners. 100% GDPR compliant. Track visitors, revenue and goals from €4/month. Try free for 30 days.",
+        "ogImage": "https://tracktrendy.com/og.png",
+        "schemaType": "SoftwareApplication",
+        "schemaData": {
+          "name": "TrackTrendy",
+          "applicationCategory": "BusinessApplication",
+          "operatingSystem": "Web",
+          "description": "Privacy-first website analytics platform. Cookie-free, GDPR compliant, with real-time data, revenue tracking and Google Search Console integration.",
+          "url": "https://tracktrendy.com",
+          "offers": [
+            { "@type": "Offer", "name": "Single Site", "price": "4.00", "priceCurrency": "EUR", "priceValidUntil": "2027-12-31", "description": "Full analytics for one website. 30-day free trial." },
+            { "@type": "Offer", "name": "Multi-Site", "price": "15.00", "priceCurrency": "EUR", "priceValidUntil": "2027-12-31", "description": "Analytics for up to 15 websites." }
+          ],
+          "featureList": [
+            "Cookie-free tracking",
+            "GDPR compliant",
+            "Real-time analytics",
+            "Revenue tracking",
+            "Google Search Console integration",
+            "Team access with roles",
+            "UTM campaign builder",
+            "Embeddable dashboards",
+            "Traffic spike alerts"
+          ]
+        },
+        "jsonld": [
+          {
+            "@context": "https://schema.org",
+            "@type": "Organization",
+            "name": "TrackTrendy",
+            "url": "https://tracktrendy.com",
+            "logo": "https://tracktrendy.com/logo.png",
+            "contactPoint": {
+              "@type": "ContactPoint",
+              "contactType": "customer support",
+              "email": "support@tracktrendy.com"
+            }
+          }
+        ]
+      },
+      "typography": { "heroTitle": 100, "sectionHeadings": 100, "cardHeadings": 100, "bodyText": 100 }
+    }
+  },
+  "typography": { "heroTitle": 100, "sectionHeadings": 100, "cardHeadings": 100, "bodyText": 100 }
+}

@@ -4,84 +4,9 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <!-- SEO -->
-  <title>TrackTrendy - Privacy-First Analytics | GDPR-Compliant Google Analytics Alternative</title>
-  <meta name="description" content="TrackTrendy gives you powerful website analytics without cookies or consent banners. 100% GDPR compliant. Track visitors, revenue and goals from €4/month. Try free for 30 days.">
+  <!-- Title, description, Open Graph, Twitter + SoftwareApplication/Organization JSON-LD are injected by Orbit CMS at render time (from content.json seo + cms.json). Do not add them here or they will duplicate. -->
   <meta name="keywords" content="Google Analytics alternative, privacy analytics, cookie-free analytics, GDPR analytics, website analytics Europe, privacy-first tracking">
   <link rel="canonical" href="https://tracktrendy.com/">
-
-  <!-- Open Graph -->
-  <meta property="og:type" content="website">
-  <meta property="og:url" content="https://tracktrendy.com/">
-  <meta property="og:title" content="TrackTrendy - Privacy-First Analytics | No Cookies. No Consent Banners.">
-  <meta property="og:description" content="Powerful website analytics without the privacy baggage. GDPR compliant by design, from €4/month. 30-day free trial.">
-  <meta property="og:image" content="https://tracktrendy.com/og.png">
-  <meta property="og:locale" content="en_GB">
-
-  <!-- Twitter -->
-  <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="TrackTrendy - Privacy-First Analytics">
-  <meta name="twitter:description" content="Cookie-free analytics for European businesses. GDPR compliant. From €4/month.">
-
-  <!-- Schema: SoftwareApplication -->
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "SoftwareApplication",
-    "name": "TrackTrendy",
-    "applicationCategory": "BusinessApplication",
-    "operatingSystem": "Web",
-    "description": "Privacy-first website analytics platform. Cookie-free, GDPR compliant, with real-time data, revenue tracking and Google Search Console integration.",
-    "url": "https://tracktrendy.com",
-    "offers": [
-      {
-        "@type": "Offer",
-        "name": "Single Site",
-        "price": "4.00",
-        "priceCurrency": "EUR",
-        "priceValidUntil": "2027-12-31",
-        "description": "Full analytics for one website. 30-day free trial."
-      },
-      {
-        "@type": "Offer",
-        "name": "Multi-Site",
-        "price": "15.00",
-        "priceCurrency": "EUR",
-        "priceValidUntil": "2027-12-31",
-        "description": "Analytics for up to 15 websites."
-      }
-    ],
-    "featureList": [
-      "Cookie-free tracking",
-      "GDPR compliant",
-      "Real-time analytics",
-      "Revenue tracking",
-      "Google Search Console integration",
-      "Team access with roles",
-      "UTM campaign builder",
-      "Embeddable dashboards",
-      "Traffic spike alerts"
-    ]
-  }
-  </script>
-
-  <!-- Schema: FAQPage (injected inline below) -->
-
-  <!-- Schema: Organization -->
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "Organization",
-    "name": "TrackTrendy",
-    "url": "https://tracktrendy.com",
-    "logo": "https://tracktrendy.com/logo.png",
-    "contactPoint": {
-      "@type": "ContactPoint",
-      "contactType": "customer support",
-      "email": "support@tracktrendy.com"
-    }
-  }
-  </script>
 
   <link rel="icon" href="favicon.png" type="image/png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -1307,6 +1232,7 @@
     body.light .browser-frame.border-glow-card { --card-bg: #f0eefc; }
     body.light .ai-chat.border-glow-card { --card-bg: var(--surface); }
   </style>
+  {{__typography__}}
 </head>
 <body>
 
@@ -1343,35 +1269,35 @@
 
     <section class="hero" aria-labelledby="hero-h1">
       <div class="hero-inner">
-        <div class="hero-eyebrow">Google Analytics alternative</div>
+        <div class="hero-eyebrow">{{hero.eyebrow}}</div>
         <h1 id="hero-h1">
-          Know your traffic.<br>
-          <span class="accent">Respect your visitors.</span>
+          {{hero.title1}}<br>
+          <span class="accent">{{hero.title2}}</span>
         </h1>
         <p class="hero-sub">
-          TrackTrendy gives you complete website analytics without cookies or consent banners. 100% GDPR compliant by design - from <strong>€4/month</strong>.
+          {{hero.sub}}
         </p>
         <div class="hero-actions">
-          <a href="https://buy.stripe.com/eVaaIhfiL77Y6uA6oo" class="btn btn-primary" target="_blank">Start free for 30 days &rarr;</a>
-          <a href="#features" class="btn btn-outline">See all features</a>
+          <a href="{{hero.cta1_url}}" class="btn btn-primary" target="_blank">{{hero.cta1_label}} &rarr;</a>
+          <a href="#features" class="btn btn-outline">{{hero.cta2_label}}</a>
         </div>
-        <p class="hero-note">No credit card required &nbsp;&middot;&nbsp; No cookie banner needed &nbsp;&middot;&nbsp; Cancel anytime</p>
+        <p class="hero-note">{{hero.note}}</p>
         <div class="hero-stats">
           <div>
-            <div class="hero-stat-num">0</div>
-            <div class="hero-stat-label">Cookies set on your visitors</div>
+            <div class="hero-stat-num">{{hero.stat1_num}}</div>
+            <div class="hero-stat-label">{{hero.stat1_label}}</div>
           </div>
           <div>
-            <div class="hero-stat-num">100%</div>
-            <div class="hero-stat-label">GDPR compliant</div>
+            <div class="hero-stat-num">{{hero.stat2_num}}</div>
+            <div class="hero-stat-label">{{hero.stat2_label}}</div>
           </div>
           <div>
-            <div class="hero-stat-num">30s</div>
-            <div class="hero-stat-label">Real-time data refresh</div>
+            <div class="hero-stat-num">{{hero.stat3_num}}</div>
+            <div class="hero-stat-label">{{hero.stat3_label}}</div>
           </div>
           <div>
-            <div class="hero-stat-num">€4</div>
-            <div class="hero-stat-label">Per month, single site</div>
+            <div class="hero-stat-num">{{hero.stat4_num}}</div>
+            <div class="hero-stat-label">{{hero.stat4_label}}</div>
           </div>
         </div>
       </div>
@@ -1381,13 +1307,13 @@
   <!-- TRUST BAR -->
   <div class="trust-bar" aria-label="Trust signals">
     <div class="trust-bar-inner">
-      <span class="trust-label">Trusted by</span>
+      <span class="trust-label">{{trust.label}}</span>
       <div class="trust-items">
-        <div class="trust-item"><span class="trust-dot"></span>E-commerce stores</div>
-        <div class="trust-item"><span class="trust-dot"></span>Digital agencies</div>
-        <div class="trust-item"><span class="trust-dot"></span>SaaS products</div>
-        <div class="trust-item"><span class="trust-dot"></span>Content creators</div>
-        <div class="trust-item"><span class="trust-dot"></span>WooCommerce shops</div>
+        <div class="trust-item"><span class="trust-dot"></span>{{trust.item1}}</div>
+        <div class="trust-item"><span class="trust-dot"></span>{{trust.item2}}</div>
+        <div class="trust-item"><span class="trust-dot"></span>{{trust.item3}}</div>
+        <div class="trust-item"><span class="trust-dot"></span>{{trust.item4}}</div>
+        <div class="trust-item"><span class="trust-dot"></span>{{trust.item5}}</div>
       </div>
     </div>
   </div>
@@ -1398,31 +1324,17 @@
       <div class="eyebrow">The problem</div>
       <div class="problem-grid">
         <div class="problem-text">
-          <h2 id="problem-h2">Analytics tools got complicated. And risky.</h2>
-          <p>Google Analytics 4 is powerful - but in the EU, using it without proper consent is a legal grey area. Cookie banners damage conversions. And most alternatives are either too simple or too expensive.</p>
-          <p>There should be a better way to understand your website traffic without putting your visitors' privacy at risk.</p>
+          <h2 id="problem-h2">{{problem.heading}}</h2>
+          <p>{{problem.para1}}</p>
+          <p>{{problem.para2}}</p>
         </div>
         <ul class="pain-list" aria-label="Problems with current analytics tools">
+          <!-- cms:repeat pains -->
           <li>
             <span class="pain-icon"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="#f87171" stroke-width="2.5" stroke-linecap="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></span>
-            GA4 requires cookie consent in the EU - and most banners reduce conversions by up to 10%
+            {{text}}
           </li>
-          <li>
-            <span class="pain-icon"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="#f87171" stroke-width="2.5" stroke-linecap="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></span>
-            GA4's interface is complex - most users can't find the data they actually need
-          </li>
-          <li>
-            <span class="pain-icon"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="#f87171" stroke-width="2.5" stroke-linecap="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></span>
-            Your visitor data is sent to Google's servers and used to build advertising profiles
-          </li>
-          <li>
-            <span class="pain-icon"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="#f87171" stroke-width="2.5" stroke-linecap="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></span>
-            Privacy-first alternatives like Plausible lack revenue tracking, goals, and GSC integration
-          </li>
-          <li>
-            <span class="pain-icon"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="#f87171" stroke-width="2.5" stroke-linecap="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></span>
-            No analytics tool explains what your numbers actually mean - you need a data analyst
-          </li>
+          <!-- /cms:repeat pains -->
         </ul>
       </div>
     </div>
@@ -1432,9 +1344,9 @@
   <section class="section" aria-labelledby="how-h2">
     <div class="inner">
       <div class="section-head">
-        <div class="eyebrow center">How it works</div>
-        <h2 id="how-h2">Up and running in under 5 minutes</h2>
-        <p>Add one line of code. See your data. Understand what it means - with AI.</p>
+        <div class="eyebrow center">{{how.eyebrow}}</div>
+        <h2 id="how-h2">{{how.heading}}</h2>
+        <p>{{how.sub}}</p>
       </div>
       <div class="how-grid">
         <div class="how-step">
@@ -1442,8 +1354,8 @@
           <div class="how-icon">
             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
           </div>
-          <h3>Add the snippet</h3>
-          <p>Paste one line of JavaScript into your site. Works with WordPress, Shopify, any CMS or custom code.</p>
+          <h3>{{how.step1_title}}</h3>
+          <p>{{how.step1_body}}</p>
           <div class="how-code">&lt;script defer data-site="yoursite.com" src="https://track.tracktrendy.com/js/t.js"&gt;&lt;/script&gt;</div>
         </div>
         <div class="how-step">
@@ -1451,16 +1363,16 @@
           <div class="how-icon">
             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
           </div>
-          <h3>Watch your data flow in</h3>
-          <p>Traffic, sources, pages, countries, devices - all your metrics appear in real time. No sampling, no delays.</p>
+          <h3>{{how.step2_title}}</h3>
+          <p>{{how.step2_body}}</p>
         </div>
         <div class="how-step">
           <div class="how-num">03</div>
           <div class="how-icon">
             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 8v4l3 3"/></svg>
           </div>
-          <h3>Understand and grow</h3>
-          <p>Set goals, track revenue, connect Search Console, and let our AI assistant explain what your data means in plain language.</p>
+          <h3>{{how.step3_title}}</h3>
+          <p>{{how.step3_body}}</p>
         </div>
       </div>
     </div>
@@ -1470,74 +1382,20 @@
   <section class="section alt" id="features" aria-labelledby="features-h2">
     <div class="inner">
       <div class="section-head">
-        <div class="eyebrow center">Features</div>
-        <h2 id="features-h2">Everything you need to understand your traffic</h2>
-        <p>No learning curve. No dashboards you never open. Just the data that matters, presented clearly.</p>
+        <div class="eyebrow center">{{features.eyebrow}}</div>
+        <h2 id="features-h2">{{features.heading}}</h2>
+        <p>{{features.sub}}</p>
       </div>
       <div class="features-grid">
+        <!-- cms:repeat featureCards -->
         <div class="feature-card">
           <div class="feature-icon">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+            {{icon}}
           </div>
-          <h3>Cookie-free tracking</h3>
-          <p>No cookies, no consent banners. Fully GDPR, CCPA and PECR compliant out of the box - no legal configuration required.</p>
+          <h3>{{title}}</h3>
+          <p>{{body}}</p>
         </div>
-        <div class="feature-card">
-          <div class="feature-icon">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
-          </div>
-          <h3>Real-time analytics</h3>
-          <p>See live visitors, traffic sources, top pages, countries and devices updated every 30 seconds.</p>
-        </div>
-        <div class="feature-card">
-          <div class="feature-icon">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg>
-          </div>
-          <h3>Revenue tracking</h3>
-          <p>Connect WooCommerce and track purchase events, average order value and total revenue - broken down per traffic channel.</p>
-        </div>
-        <div class="feature-card">
-          <div class="feature-icon">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
-          </div>
-          <h3>Google Search Console</h3>
-          <p>Connect GSC and see which keywords bring organic visitors - without switching between tools.</p>
-        </div>
-        <div class="feature-card">
-          <div class="feature-icon">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
-          </div>
-          <h3>Team access and roles</h3>
-          <p>Invite teammates or clients as owners, admins, or viewers. Everyone sees the right data, nothing more.</p>
-        </div>
-        <div class="feature-card">
-          <div class="feature-icon">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 0 1-3.46 0"/></svg>
-          </div>
-          <h3>Spike and report alerts</h3>
-          <p>Get notified by email when your traffic spikes. Receive weekly or monthly digests automatically.</p>
-        </div>
-        <div class="feature-card">
-          <div class="feature-icon">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg>
-          </div>
-          <h3>Goals and custom events</h3>
-          <p>Track sign-ups, form submits, downloads, purchases - any action that matters to your business.</p>
-        </div>
-        <div class="feature-card">
-          <div class="feature-icon">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></svg>
-          </div>
-          <h3>UTM campaign builder</h3>
-          <p>Build tracking URLs and analyse all 5 UTM parameters in one unified campaign view.</p>
-        </div>
-        <div class="feature-card">
-          <div class="feature-icon">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/><path d="M21 16v5a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5"/></svg>
-          </div>
-          <h3>Public and embeddable dashboards</h3>
-          <p>Share a public stats page or embed your analytics directly into a client report or your own product.</p>
-        </div>
+        <!-- /cms:repeat featureCards -->
       </div>
     </div>
   </section>
@@ -1546,9 +1404,9 @@
   <section class="section" aria-label="Dashboard preview">
     <div class="inner">
       <div class="section-head">
-        <div class="eyebrow center">The dashboard</div>
-        <h2>Clean data. Fast answers.</h2>
-        <p>Everything in one view. No analyst required.</p>
+        <div class="eyebrow center">{{dashboard.eyebrow}}</div>
+        <h2>{{dashboard.heading}}</h2>
+        <p>{{dashboard.sub}}</p>
       </div>
       <div class="browser-frame">
         <div class="browser-bar">
@@ -1625,9 +1483,9 @@
   <section class="section alt" id="compare" aria-labelledby="compare-h2">
     <div class="inner">
       <div class="section-head">
-        <div class="eyebrow center">Comparison</div>
-        <h2 id="compare-h2">How TrackTrendy compares</h2>
-        <p>Privacy-first analytics that doesn't sacrifice depth - at a fraction of the price.</p>
+        <div class="eyebrow center">{{compare.eyebrow}}</div>
+        <h2 id="compare-h2">{{compare.heading}}</h2>
+        <p>{{compare.sub}}</p>
       </div>
       <table class="compare-table" role="table" aria-label="Analytics platform comparison">
         <thead>
@@ -1709,11 +1567,11 @@
     <div class="inner">
       <div class="ai-wrap">
         <div class="ai-text">
-          <div class="eyebrow">Coming soon</div>
-          <h2 id="ai-h2" style="margin-top:18px;">Your analytics,<br><strong>explained by AI.</strong></h2>
-          <p>Understanding your data shouldn't require a data analyst. The TrackTrendy AI assistant reads your dashboard, spots patterns you'd miss, and answers questions in plain language.</p>
-          <p>Ask "Why did my traffic drop on Tuesday?" and get a real answer. Ask "Which campaign is making me the most money?" and get a recommendation - not a spreadsheet.</p>
-          <div class="soon-badge">Coming soon</div>
+          <div class="eyebrow">{{ai.eyebrow}}</div>
+          <h2 id="ai-h2" style="margin-top:18px;">{{ai.title1}}<br><strong>{{ai.title2}}</strong></h2>
+          <p>{{ai.para1}}</p>
+          <p>{{ai.para2}}</p>
+          <div class="soon-badge">{{ai.badge}}</div>
         </div>
         <div class="ai-chat">
           <div class="ai-chat-head">
@@ -1744,39 +1602,20 @@
   <section class="section alt" aria-labelledby="who-h2">
     <div class="inner">
       <div class="section-head">
-        <div class="eyebrow center">Who it's for</div>
-        <h2 id="who-h2">Built for European businesses that care about their visitors</h2>
-        <p>Any business that needs clean data without the legal headaches of traditional analytics.</p>
+        <div class="eyebrow center">{{who.eyebrow}}</div>
+        <h2 id="who-h2">{{who.heading}}</h2>
+        <p>{{who.sub}}</p>
       </div>
       <div class="who-grid">
+        <!-- cms:repeat whoCards -->
         <div class="who-card">
           <div class="who-icon">
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 0 1-8 0"/></svg>
+            {{icon}}
           </div>
-          <h3>E-commerce stores</h3>
-          <p>Track purchases, revenue by source, and which product pages drive the most sales. WooCommerce built-in.</p>
+          <h3>{{title}}</h3>
+          <p>{{body}}</p>
         </div>
-        <div class="who-card">
-          <div class="who-icon">
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg>
-          </div>
-          <h3>Digital agencies</h3>
-          <p>Track all your clients in one dashboard. Give each client their own login with the right level of access.</p>
-        </div>
-        <div class="who-card">
-          <div class="who-icon">
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
-          </div>
-          <h3>SaaS products</h3>
-          <p>Understand your sign-up funnel, track conversion goals, and share live dashboards with stakeholders.</p>
-        </div>
-        <div class="who-card">
-          <div class="who-icon">
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"/><path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"/></svg>
-          </div>
-          <h3>Content creators</h3>
-          <p>See which posts drive traffic, where your readers come from, and how long they stay - at a glance.</p>
-        </div>
+        <!-- /cms:repeat whoCards -->
       </div>
     </div>
   </section>
@@ -1785,9 +1624,9 @@
   <section class="section" id="pricing" aria-labelledby="pricing-h2">
     <div class="inner">
       <div class="section-head">
-        <div class="eyebrow center">Pricing</div>
-        <h2 id="pricing-h2">Simple, honest pricing</h2>
-        <p>One price per plan. No pageview limits. No surprise bills. Start free for 30 days.</p>
+        <div class="eyebrow center">{{pricing.eyebrow}}</div>
+        <h2 id="pricing-h2">{{pricing.heading}}</h2>
+        <p>{{pricing.sub}}</p>
       </div>
       <!-- Toggle -->
       <div class="pricing-toggle">
@@ -1798,17 +1637,17 @@
       <div class="pricing-cards">
         <!-- Single Site -->
         <div class="p-card">
-          <div class="p-plan">Single Site</div>
+          <div class="p-plan">{{plan1.name}}</div>
 
           <div class="price-monthly">
-            <div class="p-trial">30 days free, then</div>
-            <div class="p-price"><sup>&euro;</sup>4<sub>/mo</sub></div>
-            <div class="p-tagline">One site. Every feature. No limits.</div>
+            <div class="p-trial">{{plan1.trial_mo}}</div>
+            <div class="p-price"><sup>&euro;</sup>{{plan1.price_mo}}<sub>/mo</sub></div>
+            <div class="p-tagline">{{plan1.tagline_mo}}</div>
           </div>
           <div class="price-yearly">
             <div class="p-trial">Save 20% &mdash; billed annually</div>
-            <div class="p-price"><sup>&euro;</sup>40<sub>/yr</sub></div>
-            <div class="p-tagline">~&euro;3.33/month. One site. Every feature.</div>
+            <div class="p-price"><sup>&euro;</sup>{{plan1.price_yr}}<sub>/yr</sub></div>
+            <div class="p-tagline">{{plan1.tagline_yr}}</div>
           </div>
 
           <div class="p-sep"></div>
@@ -1820,24 +1659,24 @@
             <li><span class="chk"><svg width="9" height="9" viewBox="0 0 24 24" fill="none" stroke="#4ade80" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>Email reports and spike alerts</li>
             <li><span class="chk"><svg width="9" height="9" viewBox="0 0 24 24" fill="none" stroke="#4ade80" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>2FA security</li>
           </ul>
-          <a href="https://buy.stripe.com/eVaaIhfiL77Y6uA6oo" class="p-cta out btn-monthly" target="_blank">Get started</a>
-          <a href="https://buy.stripe.com/14keYx4E71NE4msbIK" class="p-cta out btn-yearly" target="_blank">Get started</a>
+          <a href="{{plan1.cta_mo_url}}" class="p-cta out btn-monthly" target="_blank">Get started</a>
+          <a href="{{plan1.cta_yr_url}}" class="p-cta out btn-yearly" target="_blank">Get started</a>
         </div>
 
         <!-- 15 Sites -->
         <div class="p-card featured">
-          <div class="p-badge">Best value</div>
-          <div class="p-plan">15 Sites</div>
+          <div class="p-badge">{{plan2.badge}}</div>
+          <div class="p-plan">{{plan2.name}}</div>
 
           <div class="price-monthly">
             <div class="p-trial">&nbsp;</div>
-            <div class="p-price"><sup>&euro;</sup>15<sub>/mo</sub></div>
-            <div class="p-tagline">Up to 15 sites on one subscription.</div>
+            <div class="p-price"><sup>&euro;</sup>{{plan2.price_mo}}<sub>/mo</sub></div>
+            <div class="p-tagline">{{plan2.tagline_mo}}</div>
           </div>
           <div class="price-yearly">
             <div class="p-trial">Save 20% &mdash; billed annually</div>
-            <div class="p-price"><sup>&euro;</sup>150<sub>/yr</sub></div>
-            <div class="p-tagline">~&euro;12.50/month. Up to 15 sites.</div>
+            <div class="p-price"><sup>&euro;</sup>{{plan2.price_yr}}<sub>/yr</sub></div>
+            <div class="p-tagline">{{plan2.tagline_yr}}</div>
           </div>
 
           <div class="p-sep"></div>
@@ -1849,8 +1688,8 @@
             <li><span class="chk"><svg width="9" height="9" viewBox="0 0 24 24" fill="none" stroke="#4ade80" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>Public and embeddable dashboards</li>
             <li><span class="chk"><svg width="9" height="9" viewBox="0 0 24 24" fill="none" stroke="#4ade80" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>AI assistant (early access)</li>
           </ul>
-          <a href="https://buy.stripe.com/3csdUt4E73VM1ag6op" class="p-cta pri btn-monthly" target="_blank">Get started</a>
-          <a href="https://buy.stripe.com/3cs03D1rVaka2ek7sv" class="p-cta pri btn-yearly" target="_blank">Get started</a>
+          <a href="{{plan2.cta_mo_url}}" class="p-cta pri btn-monthly" target="_blank">Get started</a>
+          <a href="{{plan2.cta_yr_url}}" class="p-cta pri btn-yearly" target="_blank">Get started</a>
         </div>
       </div>
     </div>
@@ -1860,75 +1699,19 @@
   <section class="section alt" id="faq" aria-labelledby="faq-h2">
     <div class="inner">
       <div class="section-head">
-        <div class="eyebrow center">FAQ</div>
-        <h2 id="faq-h2">Questions we get asked a lot</h2>
+        <div class="eyebrow center">{{faq.eyebrow}}</div>
+        <h2 id="faq-h2">{{faq.heading}}</h2>
       </div>
       <div class="faq-list" role="list">
-
+        <!-- cms:repeat faqItems -->
         <details class="faq-item">
           <summary class="faq-q">
-            What is TrackTrendy?
+            {{question}}
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
           </summary>
-          <p class="faq-a">TrackTrendy is a privacy-first website analytics platform. It gives you detailed insight into your website traffic - visitors, sources, pages, countries, goals and revenue - without using cookies or tracking your visitors across the web. It's designed as a GDPR-compliant alternative to Google Analytics 4.</p>
+          <p class="faq-a">{{answer}}</p>
         </details>
-
-        <details class="faq-item">
-          <summary class="faq-q">
-            Is TrackTrendy GDPR compliant?
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
-          </summary>
-          <p class="faq-a">Yes, by design. TrackTrendy does not use cookies or persistent identifiers, does not collect personal data, and processes all data in compliance with GDPR, CCPA, and PECR. Your visitor data is never sent to third parties or used for advertising purposes.</p>
-        </details>
-
-        <details class="faq-item">
-          <summary class="faq-q">
-            Do I need a cookie consent banner with TrackTrendy?
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
-          </summary>
-          <p class="faq-a">No. Because TrackTrendy does not use cookies or collect personal data, you do not need a cookie consent banner for analytics. This improves your conversion rate by removing a friction point from your visitors' experience.</p>
-        </details>
-
-        <details class="faq-item">
-          <summary class="faq-q">
-            How is TrackTrendy different from Google Analytics?
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
-          </summary>
-          <p class="faq-a">The key differences: TrackTrendy is cookie-free (no consent banners needed), your data stays private and is never shared with or used by third parties, and the interface is designed to be immediately readable without training. GA4 requires cookie consent in the EU, sends data to Google's servers, and has a steep learning curve.</p>
-        </details>
-
-        <details class="faq-item">
-          <summary class="faq-q">
-            How does TrackTrendy compare to Plausible?
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
-          </summary>
-          <p class="faq-a">Both are privacy-first and cookie-free. TrackTrendy adds revenue tracking (WooCommerce), a built-in UTM campaign builder, traffic spike email alerts, team roles on all plans, and an AI assistant (coming soon) - all from €4/month. Plausible starts at $9/month and reserves some features for higher tiers.</p>
-        </details>
-
-        <details class="faq-item">
-          <summary class="faq-q">
-            How do I add TrackTrendy to my website?
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
-          </summary>
-          <p class="faq-a">Add one line of JavaScript to your site's <code>&lt;head&gt;</code> section. TrackTrendy works with any platform - WordPress, WooCommerce, Shopify, Webflow, or custom HTML. Your tracking snippet is shown in your dashboard after signing up, and is live in under a minute.</p>
-        </details>
-
-        <details class="faq-item">
-          <summary class="faq-q">
-            Does TrackTrendy work with WooCommerce?
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
-          </summary>
-          <p class="faq-a">Yes. TrackTrendy has built-in WooCommerce revenue tracking. Add a short PHP snippet to your theme (or via Code Snippets) and purchase events, order values, and total revenue appear in your dashboard - broken down by traffic source, campaign, and channel.</p>
-        </details>
-
-        <details class="faq-item">
-          <summary class="faq-q">
-            Is there a free trial?
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
-          </summary>
-          <p class="faq-a">Yes - every new account gets 30 days free with full access to all features. No credit card required to start. After the trial, the Single Site plan is €4/month and the Multi-Site plan (up to 15 sites) is €15/month.</p>
-        </details>
-
+        <!-- /cms:repeat faqItems -->
       </div>
     </div>
   </section>
@@ -1950,14 +1733,14 @@
   <!-- CTA -->
   <section class="cta-section" aria-labelledby="cta-h2">
     <div class="cta-inner">
-      <div class="eyebrow center">Get started</div>
-      <h2 id="cta-h2">Ready to drop<br><strong>the cookie banner?</strong></h2>
-      <p>Join businesses across Europe that track their traffic the right way. 30-day free trial - no card required.</p>
+      <div class="eyebrow center">{{cta.eyebrow}}</div>
+      <h2 id="cta-h2">{{cta.title1}}<br><strong>{{cta.title2}}</strong></h2>
+      <p>{{cta.sub}}</p>
       <div class="cta-actions">
-        <a href="https://buy.stripe.com/eVaaIhfiL77Y6uA6oo" class="btn btn-primary" target="_blank">Start free for 30 days &rarr;</a>
-        <a href="#compare" class="btn btn-outline">See how we compare</a>
+        <a href="{{cta.cta1_url}}" class="btn btn-primary" target="_blank">{{cta.cta1_label}} &rarr;</a>
+        <a href="#compare" class="btn btn-outline">{{cta.cta2_label}}</a>
       </div>
-      <p class="cta-note">No credit card &nbsp;&middot;&nbsp; No cookie banner &nbsp;&middot;&nbsp; Cancel anytime</p>
+      <p class="cta-note">{{cta.note}}</p>
     </div>
   </section>
   </main>
@@ -1970,7 +1753,7 @@
           <img src="logo.png" alt="TrackTrendy" width="22" height="22">
           <span>TrackTrendy</span>
         </a>
-        <p class="footer-desc">Privacy-first website analytics for European businesses. Cookie-free, GDPR compliant, and built for people who care about their visitors.</p>
+        <p class="footer-desc">{{footer.desc}}</p>
       </div>
       <div class="footer-col">
         <h4>Product</h4>
@@ -2005,7 +1788,7 @@
       </div>
     </div>
     <div class="footer-bottom">
-      <p class="footer-copy">&copy; <span id="yr"></span> TrackTrendy. Privacy-first analytics.</p>
+      <p class="footer-copy">&copy; <span id="yr"></span> {{footer.copy}}</p>
       <div class="footer-legal">
         <a href="/privacy.html">Privacy policy</a>
         <a href="/terms.html">Terms of service</a>
@@ -2013,8 +1796,7 @@
     </div>
   </footer>
 
-  <!-- TrackTrendy analytics snippet -->
-  <script defer data-site="tracktrendy.com" src="https://track.tracktrendy.com/js/t.js"></script>
+  <!-- TrackTrendy analytics snippet is injected by Orbit at render time (from the site Domain field) -->
 
   <script>
     document.getElementById('yr').textContent = new Date().getFullYear();
