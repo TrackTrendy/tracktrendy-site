@@ -78,12 +78,14 @@
           "sub": "Privacy-first analytics that doesn't sacrifice depth - at a fraction of the price."
         },
         "ai": {
-          "eyebrow": "Coming soon",
+          "eyebrow": "Now live",
           "title1": "Your analytics,",
           "title2": "explained by AI.",
           "para1": "Understanding your data shouldn't require a data analyst. The TrackTrendy AI assistant reads your dashboard, spots patterns you'd miss, and answers questions in plain language.",
           "para2": "Ask \"Why did my traffic drop on Tuesday?\" and get a real answer. Ask \"Which campaign is making me the most money?\" and get a recommendation - not a spreadsheet.",
-          "badge": "Coming soon"
+          "badge": "Live",
+          "insight_label": "AI Insight",
+          "insight_text": "Your Instagram traffic converts 3x better than Google this month - but gets a fraction of the ad spend. Worth shifting budget."
         },
         "who": {
           "eyebrow": "Who it's for",
@@ -130,7 +132,7 @@
           { "question": "Is TrackTrendy GDPR compliant?", "answer": "Yes, by design. TrackTrendy does not use cookies or persistent identifiers, does not collect personal data, and processes all data in compliance with GDPR, CCPA, and PECR. Your visitor data is never sent to third parties or used for advertising purposes." },
           { "question": "Do I need a cookie consent banner with TrackTrendy?", "answer": "No. Because TrackTrendy does not use cookies or collect personal data, you do not need a cookie consent banner for analytics. This improves your conversion rate by removing a friction point from your visitors' experience." },
           { "question": "How is TrackTrendy different from Google Analytics?", "answer": "The key differences: TrackTrendy is cookie-free (no consent banners needed), your data stays private and is never shared with or used by third parties, and the interface is designed to be immediately readable without training. GA4 requires cookie consent in the EU, sends data to Google's servers, and has a steep learning curve." },
-          { "question": "How does TrackTrendy compare to Plausible?", "answer": "Both are privacy-first and cookie-free. TrackTrendy adds revenue tracking (WooCommerce), a built-in UTM campaign builder, traffic spike email alerts, team roles on all plans, and an AI assistant (coming soon) - all from €4/month. Plausible starts at $9/month and reserves some features for higher tiers." },
+          { "question": "How does TrackTrendy compare to Plausible?", "answer": "Both are privacy-first and cookie-free. TrackTrendy adds revenue tracking (WooCommerce), a built-in UTM campaign builder, traffic spike email alerts, team roles on all plans, and a built-in AI assistant - all from €4/month. Plausible starts at $9/month and reserves some features for higher tiers." },
           { "question": "How do I add TrackTrendy to my website?", "answer": "Add one line of JavaScript to your site's <code>&lt;head&gt;</code> section. TrackTrendy works with any platform - WordPress, WooCommerce, Shopify, Webflow, or custom HTML. Your tracking snippet is shown in your dashboard after signing up, and is live in under a minute." },
           { "question": "Does TrackTrendy work with WooCommerce?", "answer": "Yes. TrackTrendy has built-in WooCommerce revenue tracking. Add a short PHP snippet to your theme (or via Code Snippets) and purchase events, order values, and total revenue appear in your dashboard - broken down by traffic source, campaign, and channel." },
           { "question": "Is there a free trial?", "answer": "Yes - every new account gets 30 days free with full access to all features. No credit card required to start. After the trial, the Single Site plan is €4/month and the Multi-Site plan (up to 15 sites) is €15/month." }

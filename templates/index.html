@@ -725,6 +725,22 @@
 
     @keyframes pulse { 0%,100%{opacity:1;transform:scale(1)} 50%{opacity:0.5;transform:scale(0.8)} }
 
+    /* auto-generated AI insight callout in the AI section */
+    .ai-insight {
+      margin-top:20px; padding:13px 16px;
+      background:var(--surface2);
+      border:1px solid rgba(123,92,220,0.22);
+      border-left:3px solid var(--purple);
+      border-radius:10px;
+    }
+    .ai-insight-head {
+      display:flex; align-items:center; gap:7px;
+      font-size:11px; font-weight:700; color:var(--purple-light);
+      letter-spacing:0.08em; text-transform:uppercase; margin-bottom:6px;
+    }
+    .ai-insight p { font-size:13.5px; color:var(--t1); line-height:1.6; margin:0; }
+    body.light .ai-insight { background:var(--surface); border-color:rgba(123,92,220,0.2); }
+
     .ai-chat {
       background:var(--surface);
       border:1px solid rgba(123,92,220,0.22);
@@ -1545,7 +1561,7 @@
           </tr>
           <tr>
             <td>AI assistant</td>
-            <td class="featured"><span class="ct-yes"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#4ade80" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>Coming soon</span></td>
+            <td class="featured"><span class="ct-yes"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#4ade80" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>Yes</span></td>
             <td><span class="ct-no"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#f87171" stroke-width="2.5" stroke-linecap="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>No</span></td>
             <td><span class="ct-no"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#f87171" stroke-width="2.5" stroke-linecap="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>No</span></td>
           </tr>
@@ -1576,6 +1592,13 @@
           <p>{{ai.para1}}</p>
           <p>{{ai.para2}}</p>
           <div class="soon-badge">{{ai.badge}}</div>
+          <div class="ai-insight">
+            <div class="ai-insight-head">
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l1.9 4.6L18.5 9.5l-4.6 1.9L12 16l-1.9-4.6L5.5 9.5l4.6-1.9L12 3z"/></svg>
+              <span>{{ai.insight_label}}</span>
+            </div>
+            <p>{{ai.insight_text}}</p>
+          </div>
         </div>
         <div class="ai-chat">
           <div class="ai-chat-head">
@@ -1690,7 +1713,7 @@
             <li><span class="chk"><svg width="9" height="9" viewBox="0 0 24 24" fill="none" stroke="#4ade80" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>Invite team members with roles</li>
             <li><span class="chk"><svg width="9" height="9" viewBox="0 0 24 24" fill="none" stroke="#4ade80" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>UTM campaign builder</li>
             <li><span class="chk"><svg width="9" height="9" viewBox="0 0 24 24" fill="none" stroke="#4ade80" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>Public and embeddable dashboards</li>
-            <li><span class="chk"><svg width="9" height="9" viewBox="0 0 24 24" fill="none" stroke="#4ade80" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>AI assistant (early access)</li>
+            <li><span class="chk"><svg width="9" height="9" viewBox="0 0 24 24" fill="none" stroke="#4ade80" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>AI assistant included</li>
           </ul>
           <a href="{{plan2.cta_mo_url}}" class="p-cta pri btn-monthly" target="_blank">Get started</a>
           <a href="{{plan2.cta_yr_url}}" class="p-cta pri btn-yearly" target="_blank">Get started</a>

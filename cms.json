@@ -84,7 +84,9 @@
           { "id": "title2", "label": "Heading line 2 (accent)", "type": "text" },
           { "id": "para1", "label": "Paragraph 1", "type": "textarea" },
           { "id": "para2", "label": "Paragraph 2", "type": "textarea" },
-          { "id": "badge", "label": "Badge label", "type": "text" }
+          { "id": "badge", "label": "Badge label", "type": "text" },
+          { "id": "insight_label", "label": "Insight callout - label", "type": "text" },
+          { "id": "insight_text", "label": "Insight callout - example text", "type": "textarea" }
         ]},
         { "id": "who", "label": "Who it's for - header", "repeater": false, "fields": [
           { "id": "eyebrow", "label": "Eyebrow tag", "type": "text" },
