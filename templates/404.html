@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noindex, follow">
+  <!-- No canonical: Pages serves this body at whatever unknown path was requested,
+       so any fixed canonical here would claim the wrong URL. -->
+  <!-- Title/description/OG are injected by Orbit CMS from content.json seo. Do not add them here. -->
+  <!-- Every URL below is root-absolute. A 404 body is served at any depth (/a/b/c),
+       where a relative path like logo.png would resolve to /a/b/logo.png. -->
+  <link rel="icon" href="/favicon.png" type="image/png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@200;300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    /* ponytail: self-contained subset of the homepage tokens. The site's stylesheet
+       lives inline in templates/index.html (1200+ lines), so linking it is not an
+       option and copying it would double the design system. Keep these five colours
+       in sync with :root in templates/index.html if the palette ever changes. */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --black: #000000;
+      --sep: #1e1830;
+      --purple: #7b5cdc;
+      --t1: #f1f1f1;
+      --t2: rgba(255,255,255,0.68);
+      --t3: rgba(255,255,255,0.35);
+      --font: 'Be Vietnam Pro', -apple-system, sans-serif;
+      --max-w: 1140px;
+    }
+    body {
+      background: var(--black);
+      color: var(--t1);
+      font-family: var(--font);
+      font-weight: 300;
+      line-height: 1.6;
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+      -webkit-font-smoothing: antialiased;
+    }
+    a { color: inherit; text-decoration: none; }
+    img { display: block; }
+    .wrap { width: 100%; max-width: var(--max-w); margin: 0 auto; padding: 0 5%; }
+
+    .nav { display: flex; align-items: center; justify-content: space-between; padding: 22px 0; border-bottom: 1px solid var(--sep); }
+    .nav-logo { display: flex; align-items: center; gap: 9px; }
+    .nav-logo img { height: 24px; }
+    .nav-logo span { font-size: 15px; font-weight: 700; letter-spacing: 0.02em; }
+    .nav-links { display: flex; gap: 26px; font-size: 14px; color: var(--t2); }
+    .nav-links a:hover { color: var(--t1); }
+
+    main { flex: 1; display: flex; align-items: center; padding: 96px 0; }
+    .code { font-size: 13px; font-weight: 600; letter-spacing: 0.16em; text-transform: uppercase; color: var(--purple); margin-bottom: 18px; }
+    h1 { font-size: clamp(2.2rem, 5vw, 3.6rem); font-weight: 600; line-height: 1.1; letter-spacing: -0.02em; }
+    .intro { margin-top: 20px; max-width: 34em; color: var(--t2); }
+    .intro p + p { margin-top: 12px; }
+    .links { margin-top: 40px; padding-top: 28px; border-top: 1px solid var(--sep); display: flex; flex-wrap: wrap; gap: 26px; font-size: 14px; color: var(--t2); }
+    .links a:hover { color: var(--purple-light, #a78bfa); }
+    .btn {
+      display: inline-block; margin-top: 36px; padding: 13px 26px; border-radius: 8px;
+      background: var(--purple); color: #fff; font-size: 14px; font-weight: 600;
+      transition: opacity 0.18s ease;
+    }
+    .btn:hover { opacity: 0.88; }
+
+    .footer { border-top: 1px solid var(--sep); padding: 26px 0; font-size: 13px; color: var(--t3); }
+    .footer-inner { display: flex; flex-wrap: wrap; gap: 20px; justify-content: space-between; }
+    .footer-legal { display: flex; gap: 20px; }
+    .footer-legal a:hover { color: var(--t2); }
+
+    @media (max-width: 700px) { .nav-links { display: none; } }
+  </style>
+</head>
+<body>
+
+  <nav class="nav wrap" role="navigation" aria-label="Main navigation">
+    <a href="/" class="nav-logo" aria-label="TrackTrendy home">
+      <img src="/logo.png" alt="TrackTrendy logo" width="24" height="24">
+      <span>TrackTrendy</span>
+    </a>
+    <div class="nav-links">
+      <a href="/#features">Features</a>
+      <a href="/#pricing">Pricing</a>
+      <a href="/blog/">Blog</a>
+      <a href="https://app.tracktrendy.com" target="_blank" rel="noopener">Log in</a>
+    </div>
+  </nav>
+
+  <main>
+    <div class="wrap">
+      <p class="code">{{head.eyebrow}}</p>
+      <h1>{{head.title}}</h1>
+      <div class="intro">{{head.intro}}</div>
+      <div class="links">
+        <a href="/#features">Features</a>
+        <a href="/#pricing">Pricing</a>
+        <a href="/#compare">Compare</a>
+        <a href="/#faq">FAQ</a>
+        <a href="/blog/">Blog</a>
+        <a href="mailto:support@tracktrendy.com">Contact</a>
+      </div>
+      <a href="/" class="btn">{{head.cta_label}}</a>
+    </div>
+  </main>
+
+  <footer class="footer" role="contentinfo">
+    <div class="wrap footer-inner">
+      <p>&copy; <span id="yr"></span> TrackTrendy</p>
+      <div class="footer-legal">
+        <a href="/privacy.html">Privacy policy</a>
+        <a href="/terms.html">Terms of service</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>document.getElementById('yr').textContent = new Date().getFullYear();</script>
+</body>
+</html>

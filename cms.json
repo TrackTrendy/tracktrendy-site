@@ -146,6 +146,21 @@
           { "id": "copy", "label": "Copyright line", "type": "text" }
         ]}
       ]
+    },
+    {
+      "id": "notfound",
+      "label": "404 Not found",
+      "template": "templates/404.html",
+      "output": "site/404.html",
+      "seo": { "schemaType": "WebPage" },
+      "sections": [
+        { "id": "head", "label": "Header", "repeater": false, "fields": [
+          { "id": "eyebrow", "label": "Eyebrow", "type": "text" },
+          { "id": "title", "label": "Title", "type": "text" },
+          { "id": "intro", "label": "Intro (HTML)", "type": "richtext" },
+          { "id": "cta_label", "label": "Button label", "type": "text" }
+        ]}
+      ]
     }
   ]
 }

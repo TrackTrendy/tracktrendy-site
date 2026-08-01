@@ -300,6 +300,21 @@
         "cardHeadings": 100,
         "bodyText": 100
       }
+    },
+    "notfound": {
+      "sections": {
+        "head": {
+          "eyebrow": "Error 404",
+          "title": "This page does not exist.",
+          "intro": "<p>The address you followed does not match anything on this site. It may have been a typo, an old link, or a page we have since moved.</p>",
+          "cta_label": "Back to home"
+        }
+      },
+      "seo": {
+        "title": "Page not found - TrackTrendy",
+        "description": "That page does not exist on tracktrendy.com.",
+        "schemaType": "WebPage"
+      }
     }
   },
   "typography": {
