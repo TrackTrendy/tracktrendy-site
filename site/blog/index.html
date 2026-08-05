@@ -4,37 +4,28 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <title>Blog - Privacy, Analytics & GDPR | TrackTrendy</title>
-  <meta name="description" content="Guides on privacy-first analytics, GDPR compliance, Google Analytics alternatives, and understanding your website data — from the TrackTrendy team.">
+  <!-- Title, description, Open Graph + Blog JSON-LD are injected by Orbit CMS at render time (from content.json seo). Do not add them here or they will duplicate. -->
   <link rel="canonical" href="https://tracktrendy.com/blog/">
-
-  <meta property="og:type" content="website">
-  <meta property="og:url" content="https://tracktrendy.com/blog/">
-  <meta property="og:title" content="Blog - Privacy, Analytics & GDPR | TrackTrendy">
-  <meta property="og:description" content="Guides on privacy-first analytics, GDPR compliance, and making sense of your website data.">
-  <meta property="og:locale" content="en_GB">
-
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "Blog",
-    "name": "TrackTrendy Blog",
-    "description": "Guides on privacy-first analytics, GDPR compliance, and website data.",
-    "url": "https://tracktrendy.com/blog/",
-    "publisher": {
-      "@type": "Organization",
-      "name": "TrackTrendy",
-      "url": "https://tracktrendy.com",
-      "logo": "https://tracktrendy.com/logo.png"
-    }
-  }
-  </script>
 
   <link rel="icon" href="/favicon.png" type="image/png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@200;300;400;500;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="blog.css">
+  <link rel="stylesheet" href="/blog/blog.css">
+  
+<title>Blog - Privacy, Analytics &amp; GDPR | TrackTrendy</title>
+<meta name="description" content="Guides on privacy-first analytics, GDPR compliance, Google Analytics alternatives, and understanding your website data - from the TrackTrendy team.">
+<meta property="og:title" content="Blog - Privacy, Analytics &amp; GDPR | TrackTrendy">
+<meta property="og:description" content="Guides on privacy-first analytics, GDPR compliance, Google Analytics alternatives, and understanding your website data - from the TrackTrendy team.">
+
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="TrackTrendy">
+<meta property="og:url" content="https://tracktrendy.com/blog/">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Blog - Privacy, Analytics &amp; GDPR | TrackTrendy">
+<meta name="twitter:description" content="Guides on privacy-first analytics, GDPR compliance, Google Analytics alternatives, and understanding your website data - from the TrackTrendy team.">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"Blog"}</script>
+<script defer data-site="tracktrendy.com" src="https://track.tracktrendy.com/js/t.js"></script>
 </head>
 <body>
 
@@ -61,123 +52,253 @@
 
   <main>
     <div class="blog-hero">
-      <p class="blog-eyebrow">TrackTrendy Blog</p>
-      <h1>Privacy, Analytics &amp;<br><span class="accent">What Google Won't Tell You</span></h1>
-      <p>Practical guides on cookie-free analytics, GDPR compliance, and understanding your website data — without the corporate spin.</p>
+      <p class="blog-eyebrow" data-cms-field="header.eyebrow">TrackTrendy Blog</p>
+      <h1>Privacy, Analytics &amp;<br><span class="accent" data-cms-field="header.title_line2">What Google Won&#39;t Tell You</span></h1>
+      <p data-cms-field="header.intro">Practical guides on cookie-free analytics, GDPR compliance, and understanding your website data - without the corporate spin.</p>
     </div>
 
     <div class="blog-grid">
-
-      <a href="analytics-without-cookie-banner.html" class="post-card">
+      
+      <a href="/blog/gdpr-compliant-analytics-checklist/" class="post-card" data-publish="2026-10-12">
+        <img class="post-card-media" src="/blog/covers/gdpr-compliant-analytics-checklist.svg" alt="" width="1200" height="630" loading="lazy">
+        <span class="post-card-tag">Compliance</span>
+        <h2>GDPR-Compliant Analytics: A Practical Checklist</h2>
+        <p>A working checklist for getting your website measurement GDPR-compliant -- what to audit, what each tool type requires, and the shortcut that removes most of the list.</p>
+        <div class="post-card-meta">
+          <span>Oct 12, 2026</span>
+          <span>5 min read</span>
+        </div>
+        <span class="post-card-arrow">Read &rarr;</span>
+      </a>
+      
+      <a href="/blog/end-of-third-party-cookies/" class="post-card" data-publish="2026-10-05">
+        <img class="post-card-media" src="/blog/covers/end-of-third-party-cookies.svg" alt="" width="1200" height="630" loading="lazy">
+        <span class="post-card-tag">Privacy</span>
+        <h2>The End of Third-Party Cookies: What It Means for Your Website</h2>
+        <p>Safari and Firefox block them, Chrome kept them after years of U-turns, and regulators squeezed them anyway. Here is where third-party cookies actually stand -- and what a site owner should do.</p>
+        <div class="post-card-meta">
+          <span>Oct 5, 2026</span>
+          <span>5 min read</span>
+        </div>
+        <span class="post-card-arrow">Read &rarr;</span>
+      </a>
+      
+      <a href="/blog/analytics-page-speed-core-web-vitals/" class="post-card" data-publish="2026-09-28">
+        <img class="post-card-media" src="/blog/covers/analytics-page-speed-core-web-vitals.svg" alt="" width="1200" height="630" loading="lazy">
+        <span class="post-card-tag">Performance</span>
+        <h2>How Analytics Scripts Slow Your Site (and What It Costs You)</h2>
+        <p>Your analytics stack is part of your page weight. Here is what GA4 and Tag Manager actually cost in load time and Core Web Vitals -- and how light measurement can be.</p>
+        <div class="post-card-meta">
+          <span>Sep 28, 2026</span>
+          <span>5 min read</span>
+        </div>
+        <span class="post-card-arrow">Read &rarr;</span>
+      </a>
+      
+      <a href="/blog/utm-parameters-complete-guide/" class="post-card" data-publish="2026-09-21">
+        <img class="post-card-media" src="/blog/covers/utm-parameters-complete-guide.svg" alt="" width="1200" height="630" loading="lazy">
+        <span class="post-card-tag">How-To</span>
+        <h2>UTM Parameters: The Complete Guide to Campaign Tracking</h2>
+        <p>UTM parameters tell you which campaigns actually bring visitors and customers. Here is how the five tags work, a naming system that stays clean, and the mistakes that ruin reports.</p>
+        <div class="post-card-meta">
+          <span>Sep 21, 2026</span>
+          <span>4 min read</span>
+        </div>
+        <span class="post-card-arrow">Read &rarr;</span>
+      </a>
+      
+      <a href="/blog/website-metrics-that-matter/" class="post-card" data-publish="2026-09-14">
+        <img class="post-card-media" src="/blog/covers/website-metrics-that-matter.svg" alt="" width="1200" height="630" loading="lazy">
+        <span class="post-card-tag">Analytics Basics</span>
+        <h2>The Website Metrics That Actually Matter for a Small Business</h2>
+        <p>Most dashboards drown you in numbers that change nothing. These are the six metrics worth checking, what they tell you, and the vanity metrics you can safely ignore.</p>
+        <div class="post-card-meta">
+          <span>Sep 14, 2026</span>
+          <span>5 min read</span>
+        </div>
+        <span class="post-card-arrow">Read &rarr;</span>
+      </a>
+      
+      <a href="/blog/track-conversions-without-cookies/" class="post-card" data-publish="2026-09-07">
+        <img class="post-card-media" src="/blog/covers/track-conversions-without-cookies.svg" alt="" width="1200" height="630" loading="lazy">
+        <span class="post-card-tag">How-To</span>
+        <h2>How to Track Conversions Without Cookies</h2>
+        <p>You do not need cookies to know whether your website converts. Here is how cookieless goal and revenue tracking works, what it can and cannot tell you, and how to set it up.</p>
+        <div class="post-card-meta">
+          <span>Sep 7, 2026</span>
+          <span>5 min read</span>
+        </div>
+        <span class="post-card-arrow">Read &rarr;</span>
+      </a>
+      
+      <a href="/blog/google-consent-mode-v2-explained/" class="post-card" data-publish="2026-08-31">
+        <img class="post-card-media" src="/blog/covers/google-consent-mode-v2-explained.svg" alt="" width="1200" height="630" loading="lazy">
+        <span class="post-card-tag">Compliance</span>
+        <h2>Google Consent Mode v2 Explained (Without the Jargon)</h2>
+        <p>Google made Consent Mode v2 mandatory for ad features in Europe. Here is what it actually does, what &quot;advanced mode&quot; really sends, and whether you need any of it.</p>
+        <div class="post-card-meta">
+          <span>Aug 31, 2026</span>
+          <span>5 min read</span>
+        </div>
+        <span class="post-card-arrow">Read &rarr;</span>
+      </a>
+      
+      <a href="/blog/ad-blockers-and-analytics/" class="post-card" data-publish="2026-08-24">
+        <img class="post-card-media" src="/blog/covers/ad-blockers-and-analytics.svg" alt="" width="1200" height="630" loading="lazy">
+        <span class="post-card-tag">Analytics Basics</span>
+        <h2>Ad Blockers and Analytics: Why Your Google Analytics Numbers Are Wrong</h2>
+        <p>A meaningful share of your visitors block Google Analytics before it loads -- on top of the ones who decline your cookie banner. Here is how big the gap really is and what to do about it.</p>
+        <div class="post-card-meta">
+          <span>Aug 24, 2026</span>
+          <span>5 min read</span>
+        </div>
+        <span class="post-card-arrow">Read &rarr;</span>
+      </a>
+      
+      <a href="/blog/is-google-analytics-illegal-in-europe/" class="post-card" data-publish="2026-08-17">
+        <img class="post-card-media" src="/blog/covers/is-google-analytics-illegal-in-europe.svg" alt="" width="1200" height="630" loading="lazy">
+        <span class="post-card-tag">Compliance</span>
+        <h2>Is Google Analytics Illegal in Europe?</h2>
+        <p>Austria, France and Italy all ruled Google Analytics unlawful in 2022. Then a new transfer framework changed the picture. Here is where the law actually stands -- and what it means for your site.</p>
+        <div class="post-card-meta">
+          <span>Aug 17, 2026</span>
+          <span>5 min read</span>
+        </div>
+        <span class="post-card-arrow">Read &rarr;</span>
+      </a>
+      
+      <a href="/blog/google-analytics-alternatives/" class="post-card" data-publish="2026-08-10">
+        <img class="post-card-media" src="/blog/covers/google-analytics-alternatives.svg" alt="" width="1200" height="630" loading="lazy">
+        <span class="post-card-tag">Google Analytics</span>
+        <h2>The Best Google Analytics Alternatives in 2026</h2>
+        <p>GA4 is not the only way to understand your traffic. Here are the alternatives worth considering in 2026 -- what they cost, what they track, and which one fits your site.</p>
+        <div class="post-card-meta">
+          <span>Aug 10, 2026</span>
+          <span>5 min read</span>
+        </div>
+        <span class="post-card-arrow">Read &rarr;</span>
+      </a>
+      
+      <a href="/blog/analytics-without-cookie-banner/" class="post-card" data-publish="2026-06-15">
+        <img class="post-card-media" src="/blog/covers/analytics-without-cookie-banner.svg" alt="" width="1200" height="630" loading="lazy">
         <span class="post-card-tag">Privacy</span>
         <h2>How to Track Website Visitors Without a Cookie Banner</h2>
-        <p>Cookie-free analytics tools let you capture 100% of your visitors without consent popups. Here's how it works and why it matters for your data accuracy.</p>
+        <p>Cookie-free analytics tools let you capture 100% of your visitors without consent popups. Here&#39;s how it works and why it matters for your data accuracy.</p>
         <div class="post-card-meta">
           <span>Jun 15, 2026</span>
           <span>6 min read</span>
         </div>
         <span class="post-card-arrow">Read &rarr;</span>
       </a>
-
-      <a href="what-does-google-know-about-me.html" class="post-card">
+      
+      <a href="/blog/what-does-google-know-about-me/" class="post-card" data-publish="2026-06-15">
+        <img class="post-card-media" src="/blog/covers/what-does-google-know-about-me.svg" alt="" width="1200" height="630" loading="lazy">
         <span class="post-card-tag">Privacy</span>
         <h2>What Does Google Know About Me?</h2>
-        <p>Google collects your searches, location, browsing history, emails, and more — building a profile far more detailed than most people realise. Here's the full picture.</p>
+        <p>Google collects your searches, location, browsing history, emails, and more — building a profile far more detailed than most people realise. Here&#39;s the full picture.</p>
         <div class="post-card-meta">
           <span>Jun 15, 2026</span>
           <span>8 min read</span>
         </div>
         <span class="post-card-arrow">Read &rarr;</span>
       </a>
-
-      <a href="privacy-first-analytics.html" class="post-card">
+      
+      <a href="/blog/privacy-first-analytics/" class="post-card" data-publish="2026-06-15">
+        <img class="post-card-media" src="/blog/covers/privacy-first-analytics.svg" alt="" width="1200" height="630" loading="lazy">
         <span class="post-card-tag">Privacy</span>
         <h2>What Is Privacy-First Analytics?</h2>
-        <p>Privacy-first analytics collects website data without cookies, without storing personal information, and without requiring a GDPR consent banner. Here's exactly what that means.</p>
+        <p>Privacy-first analytics collects website data without cookies, without storing personal information, and without requiring a GDPR consent banner. Here&#39;s exactly what that means.</p>
         <div class="post-card-meta">
           <span>Jun 15, 2026</span>
           <span>5 min read</span>
         </div>
         <span class="post-card-arrow">Read &rarr;</span>
       </a>
-
-      <a href="google-analytics-pricing.html" class="post-card">
+      
+      <a href="/blog/google-analytics-pricing/" class="post-card" data-publish="2026-06-15">
+        <img class="post-card-media" src="/blog/covers/google-analytics-pricing.svg" alt="" width="1200" height="630" loading="lazy">
         <span class="post-card-tag">Google Analytics</span>
         <h2>Google Analytics Pricing: Is GA4 Really Free?</h2>
-        <p>GA4 is free — but Google charges you with your visitors' data. Here's what GA4 actually costs, what GA4 360 runs at $50K+/year, and what you give up either way.</p>
+        <p>GA4 is free — but Google charges you with your visitors&#39; data. Here&#39;s what GA4 actually costs, what GA4 360 runs at $50K+/year, and what you give up either way.</p>
         <div class="post-card-meta">
           <span>Jun 15, 2026</span>
           <span>5 min read</span>
         </div>
         <span class="post-card-arrow">Read &rarr;</span>
       </a>
-
-      <a href="unique-visitors-google-analytics.html" class="post-card">
+      
+      <a href="/blog/unique-visitors-google-analytics/" class="post-card" data-publish="2026-06-15">
+        <img class="post-card-media" src="/blog/covers/unique-visitors-google-analytics.svg" alt="" width="1200" height="630" loading="lazy">
         <span class="post-card-tag">Google Analytics</span>
         <h2>Unique Visitors in Google Analytics: The Complete Guide</h2>
-        <p>GA4 changed how unique visitors are counted compared to Universal Analytics. Here's what "users" means in GA4, how cookies affect the count, and why the number is probably wrong.</p>
+        <p>GA4 changed how unique visitors are counted compared to Universal Analytics. Here&#39;s what &quot;users&quot; means in GA4, how cookies affect the count, and why the number is probably wrong.</p>
         <div class="post-card-meta">
           <span>Jun 15, 2026</span>
           <span>6 min read</span>
         </div>
         <span class="post-card-arrow">Read &rarr;</span>
       </a>
-
-      <a href="engagement-rate-google-analytics-4.html" class="post-card">
+      
+      <a href="/blog/engagement-rate-google-analytics-4/" class="post-card" data-publish="2026-06-15">
+        <img class="post-card-media" src="/blog/covers/engagement-rate-google-analytics-4.svg" alt="" width="1200" height="630" loading="lazy">
         <span class="post-card-tag">Google Analytics</span>
-        <h2>Engagement Rate in GA4: What It Is and What's a Good Score</h2>
-        <p>Engagement rate replaced bounce rate in GA4. Here's the formula, what counts as an engaged session, what a healthy score looks like, and how to improve it.</p>
+        <h2>Engagement Rate in GA4: What It Is and What&#39;s a Good Score</h2>
+        <p>Engagement rate replaced bounce rate in GA4. Here&#39;s the formula, what counts as an engaged session, what a healthy score looks like, and how to improve it.</p>
         <div class="post-card-meta">
           <span>Jun 15, 2026</span>
           <span>6 min read</span>
         </div>
         <span class="post-card-arrow">Read &rarr;</span>
       </a>
-
-      <a href="how-to-delete-google-analytics.html" class="post-card">
+      
+      <a href="/blog/how-to-delete-google-analytics/" class="post-card" data-publish="2026-06-15">
+        <img class="post-card-media" src="/blog/covers/how-to-delete-google-analytics.svg" alt="" width="1200" height="630" loading="lazy">
         <span class="post-card-tag">How-To</span>
         <h2>How to Delete Your Google Analytics Account (Step by Step)</h2>
-        <p>Ready to leave Google Analytics? Here's how to delete your GA4 account, what happens to your historical data, and how to export it before it's gone.</p>
+        <p>Ready to leave Google Analytics? Here&#39;s how to delete your GA4 account, what happens to your historical data, and how to export it before it&#39;s gone.</p>
         <div class="post-card-meta">
           <span>Jun 15, 2026</span>
           <span>5 min read</span>
         </div>
         <span class="post-card-arrow">Read &rarr;</span>
       </a>
-
-      <a href="what-do-website-analytics-do.html" class="post-card">
+      
+      <a href="/blog/what-do-website-analytics-do/" class="post-card" data-publish="2026-06-15">
+        <img class="post-card-media" src="/blog/covers/what-do-website-analytics-do.svg" alt="" width="1200" height="630" loading="lazy">
         <span class="post-card-tag">Analytics Basics</span>
         <h2>What Do Website Analytics Allow You to Do?</h2>
-        <p>Website analytics tell you who visits, where they come from, what they do, and where they leave. Here's a practical breakdown of what you can actually learn.</p>
+        <p>Website analytics tell you who visits, where they come from, what they do, and where they leave. Here&#39;s a practical breakdown of what you can actually learn.</p>
         <div class="post-card-meta">
           <span>Jun 15, 2026</span>
           <span>7 min read</span>
         </div>
         <span class="post-card-arrow">Read &rarr;</span>
       </a>
-
-      <a href="ccpa-and-web-analytics.html" class="post-card">
+      
+      <a href="/blog/ccpa-and-web-analytics/" class="post-card" data-publish="2026-06-15">
+        <img class="post-card-media" src="/blog/covers/ccpa-and-web-analytics.svg" alt="" width="1200" height="630" loading="lazy">
         <span class="post-card-tag">Compliance</span>
         <h2>CCPA and Web Analytics: What You Need to Know</h2>
-        <p>The California Consumer Privacy Act affects any website with California visitors. Here's how CCPA applies to analytics tools, cookies, and what "selling" data really means under the law.</p>
+        <p>The California Consumer Privacy Act affects any website with California visitors. Here&#39;s how CCPA applies to analytics tools, cookies, and what &quot;selling&quot; data really means under the law.</p>
         <div class="post-card-meta">
           <span>Jun 15, 2026</span>
           <span>7 min read</span>
         </div>
         <span class="post-card-arrow">Read &rarr;</span>
       </a>
-
-      <a href="california-delete-act.html" class="post-card">
+      
+      <a href="/blog/california-delete-act/" class="post-card" data-publish="2026-06-15">
+        <img class="post-card-media" src="/blog/covers/california-delete-act.svg" alt="" width="1200" height="630" loading="lazy">
         <span class="post-card-tag">Compliance</span>
         <h2>California Delete Act: What It Means for Your Data</h2>
-        <p>California's Delete Act (SB 362) lets residents wipe their data from every data broker at once through a single state-run portal. Here's what it is, who it covers, and what changes.</p>
+        <p>California&#39;s Delete Act (SB 362) lets residents wipe their data from every data broker at once through a single state-run portal. Here&#39;s what it is, who it covers, and what changes.</p>
         <div class="post-card-meta">
           <span>Jun 15, 2026</span>
           <span>5 min read</span>
         </div>
         <span class="post-card-arrow">Read &rarr;</span>
       </a>
-
+      
     </div>
   </main>
 
@@ -203,8 +324,8 @@
         <h4>Learn</h4>
         <ul>
           <li><a href="/blog/">Blog</a></li>
-          <li><a href="/blog/analytics-without-cookie-banner.html">Cookie-free analytics</a></li>
-          <li><a href="/blog/privacy-first-analytics.html">Privacy-first analytics</a></li>
+          <li><a href="/blog/analytics-without-cookie-banner/">Cookie-free analytics</a></li>
+          <li><a href="/blog/privacy-first-analytics/">Privacy-first analytics</a></li>
         </ul>
       </div>
       <div class="footer-col">
@@ -226,7 +347,18 @@
     </div>
   </footer>
 
-  <script defer data-site="tracktrendy.com" src="https://track.tracktrendy.com/js/t.js"></script>
+  <!-- Client-side drip: cards carry data-publish="YYYY-MM-DD". Future-dated cards stay
+       hidden until their day arrives - no rebuild or redeploy needed. -->
+  <script>
+    (function () {
+      var now = Date.now();
+      document.querySelectorAll('.post-card[data-publish]').forEach(function (card) {
+        var t = Date.parse(card.getAttribute('data-publish'));
+        if (!isNaN(t) && t > now) card.classList.add('pending');
+      });
+    })();
+  </script>
+
   <script>
     document.getElementById('yr').textContent = new Date().getFullYear();
     (function() {

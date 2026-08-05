@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- Title, description, Open Graph + BlogPosting/BreadcrumbList/FAQPage JSON-LD are injected by Orbit CMS at render time. Do not add them here or they will duplicate. -->
+  <link rel="canonical" href="https://tracktrendy.com/blog/analytics-page-speed-core-web-vitals/">
+
+  <link rel="icon" href="/favicon.png" type="image/png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@200;300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/blog/blog.css">
+  
+<title>How Analytics Scripts Affect Page Speed and Core Web Vitals | TrackTrendy Blog</title>
+<meta name="description" content="Google Analytics, Tag Manager and consent banners add real weight and JavaScript execution to every page. What it means for Core Web Vitals, SEO and conversions -- and the lightweight alternative.">
+<meta property="og:title" content="How Analytics Scripts Affect Page Speed and Core Web Vitals | TrackTrendy Blog">
+<meta property="og:description" content="Google Analytics, Tag Manager and consent banners add real weight and JavaScript execution to every page. What it means for Core Web Vitals, SEO and conversions -- and the lightweight alternative.">
+<meta property="og:image" content="https://tracktrendy.com/blog/covers/analytics-page-speed-core-web-vitals.jpg">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://tracktrendy.com/blog/analytics-page-speed-core-web-vitals/">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="How Analytics Scripts Affect Page Speed and Core Web Vitals | TrackTrendy Blog">
+<meta name="twitter:description" content="Google Analytics, Tag Manager and consent banners add real weight and JavaScript execution to every page. What it means for Core Web Vitals, SEO and conversions -- and the lightweight alternative.">
+<meta name="twitter:image" content="https://tracktrendy.com/blog/covers/analytics-page-speed-core-web-vitals.jpg">
+<meta property="article:published_time" content="2026-09-28">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"WebPage"}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","headline":"How Analytics Scripts Slow Your Site (and What It Costs You)","datePublished":"2026-09-28","image":"https://tracktrendy.com/blog/covers/analytics-page-speed-core-web-vitals.jpg","description":"Your analytics stack is part of your page weight. Here is what GA4 and Tag Manager actually cost in load time and Core Web Vitals -- and how light measurement can be.","author":{"@type":"Organization","name":"TrackTrendy"},"publisher":{"@type":"Organization","name":"TrackTrendy"},"mainEntityOfPage":{"@type":"WebPage","@id":"https://tracktrendy.com/blog/analytics-page-speed-core-web-vitals/"}}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://tracktrendy.com/"},{"@type":"ListItem","position":2,"name":"Blog","item":"https://tracktrendy.com/blog/"},{"@type":"ListItem","position":3,"name":"How Analytics Scripts Slow Your Site (and What It Costs You)","item":"https://tracktrendy.com/blog/analytics-page-speed-core-web-vitals/"}]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Does Google Analytics slow down your website?","acceptedAnswer":{"@type":"Answer","text":"Yes, measurably. gtag.js is roughly 90-100KB compressed (several hundred KB parsed), usually loaded via Tag Manager which adds a similar amount, plus a consent platform on EU sites. The download cost is minor on fast connections; the JavaScript execution cost on mid-range phones is the real drag, particularly for the INP metric."}},{"@type":"Question","name":"Do analytics scripts affect SEO?","acceptedAnswer":{"@type":"Answer","text":"Indirectly, through Core Web Vitals -- LCP, INP and CLS are part of Google's ranking systems. Heavy third-party JavaScript worsens LCP and INP, and injected consent banners are a common source of layout shift. Slow pages also convert and get crawled worse regardless of rankings."}},{"@type":"Question","name":"What is the lightest way to get website analytics?","acceptedAnswer":{"@type":"Answer","text":"Cookieless privacy-first scripts: TrackTrendy's tracker is 1.4KB and comparable tools are similarly small -- around 1-2% of a GA4 stack's weight. Because they need no consent banner, EU sites also drop the consent platform script and its layout shift entirely."}},{"@type":"Question","name":"Should I remove Google Tag Manager?","acceptedAnswer":{"@type":"Answer","text":"If GTM only loads your analytics, you can usually remove it and include a light analytics script directly. GTM earns its weight when a marketing team manages many frequently-changing tags; on a small business site it is often a heavy solution to a problem that no longer exists after simplifying the stack."}},{"@type":"Question","name":"How do I test my site's Core Web Vitals?","acceptedAnswer":{"@type":"Answer","text":"Run your key pages through Google's PageSpeed Insights, which reports lab measurements plus real-user data where available, and highlights third-party script cost under \"Reduce the impact of third-party code\". Test before and after any analytics cleanup to see the difference."}}]}</script>
+<script defer data-site="tracktrendy.com" src="https://track.tracktrendy.com/js/t.js"></script>
+</head>
+<body>
+
+  <!-- Site navigation - matches the main site header -->
+  <nav class="nav" role="navigation" aria-label="Main navigation">
+    <a href="/" class="nav-logo" aria-label="TrackTrendy home">
+      <img src="/logo.png" alt="TrackTrendy logo" width="24" height="24">
+      <span class="nav-wordmark">TrackTrendy</span>
+    </a>
+    <div class="nav-links">
+      <a href="/#features">Features</a>
+      <a href="/#compare">Compare</a>
+      <a href="/#pricing">Pricing</a>
+      <a href="/blog/" class="active">Blog</a>
+    </div>
+    <div class="nav-right">
+      <a href="https://app.tracktrendy.com" class="nav-login" target="_blank">Log in</a>
+      <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">
+        <span class="icon-moon"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg></span>
+        <span class="icon-sun"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg></span>
+      </button>
+      <a href="https://buy.stripe.com/eVaaIhfiL77Y6uA6oo" class="nav-cta" target="_blank">Try free &rarr;</a>
+    </div>
+  </nav>
+
+  <main>
+    <article class="post-wrap" itemscope itemtype="https://schema.org/Article">
+
+      <!-- Breadcrumb trail - visual complement to the BreadcrumbList schema -->
+      <nav class="post-breadcrumb" aria-label="Breadcrumb">
+        <a href="/">Home</a>
+        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"/></svg>
+        <a href="/blog/">Blog</a>
+        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"/></svg>
+        <span>How Analytics Scripts Slow Your Site (and What It Costs You)</span>
+      </nav>
+
+      <!-- Post header -->
+      <p class="post-eyebrow">Performance</p>
+      <h1 itemprop="headline">How Analytics Scripts Slow Your Site (and What It Costs You)</h1>
+      <div class="post-meta">
+        <time datetime="2026-09-28" itemprop="datePublished">September 28, 2026</time>
+        <span>5 min read</span>
+      </div>
+
+      <!-- Cover illustration - brand particle-wave artwork -->
+      <img class="post-cover" src="/blog/covers/analytics-page-speed-core-web-vitals.svg" alt="" width="1200" height="630">
+
+      <div class="quick-answer">
+  <strong>Quick answer:</strong> A typical Google Analytics setup loads roughly 90-100KB of compressed JavaScript (several hundred kilobytes once parsed), plus Tag Manager and a consent platform on EU sites -- often a quarter megabyte of script before your content settles. That work competes with your page for CPU time on real phones and drags on Core Web Vitals, which feed both Google rankings and conversion rates. A privacy-first script does the same counting job in about 1-2KB.
+</div>
+
+<div class="post-body" itemprop="articleBody">
+
+  <h2>What does an analytics stack actually weigh?</h2>
+
+  <p>Measurement is not free. A standard GA4 installation pulls gtag.js at roughly 90-100KB compressed -- several hundred KB of JavaScript once the browser decompresses and parses it. Most sites load it through Google Tag Manager, which adds its own container script of a similar order. And in the EU the stack legally needs a consent management platform in front of it: another script, another network round-trip, plus the banner's own HTML, CSS and logic.</p>
+
+  <p>Add a Meta pixel or a heatmap tool and a quarter of a megabyte of third-party JavaScript per page is not an outlier -- it is the common case. On a fibre connection with a desktop CPU you barely notice. On a mid-range Android phone on mobile data -- which is what a large share of your real visitors use -- every one of those scripts competes with your actual content for bandwidth and processing time.</p>
+
+  <h2>How does this touch Core Web Vitals?</h2>
+
+  <p>Core Web Vitals are Google's three user-experience measurements, and they are part of its ranking systems:</p>
+
+  <ul>
+    <li><strong>LCP (Largest Contentful Paint)</strong> -- how fast the main content appears. Third-party scripts compete for early bandwidth; a preloaded tag container is bandwidth your hero image did not get.</li>
+    <li><strong>INP (Interaction to Next Paint)</strong> -- how quickly the page responds to taps and clicks. INP replaced First Input Delay in 2024 and it is where heavy JavaScript hurts most: long script-evaluation tasks block the main thread, and a tap that lands during one waits.</li>
+    <li><strong>CLS (Cumulative Layout Shift)</strong> -- visual stability. Consent banners are notorious here: inject the banner after first paint and push the content down, and you have donated layout shift to every EU pageview.</li>
+  </ul>
+
+  <p>No single script ruins these scores. The pattern is accumulation -- analytics plus tag manager plus consent plus pixel, each "only" a modest cost, summing to a page that feels heavy and measures poorly on the phones your customers actually own.</p>
+
+  <h2>Does the speed cost show up in revenue?</h2>
+
+  <p>The link between speed and outcomes is one of the most consistently replicated findings in web performance: study after study, from vendors and independents alike, shows conversion rates falling measurably as load time grows -- commonly cited in the range of several percent lost per extra second. Slow pages also bounce more and get crawled less enthusiastically. The irony writes itself: the measurement stack exists to optimise conversions, and its weight quietly taxes them.</p>
+
+  <p>There is also a purely practical cost: complexity. Every script in the chain -- container, consent platform, tags -- is something that can misfire, double-fire, or silently stop firing after a site update. Lighter stacks break less.</p>
+
+  <h2>How light can analytics be?</h2>
+
+  <p>The counting job itself -- pageview, referrer, page URL, rough geography, a goal event -- needs almost nothing. TrackTrendy's script is 1.4KB, loads with <code>defer</code> so it never blocks rendering, sets no cookies, and needs no consent banner or tag manager in front of it. Plausible and Fathom are in the same low-kilobyte class. That is a 98-99% weight reduction against a typical GA4-plus-GTM-plus-CMP stack -- not by clever engineering, but by not doing the profiling work that makes advertising analytics heavy.</p>
+
+  <p>Note what the banner removal does for Core Web Vitals specifically: no consent script, no injected banner, no banner-induced layout shift, and none of the "did they consent yet?" gating logic. For EU sites the CMP is regularly a bigger performance item than the analytics itself.</p>
+
+  <h2>A sensible performance checklist for measurement</h2>
+
+  <ul>
+    <li><strong>Audit what actually fires.</strong> Open DevTools' Network tab, filter to third-party requests, and list what loads on your homepage. Most owners find a forgotten pixel or two.</li>
+    <li><strong>Remove what you do not read.</strong> A heatmap tool nobody has opened since last year is pure tax.</li>
+    <li><strong>Load what remains with defer</strong>, after your content.</li>
+    <li><strong>Prefer lightweight, cookieless measurement</strong> for the traffic-and-conversions job; keep heavy ad pixels only where you actively run the corresponding ads.</li>
+    <li><strong>Re-test your Core Web Vitals</strong> (PageSpeed Insights) after the cleanup -- the change is usually visible immediately.</li>
+  </ul>
+
+  <p>Faster pages, complete visitor counts, and no banner: it is one of the few optimisations where the trade-offs all point the same way. For what the switch looks like in practice, see our comparison of <a href="/blog/google-analytics-alternatives/">Google Analytics alternatives</a>.</p>
+
+</div>
+
+<section class="faq-section" aria-labelledby="faq-heading">
+  <h2 id="faq-heading">Frequently Asked Questions</h2>
+
+  <div class="faq-item">
+    <p class="faq-q">Does Google Analytics slow down your website?</p>
+    <p class="faq-a">Yes, measurably. gtag.js is roughly 90-100KB compressed (several hundred KB parsed), usually loaded via Tag Manager which adds a similar amount, plus a consent platform on EU sites. The download cost is minor on fast connections; the JavaScript execution cost on mid-range phones is the real drag, particularly for the INP metric.</p>
+  </div>
+
+  <div class="faq-item">
+    <p class="faq-q">Do analytics scripts affect SEO?</p>
+    <p class="faq-a">Indirectly, through Core Web Vitals -- LCP, INP and CLS are part of Google's ranking systems. Heavy third-party JavaScript worsens LCP and INP, and injected consent banners are a common source of layout shift. Slow pages also convert and get crawled worse regardless of rankings.</p>
+  </div>
+
+  <div class="faq-item">
+    <p class="faq-q">What is the lightest way to get website analytics?</p>
+    <p class="faq-a">Cookieless privacy-first scripts: TrackTrendy's tracker is 1.4KB and comparable tools are similarly small -- around 1-2% of a GA4 stack's weight. Because they need no consent banner, EU sites also drop the consent platform script and its layout shift entirely.</p>
+  </div>
+
+  <div class="faq-item">
+    <p class="faq-q">Should I remove Google Tag Manager?</p>
+    <p class="faq-a">If GTM only loads your analytics, you can usually remove it and include a light analytics script directly. GTM earns its weight when a marketing team manages many frequently-changing tags; on a small business site it is often a heavy solution to a problem that no longer exists after simplifying the stack.</p>
+  </div>
+
+  <div class="faq-item">
+    <p class="faq-q">How do I test my site's Core Web Vitals?</p>
+    <p class="faq-a">Run your key pages through Google's PageSpeed Insights, which reports lab measurements plus real-user data where available, and highlights third-party script cost under "Reduce the impact of third-party code". Test before and after any analytics cleanup to see the difference.</p>
+  </div>
+
+</section>
+
+      <!-- Conversion CTA at the end of the post -->
+      <div class="post-cta">
+        <h3>See privacy-first analytics in action</h3>
+        <p>TrackTrendy tracks every visitor without cookies or consent popups. GDPR compliant by design, simple dashboard, from &euro;4/month.</p>
+        <a href="https://buy.stripe.com/eVaaIhfiL77Y6uA6oo" class="btn" target="_blank">Start free for 30 days &rarr;</a>
+        <p class="btn-note">No credit card required &middot; No cookie banner needed</p>
+      </div>
+
+      <!-- Related posts - internal links to support crawlability and time on site -->
+      <div class="related">
+        <h3>Related reading</h3>
+        <div class="related-links">
+          <a href="/blog/google-analytics-alternatives/">The Best Google Analytics Alternatives in 2026 &rarr;</a>
+          <a href="/blog/website-metrics-that-matter/">The Website Metrics That Actually Matter for a Small Business &rarr;</a>
+          <a href="/blog/google-analytics-pricing/">Google Analytics Pricing: Is GA4 Really Free? &rarr;</a>
+        </div>
+      </div>
+
+    </article>
+  </main>
+
+  <!-- Site footer - consistent across all blog posts -->
+  <footer class="footer" role="contentinfo">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <a href="/" class="footer-logo"><img src="/logo.png" alt="TrackTrendy" width="22" height="22"><span>TrackTrendy</span></a>
+        <p class="footer-desc">Privacy-first website analytics for European businesses. Cookie-free, GDPR compliant, and built for people who care about their visitors.</p>
+      </div>
+      <div class="footer-col"><h4>Product</h4><ul><li><a href="/#features">Features</a></li><li><a href="/#pricing">Pricing</a></li><li><a href="/#compare">Compare</a></li><li><a href="https://app.tracktrendy.com" target="_blank">Dashboard</a></li></ul></div>
+      <div class="footer-col"><h4>Learn</h4><ul><li><a href="/blog/">Blog</a></li><li><a href="/blog/analytics-without-cookie-banner/">Cookie-free analytics</a></li><li><a href="/blog/privacy-first-analytics/">Privacy-first analytics</a></li></ul></div>
+      <div class="footer-col"><h4>Support</h4><ul><li><a href="/#faq">FAQ</a></li><li><a href="mailto:support@tracktrendy.com">Contact</a></li><li><a href="/privacy.html">Privacy policy</a></li><li><a href="/terms.html">Terms</a></li></ul></div>
+    </div>
+    <div class="footer-bottom">
+      <p class="footer-copy">&copy; <span id="yr"></span> TrackTrendy. Privacy-first analytics.</p>
+      <div class="footer-legal"><a href="/privacy.html">Privacy policy</a><a href="/terms.html">Terms of service</a></div>
+    </div>
+  </footer>
+
+  <script>
+    /* Set copyright year dynamically */
+    document.getElementById('yr').textContent = new Date().getFullYear();
+
+    /* Restore saved theme before first paint to avoid flash */
+    (function() { if (localStorage.getItem('tt-site-theme') === 'light') document.body.classList.add('light'); })();
+
+    /* Theme toggle: persists choice in localStorage */
+    document.getElementById('themeToggle').addEventListener('click', function() {
+      const isLight = document.body.classList.toggle('light');
+      localStorage.setItem('tt-site-theme', isLight ? 'light' : 'dark');
+    });
+  </script>
+</body>
+</html>

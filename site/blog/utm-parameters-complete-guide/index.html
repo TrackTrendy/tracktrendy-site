@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- Title, description, Open Graph + BlogPosting/BreadcrumbList/FAQPage JSON-LD are injected by Orbit CMS at render time. Do not add them here or they will duplicate. -->
+  <link rel="canonical" href="https://tracktrendy.com/blog/utm-parameters-complete-guide/">
+
+  <link rel="icon" href="/favicon.png" type="image/png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@200;300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/blog/blog.css">
+  
+<title>UTM Parameters: The Complete Guide to Campaign Tracking | TrackTrendy Blog</title>
+<meta name="description" content="Learn how UTM parameters work: utm_source, utm_medium, utm_campaign, utm_term and utm_content explained, with naming conventions, examples, and common mistakes to avoid.">
+<meta property="og:title" content="UTM Parameters: The Complete Guide to Campaign Tracking | TrackTrendy Blog">
+<meta property="og:description" content="Learn how UTM parameters work: utm_source, utm_medium, utm_campaign, utm_term and utm_content explained, with naming conventions, examples, and common mistakes to avoid.">
+<meta property="og:image" content="https://tracktrendy.com/blog/covers/utm-parameters-complete-guide.jpg">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://tracktrendy.com/blog/utm-parameters-complete-guide/">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="UTM Parameters: The Complete Guide to Campaign Tracking | TrackTrendy Blog">
+<meta name="twitter:description" content="Learn how UTM parameters work: utm_source, utm_medium, utm_campaign, utm_term and utm_content explained, with naming conventions, examples, and common mistakes to avoid.">
+<meta name="twitter:image" content="https://tracktrendy.com/blog/covers/utm-parameters-complete-guide.jpg">
+<meta property="article:published_time" content="2026-09-21">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"WebPage"}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","headline":"UTM Parameters: The Complete Guide to Campaign Tracking","datePublished":"2026-09-21","image":"https://tracktrendy.com/blog/covers/utm-parameters-complete-guide.jpg","description":"UTM parameters tell you which campaigns actually bring visitors and customers. Here is how the five tags work, a naming system that stays clean, and the mistakes that ruin reports.","author":{"@type":"Organization","name":"TrackTrendy"},"publisher":{"@type":"Organization","name":"TrackTrendy"},"mainEntityOfPage":{"@type":"WebPage","@id":"https://tracktrendy.com/blog/utm-parameters-complete-guide/"}}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://tracktrendy.com/"},{"@type":"ListItem","position":2,"name":"Blog","item":"https://tracktrendy.com/blog/"},{"@type":"ListItem","position":3,"name":"UTM Parameters: The Complete Guide to Campaign Tracking","item":"https://tracktrendy.com/blog/utm-parameters-complete-guide/"}]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"What are UTM parameters?","acceptedAnswer":{"@type":"Answer","text":"Tags added to the end of a URL -- utm_source, utm_medium, utm_campaign, utm_term, utm_content -- that tell your analytics tool exactly which campaign, platform and channel a visitor came from. They were standardised by the Urchin Tracking Module, the ancestor of Google Analytics, and every analytics tool reads them."}},{"@type":"Question","name":"What is the difference between utm_source and utm_medium?","acceptedAnswer":{"@type":"Answer","text":"Source is the specific place the link lives (newsletter, instagram, google, a partner site); medium is the type of channel (email, social, cpc, referral). \"instagram / social\" and \"newsletter / email\" are typical pairs -- source names the property, medium names the category."}},{"@type":"Question","name":"Do UTM parameters affect SEO?","acceptedAnswer":{"@type":"Answer","text":"Not when used correctly -- on external marketing links pointing at your site. Avoid tagging internal links (it corrupts your data and creates duplicate URLs), and keep canonical tags on your pages so tagged URLs consolidate to the clean version, which any well-built site already does."}},{"@type":"Question","name":"Do UTM parameters work without cookies?","acceptedAnswer":{"@type":"Answer","text":"Yes, completely. UTMs travel inside the URL itself and describe the campaign, not the person, so a cookieless analytics tool reads them for every single visitor -- no consent banner, no data gaps from declined cookies or ad blockers."}},{"@type":"Question","name":"Why is my campaign traffic showing as direct?","acceptedAnswer":{"@type":"Answer","text":"Untagged links from email clients, chat apps and native mobile apps usually arrive with no referrer, and analytics files them under direct. Tag every link you place in those channels with UTMs and the traffic will report under its real campaign instead."}}]}</script>
+<script defer data-site="tracktrendy.com" src="https://track.tracktrendy.com/js/t.js"></script>
+</head>
+<body>
+
+  <!-- Site navigation - matches the main site header -->
+  <nav class="nav" role="navigation" aria-label="Main navigation">
+    <a href="/" class="nav-logo" aria-label="TrackTrendy home">
+      <img src="/logo.png" alt="TrackTrendy logo" width="24" height="24">
+      <span class="nav-wordmark">TrackTrendy</span>
+    </a>
+    <div class="nav-links">
+      <a href="/#features">Features</a>
+      <a href="/#compare">Compare</a>
+      <a href="/#pricing">Pricing</a>
+      <a href="/blog/" class="active">Blog</a>
+    </div>
+    <div class="nav-right">
+      <a href="https://app.tracktrendy.com" class="nav-login" target="_blank">Log in</a>
+      <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">
+        <span class="icon-moon"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg></span>
+        <span class="icon-sun"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg></span>
+      </button>
+      <a href="https://buy.stripe.com/eVaaIhfiL77Y6uA6oo" class="nav-cta" target="_blank">Try free &rarr;</a>
+    </div>
+  </nav>
+
+  <main>
+    <article class="post-wrap" itemscope itemtype="https://schema.org/Article">
+
+      <!-- Breadcrumb trail - visual complement to the BreadcrumbList schema -->
+      <nav class="post-breadcrumb" aria-label="Breadcrumb">
+        <a href="/">Home</a>
+        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"/></svg>
+        <a href="/blog/">Blog</a>
+        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"/></svg>
+        <span>UTM Parameters: The Complete Guide to Campaign Tracking</span>
+      </nav>
+
+      <!-- Post header -->
+      <p class="post-eyebrow">How-To</p>
+      <h1 itemprop="headline">UTM Parameters: The Complete Guide to Campaign Tracking</h1>
+      <div class="post-meta">
+        <time datetime="2026-09-21" itemprop="datePublished">September 21, 2026</time>
+        <span>4 min read</span>
+      </div>
+
+      <!-- Cover illustration - brand particle-wave artwork -->
+      <img class="post-cover" src="/blog/covers/utm-parameters-complete-guide.svg" alt="" width="1200" height="630">
+
+      <div class="quick-answer">
+  <strong>Quick answer:</strong> UTM parameters are five tags you append to links you share -- utm_source, utm_medium, utm_campaign, plus optional utm_term and utm_content. When someone clicks a tagged link, your analytics tool reads the tags and credits the visit (and any conversion) to that campaign. They work in every analytics tool, need no cookies, and cost nothing except the discipline of a consistent naming scheme.
+</div>
+
+<div class="post-body" itemprop="articleBody">
+
+  <h2>What are UTM parameters?</h2>
+
+  <p>A UTM-tagged link looks like this:</p>
+
+  <div class="highlight-box"><code>yoursite.com/spring-offer?utm_source=newsletter&amp;utm_medium=email&amp;utm_campaign=spring-2026</code></div>
+
+  <p>Everything after the question mark is invisible scaffolding: the page loads normally, but your analytics tool records that this visitor arrived from the spring 2026 campaign, in the newsletter, via email. Without the tags, that same click would show up as vague "direct" traffic -- email clients, apps and messengers usually strip the referrer information analytics would otherwise rely on.</p>
+
+  <p>UTMs exist to answer the question referrer data cannot: not just "which site sent this visitor" but "which specific effort of mine sent them".</p>
+
+  <h2>What do the five parameters mean?</h2>
+
+  <ul>
+    <li><strong>utm_source</strong> -- where the link lives: <code>newsletter</code>, <code>instagram</code>, <code>google</code>, <code>partner-site</code>. The platform or property.</li>
+    <li><strong>utm_medium</strong> -- the channel type: <code>email</code>, <code>social</code>, <code>cpc</code> (paid clicks), <code>referral</code>, <code>qr</code>. The kind of marketing.</li>
+    <li><strong>utm_campaign</strong> -- the effort: <code>spring-2026</code>, <code>black-friday</code>, <code>product-launch</code>. Ties links across several sources to one initiative.</li>
+    <li><strong>utm_term</strong> -- optional; historically the paid-search keyword. Useful mainly in ad platforms.</li>
+    <li><strong>utm_content</strong> -- optional; distinguishes variants: <code>header-button</code> vs <code>footer-link</code>, image ad vs text ad. This is your A/B lever.</li>
+  </ul>
+
+  <p>Source, medium and campaign carry almost all the value for a small business. Term and content are refinements to add when you need them.</p>
+
+  <h2>A naming convention that will not rot</h2>
+
+  <p>UTM reports decay in one specific way: inconsistency. <code>Newsletter</code>, <code>newsletter</code> and <code>news-letter</code> become three separate rows in every report, forever. The cure is four rules, applied without exception:</p>
+
+  <ul>
+    <li><strong>Always lowercase.</strong> Parameters are case-sensitive to analytics tools.</li>
+    <li><strong>Hyphens, never spaces.</strong> Spaces turn into <code>%20</code> and split your rows.</li>
+    <li><strong>A fixed vocabulary for source and medium.</strong> Write the allowed values down -- five sources and four mediums cover most businesses -- and never improvise a new one mid-campaign.</li>
+    <li><strong>Campaign names with a date component.</strong> <code>spring-sale-2026</code> beats <code>sale</code> when you are comparing years later.</li>
+  </ul>
+
+  <p>Keep the vocabulary in a shared note or spreadsheet, or use a builder that remembers it for you -- TrackTrendy includes a UTM campaign builder so links follow your convention instead of your memory.</p>
+
+  <h2>Where should you use UTMs -- and where not?</h2>
+
+  <p><strong>Tag:</strong> newsletter links, social posts and bios, paid ads, QR codes on print material, podcast show notes, partner and guest-post links, email signatures. Anywhere the referrer would otherwise be missing or unhelpfully generic.</p>
+
+  <p><strong>Never tag internal links.</strong> Linking from your homepage to your pricing page with UTMs overwrites the visitor's real origin -- the person who arrived from Google now looks like they came from "homepage-banner". Internal navigation needs no tags; your analytics already follows it.</p>
+
+  <p>One more habit: when sharing tagged links in public places, shorten them or check how they look -- a wall of parameters can look untidy in a bio or printed under a QR code.</p>
+
+  <h2>Reading the results</h2>
+
+  <p>The payoff arrives in your campaigns report. Visits per campaign tell you about reach; conversions and revenue per campaign tell you what worked. The pattern to hunt for is the mismatch: the Instagram campaign that brought 900 visitors and 2 sales versus the newsletter that brought 150 visitors and 19 sales. Traffic flatters; conversion pays. Wire this together with goals -- see <a href="/blog/track-conversions-without-cookies/">how to track conversions without cookies</a> -- and every tagged link becomes a small experiment with a measurable result.</p>
+
+  <p>A note on privacy: UTM parameters describe your <em>campaign</em>, not the visitor. They contain no personal data, so they work fully in cookieless analytics -- every tagged visit counted, no consent banner involved. In TrackTrendy, campaign reporting works out of the box for any UTM-tagged link, on every plan.</p>
+
+</div>
+
+<section class="faq-section" aria-labelledby="faq-heading">
+  <h2 id="faq-heading">Frequently Asked Questions</h2>
+
+  <div class="faq-item">
+    <p class="faq-q">What are UTM parameters?</p>
+    <p class="faq-a">Tags added to the end of a URL -- utm_source, utm_medium, utm_campaign, utm_term, utm_content -- that tell your analytics tool exactly which campaign, platform and channel a visitor came from. They were standardised by the Urchin Tracking Module, the ancestor of Google Analytics, and every analytics tool reads them.</p>
+  </div>
+
+  <div class="faq-item">
+    <p class="faq-q">What is the difference between utm_source and utm_medium?</p>
+    <p class="faq-a">Source is the specific place the link lives (newsletter, instagram, google, a partner site); medium is the type of channel (email, social, cpc, referral). "instagram / social" and "newsletter / email" are typical pairs -- source names the property, medium names the category.</p>
+  </div>
+
+  <div class="faq-item">
+    <p class="faq-q">Do UTM parameters affect SEO?</p>
+    <p class="faq-a">Not when used correctly -- on external marketing links pointing at your site. Avoid tagging internal links (it corrupts your data and creates duplicate URLs), and keep canonical tags on your pages so tagged URLs consolidate to the clean version, which any well-built site already does.</p>
+  </div>
+
+  <div class="faq-item">
+    <p class="faq-q">Do UTM parameters work without cookies?</p>
+    <p class="faq-a">Yes, completely. UTMs travel inside the URL itself and describe the campaign, not the person, so a cookieless analytics tool reads them for every single visitor -- no consent banner, no data gaps from declined cookies or ad blockers.</p>
+  </div>
+
+  <div class="faq-item">
+    <p class="faq-q">Why is my campaign traffic showing as direct?</p>
+    <p class="faq-a">Untagged links from email clients, chat apps and native mobile apps usually arrive with no referrer, and analytics files them under direct. Tag every link you place in those channels with UTMs and the traffic will report under its real campaign instead.</p>
+  </div>
+
+</section>
+
+      <!-- Conversion CTA at the end of the post -->
+      <div class="post-cta">
+        <h3>See privacy-first analytics in action</h3>
+        <p>TrackTrendy tracks every visitor without cookies or consent popups. GDPR compliant by design, simple dashboard, from &euro;4/month.</p>
+        <a href="https://buy.stripe.com/eVaaIhfiL77Y6uA6oo" class="btn" target="_blank">Start free for 30 days &rarr;</a>
+        <p class="btn-note">No credit card required &middot; No cookie banner needed</p>
+      </div>
+
+      <!-- Related posts - internal links to support crawlability and time on site -->
+      <div class="related">
+        <h3>Related reading</h3>
+        <div class="related-links">
+          <a href="/blog/track-conversions-without-cookies/">How to Track Conversions Without Cookies &rarr;</a>
+          <a href="/blog/website-metrics-that-matter/">The Website Metrics That Actually Matter for a Small Business &rarr;</a>
+          <a href="/blog/analytics-without-cookie-banner/">How to Track Website Visitors Without a Cookie Banner &rarr;</a>
+        </div>
+      </div>
+
+    </article>
+  </main>
+
+  <!-- Site footer - consistent across all blog posts -->
+  <footer class="footer" role="contentinfo">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <a href="/" class="footer-logo"><img src="/logo.png" alt="TrackTrendy" width="22" height="22"><span>TrackTrendy</span></a>
+        <p class="footer-desc">Privacy-first website analytics for European businesses. Cookie-free, GDPR compliant, and built for people who care about their visitors.</p>
+      </div>
+      <div class="footer-col"><h4>Product</h4><ul><li><a href="/#features">Features</a></li><li><a href="/#pricing">Pricing</a></li><li><a href="/#compare">Compare</a></li><li><a href="https://app.tracktrendy.com" target="_blank">Dashboard</a></li></ul></div>
+      <div class="footer-col"><h4>Learn</h4><ul><li><a href="/blog/">Blog</a></li><li><a href="/blog/analytics-without-cookie-banner/">Cookie-free analytics</a></li><li><a href="/blog/privacy-first-analytics/">Privacy-first analytics</a></li></ul></div>
+      <div class="footer-col"><h4>Support</h4><ul><li><a href="/#faq">FAQ</a></li><li><a href="mailto:support@tracktrendy.com">Contact</a></li><li><a href="/privacy.html">Privacy policy</a></li><li><a href="/terms.html">Terms</a></li></ul></div>
+    </div>
+    <div class="footer-bottom">
+      <p class="footer-copy">&copy; <span id="yr"></span> TrackTrendy. Privacy-first analytics.</p>
+      <div class="footer-legal"><a href="/privacy.html">Privacy policy</a><a href="/terms.html">Terms of service</a></div>
+    </div>
+  </footer>
+
+  <script>
+    /* Set copyright year dynamically */
+    document.getElementById('yr').textContent = new Date().getFullYear();
+
+    /* Restore saved theme before first paint to avoid flash */
+    (function() { if (localStorage.getItem('tt-site-theme') === 'light') document.body.classList.add('light'); })();
+
+    /* Theme toggle: persists choice in localStorage */
+    document.getElementById('themeToggle').addEventListener('click', function() {
+      const isLight = document.body.classList.toggle('light');
+      localStorage.setItem('tt-site-theme', isLight ? 'light' : 'dark');
+    });
+  </script>
+</body>
+</html>

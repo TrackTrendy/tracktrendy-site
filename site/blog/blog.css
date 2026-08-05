@@ -147,6 +147,13 @@ body.light .post-card { background: #fff; }
   display: flex; gap: 14px; margin-top: 4px;
 }
 .post-card-arrow { font-size: 13px; color: var(--purple-light); font-weight: 500; }
+.post-card-media {
+  width: 100%; height: auto; display: block;
+  border-radius: 9px; border: 1px solid var(--sep);
+  margin-bottom: 8px;
+}
+/* Drip: future-dated cards stay hidden until their publish day (set by inline script) */
+.post-card.pending { display: none; }
 
 /* ===== POST LAYOUT ===== */
 .post-wrap {
@@ -177,6 +184,13 @@ body.light .post-wrap h1 { color: #1E1E2F; }
   display: flex; gap: 16px; align-items: center;
   margin-bottom: 40px; padding-bottom: 32px;
   border-bottom: 1px solid var(--sep);
+}
+
+/* ===== COVER ILLUSTRATION ===== */
+.post-cover {
+  width: 100%; height: auto; display: block;
+  border-radius: 14px; border: 1px solid var(--sep);
+  margin-bottom: 40px;
 }
 
 /* ===== QUICK ANSWER ===== */

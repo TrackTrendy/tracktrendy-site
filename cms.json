@@ -148,6 +148,21 @@
       ]
     },
     {
+      "id": "blog",
+      "label": "Blog",
+      "template": "templates/blog.html",
+      "output": "site/blog/index.html",
+      "seo": { "schemaType": "Blog" },
+      "sections": [
+        { "id": "header", "label": "Page header", "repeater": false, "fields": [
+          { "id": "eyebrow", "label": "Eyebrow", "type": "text" },
+          { "id": "title_line1", "label": "Headline line 1", "type": "text" },
+          { "id": "title_line2", "label": "Headline line 2 (accent)", "type": "text" },
+          { "id": "intro", "label": "Intro paragraph", "type": "textarea" }
+        ]}
+      ]
+    },
+    {
       "id": "notfound",
       "label": "404 Not found",
       "template": "templates/404.html",
@@ -160,6 +175,31 @@
           { "id": "intro", "label": "Intro (HTML)", "type": "richtext" },
           { "id": "cta_label", "label": "Button label", "type": "text" }
         ]}
+      ]
+    }
+  ],
+  "content_types": [
+    {
+      "id": "blog_posts",
+      "label": "Blog posts",
+      "item_template": "templates/blog/item.html",
+      "item_output": "site/blog/{{slug}}/index.html",
+      "fields": [
+        { "id": "slug", "label": "Slug (URL)", "type": "text" },
+        { "id": "title", "label": "Title", "type": "text" },
+        { "id": "excerpt", "label": "Excerpt (cards)", "type": "textarea" },
+        { "id": "date", "label": "Date (machine, YYYY-MM-DD)", "type": "text" },
+        { "id": "publish_at", "label": "Publish date (YYYY-MM-DD, hides card until then)", "type": "text" },
+        { "id": "date_display", "label": "Date (long, on post)", "type": "text" },
+        { "id": "date_short", "label": "Date (short, on cards)", "type": "text" },
+        { "id": "read_time", "label": "Read time (e.g. 6 min read)", "type": "text" },
+        { "id": "category", "label": "Category", "type": "text" },
+        { "id": "keyword", "label": "Breadcrumb / focus keyword", "type": "text" },
+        { "id": "image", "label": "Cover illustration", "type": "image" },
+        { "id": "content", "label": "Body (HTML)", "type": "richtext" },
+        { "id": "related", "label": "Related posts links (HTML)", "type": "richtext" },
+        { "id": "meta_title", "label": "SEO title", "type": "text" },
+        { "id": "meta_description", "label": "SEO description", "type": "textarea" }
       ]
     }
   ]

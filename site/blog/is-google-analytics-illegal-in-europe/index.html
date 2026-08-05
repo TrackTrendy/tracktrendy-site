@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- Title, description, Open Graph + BlogPosting/BreadcrumbList/FAQPage JSON-LD are injected by Orbit CMS at render time. Do not add them here or they will duplicate. -->
+  <link rel="canonical" href="https://tracktrendy.com/blog/is-google-analytics-illegal-in-europe/">
+
+  <link rel="icon" href="/favicon.png" type="image/png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@200;300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/blog/blog.css">
+  
+<title>Is Google Analytics Illegal in Europe? The Legal Situation Explained | TrackTrendy Blog</title>
+<meta name="description" content="Is Google Analytics illegal in the EU? A plain-language history of the Schrems II rulings, the EU-US Data Privacy Framework, and the compliance obligations that still apply to GA4 in 2026.">
+<meta property="og:title" content="Is Google Analytics Illegal in Europe? The Legal Situation Explained | TrackTrendy Blog">
+<meta property="og:description" content="Is Google Analytics illegal in the EU? A plain-language history of the Schrems II rulings, the EU-US Data Privacy Framework, and the compliance obligations that still apply to GA4 in 2026.">
+<meta property="og:image" content="https://tracktrendy.com/blog/covers/is-google-analytics-illegal-in-europe.jpg">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://tracktrendy.com/blog/is-google-analytics-illegal-in-europe/">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Is Google Analytics Illegal in Europe? The Legal Situation Explained | TrackTrendy Blog">
+<meta name="twitter:description" content="Is Google Analytics illegal in the EU? A plain-language history of the Schrems II rulings, the EU-US Data Privacy Framework, and the compliance obligations that still apply to GA4 in 2026.">
+<meta name="twitter:image" content="https://tracktrendy.com/blog/covers/is-google-analytics-illegal-in-europe.jpg">
+<meta property="article:published_time" content="2026-08-17">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"WebPage"}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","headline":"Is Google Analytics Illegal in Europe?","datePublished":"2026-08-17","image":"https://tracktrendy.com/blog/covers/is-google-analytics-illegal-in-europe.jpg","description":"Austria, France and Italy all ruled Google Analytics unlawful in 2022. Then a new transfer framework changed the picture. Here is where the law actually stands -- and what it means for your site.","author":{"@type":"Organization","name":"TrackTrendy"},"publisher":{"@type":"Organization","name":"TrackTrendy"},"mainEntityOfPage":{"@type":"WebPage","@id":"https://tracktrendy.com/blog/is-google-analytics-illegal-in-europe/"}}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://tracktrendy.com/"},{"@type":"ListItem","position":2,"name":"Blog","item":"https://tracktrendy.com/blog/"},{"@type":"ListItem","position":3,"name":"Is Google Analytics Illegal in Europe?","item":"https://tracktrendy.com/blog/is-google-analytics-illegal-in-europe/"}]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Is Google Analytics illegal in the EU right now?","acceptedAnswer":{"@type":"Answer","text":"No. Since the EU-US Data Privacy Framework was adopted in July 2023, transfers to certified US companies like Google have a legal basis, so using GA4 is not in itself unlawful. However, it still requires cookie consent, privacy policy disclosures, and it depends on the DPF surviving the legal challenges currently aimed at it."}},{"@type":"Question","name":"Why did EU countries ban Google Analytics in 2022?","acceptedAnswer":{"@type":"Answer","text":"After the Schrems II ruling invalidated Privacy Shield, data protection authorities in Austria, France and Italy found that Google Analytics transferred EU visitors' personal data -- IP addresses, identifiers, browsing data -- to US servers without adequate protection from US surveillance law. The websites using the tool were found in breach of GDPR."}},{"@type":"Question","name":"What is Schrems III?","acceptedAnswer":{"@type":"Answer","text":"The informal name for an expected Court of Justice case testing the EU-US Data Privacy Framework, the agreement Google Analytics currently relies on for US data transfers. Its two predecessors, Safe Harbor and Privacy Shield, were both struck down. If the DPF follows, GA4 users would again face the situation of 2022."}},{"@type":"Question","name":"Do I still need a cookie banner for GA4 if it is legal?","acceptedAnswer":{"@type":"Answer","text":"Yes. Legality of the US transfer and cookie consent are separate requirements. GA4 stores cookies and processes personal data, so the ePrivacy Directive requires prior consent regardless of where the data goes. Only cookieless tools that process no personal data can drop the banner."}},{"@type":"Question","name":"How do I use analytics in Europe without any legal risk?","acceptedAnswer":{"@type":"Answer","text":"Use a tool that collects no personal data at all: no cookies, no persistent identifiers, immediate IP anonymisation, aggregated statistics only. Anonymous data falls outside GDPR's scope (Recital 26), so there is no transfer question, no consent requirement, and no banner. TrackTrendy, Plausible and Fathom all work this way."}}]}</script>
+<script defer data-site="tracktrendy.com" src="https://track.tracktrendy.com/js/t.js"></script>
+</head>
+<body>
+
+  <!-- Site navigation - matches the main site header -->
+  <nav class="nav" role="navigation" aria-label="Main navigation">
+    <a href="/" class="nav-logo" aria-label="TrackTrendy home">
+      <img src="/logo.png" alt="TrackTrendy logo" width="24" height="24">
+      <span class="nav-wordmark">TrackTrendy</span>
+    </a>
+    <div class="nav-links">
+      <a href="/#features">Features</a>
+      <a href="/#compare">Compare</a>
+      <a href="/#pricing">Pricing</a>
+      <a href="/blog/" class="active">Blog</a>
+    </div>
+    <div class="nav-right">
+      <a href="https://app.tracktrendy.com" class="nav-login" target="_blank">Log in</a>
+      <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">
+        <span class="icon-moon"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg></span>
+        <span class="icon-sun"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg></span>
+      </button>
+      <a href="https://buy.stripe.com/eVaaIhfiL77Y6uA6oo" class="nav-cta" target="_blank">Try free &rarr;</a>
+    </div>
+  </nav>
+
+  <main>
+    <article class="post-wrap" itemscope itemtype="https://schema.org/Article">
+
+      <!-- Breadcrumb trail - visual complement to the BreadcrumbList schema -->
+      <nav class="post-breadcrumb" aria-label="Breadcrumb">
+        <a href="/">Home</a>
+        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"/></svg>
+        <a href="/blog/">Blog</a>
+        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"/></svg>
+        <span>Is Google Analytics Illegal in Europe?</span>
+      </nav>
+
+      <!-- Post header -->
+      <p class="post-eyebrow">Compliance</p>
+      <h1 itemprop="headline">Is Google Analytics Illegal in Europe?</h1>
+      <div class="post-meta">
+        <time datetime="2026-08-17" itemprop="datePublished">August 17, 2026</time>
+        <span>5 min read</span>
+      </div>
+
+      <!-- Cover illustration - brand particle-wave artwork -->
+      <img class="post-cover" src="/blog/covers/is-google-analytics-illegal-in-europe.svg" alt="" width="1200" height="630">
+
+      <div class="quick-answer">
+  <strong>Quick answer:</strong> Google Analytics is not flatly illegal in Europe today, but it sits on legally contested ground. Between 2022 and 2023 data protection authorities in Austria, France, Italy and elsewhere ruled its use unlawful because visitor data flowed to US servers. The EU-US Data Privacy Framework, adopted in July 2023, restored a legal basis for those transfers -- but that framework faces ongoing legal challenges, and using GA4 still requires a cookie consent banner and GDPR paperwork. Cookieless analytics avoids the whole question.
+</div>
+
+<div class="post-body" itemprop="articleBody">
+
+  <h2>How did Google Analytics become a legal problem?</h2>
+
+  <p>The story starts with a court case that had nothing to do with analytics. In July 2020, the Court of Justice of the EU struck down Privacy Shield -- the agreement that allowed personal data to flow from the EU to US companies -- in a case known as Schrems II. The court's reasoning: US surveillance law gives American intelligence agencies access to data held by US companies, and EU citizens have no effective remedy against it.</p>
+
+  <p>That ruling put every transfer of EU personal data to a US company under scrutiny. And Google Analytics transfers a lot of it: IP addresses, cookie identifiers, device fingerprints, browsing behaviour -- all processed by a US corporation.</p>
+
+  <p>The privacy group noyb, founded by Max Schrems, filed 101 complaints across EU member states targeting websites that used Google Analytics. The decisions started landing in 2022.</p>
+
+  <h2>Which countries ruled against Google Analytics?</h2>
+
+  <p>The Austrian data protection authority went first, in January 2022, finding that a website's use of Google Analytics violated GDPR because the data transfer to the US lacked adequate protection. France's CNIL followed in February 2022 with the same conclusion, ordering affected websites to stop using the tool or make it compliant. Italy's Garante ruled in June 2022, and authorities in Denmark and Norway issued similar guidance. None of these were fines against Google -- they were findings that the <em>websites using</em> Google Analytics were breaking the law.</p>
+
+  <p>The practical message across Europe in 2022 was blunt: standard Google Analytics, as installed on a normal website, was unlawful.</p>
+
+  <h2>What changed with the Data Privacy Framework?</h2>
+
+  <p>In July 2023 the European Commission adopted an adequacy decision for the EU-US Data Privacy Framework (DPF), the successor to Privacy Shield. US companies that certify under the framework -- Google among them -- can again lawfully receive EU personal data. The US side added new safeguards, including a redress court for EU citizens and limits on intelligence collection.</p>
+
+  <p>That decision is why nobody can accurately say "Google Analytics is illegal in the EU" today. With the DPF in place, the specific defect the 2022 rulings identified -- an unlawful US transfer -- currently has a legal remedy.</p>
+
+  <h2>So is the question settled?</h2>
+
+  <p>No, and this is the part that matters for planning. The DPF is the third attempt at an EU-US transfer agreement; the courts struck down both predecessors (Safe Harbor in 2015, Privacy Shield in 2020) for essentially the same underlying reason. Legal challenges to the DPF are already moving through the system, and many privacy lawyers expect the Court of Justice to examine it eventually -- the case people informally call Schrems III. If the DPF falls the way its predecessors did, every site relying on it inherits the 2022 problem overnight.</p>
+
+  <p>And separately from the transfer question, GA4 still carries its full GDPR and ePrivacy workload even while the DPF stands:</p>
+
+  <ul>
+    <li><strong>Consent banner required.</strong> GA4 stores cookies and processes personal data, so you must collect prior consent -- with all the data loss that brings, since 20-40% of visitors typically decline.</li>
+    <li><strong>Privacy policy obligations.</strong> You must disclose the processing, the transfer, and the legal basis.</li>
+    <li><strong>Records and assessments.</strong> Depending on your situation, records of processing and a transfer impact assessment remain part of the compliance file.</li>
+  </ul>
+
+  <p>"Not illegal" is not the same as "no obligations". GA4 remains one of the heavier compliance items a small website can carry.</p>
+
+  <h2>What should a website owner actually do?</h2>
+
+  <p>You have three realistic options.</p>
+
+  <p><strong>Option one: keep GA4 and do the compliance work.</strong> Maintain the consent banner, keep the privacy policy current, and accept both the data loss from declined consent and the risk that the DPF's legal ground shifts. Rational if you depend on Google Ads integration or GA4-specific features.</p>
+
+  <p><strong>Option two: keep GA4 but harden it.</strong> IP anonymisation, EU data collection settings, shortened retention. This reduces exposure but does not remove the transfer, the cookies, or the banner.</p>
+
+  <p><strong>Option three: switch to analytics that never raises the question.</strong> A cookieless, EU-based tool processes no personal data, transfers nothing to the US, and needs no consent banner. The legal analysis collapses to almost nothing because there is no personal data in the system. This is how <a href="/blog/privacy-first-analytics/">privacy-first analytics</a> works, and it is the approach TrackTrendy takes: anonymous, aggregated statistics, EU-focused, from &euro;4/month -- with the side benefit that you count 100% of your visitors instead of the consenting minority.</p>
+
+  <p>For most small businesses, option three is less work than options one or two -- which is rare in compliance.</p>
+
+</div>
+
+<section class="faq-section" aria-labelledby="faq-heading">
+  <h2 id="faq-heading">Frequently Asked Questions</h2>
+
+  <div class="faq-item">
+    <p class="faq-q">Is Google Analytics illegal in the EU right now?</p>
+    <p class="faq-a">No. Since the EU-US Data Privacy Framework was adopted in July 2023, transfers to certified US companies like Google have a legal basis, so using GA4 is not in itself unlawful. However, it still requires cookie consent, privacy policy disclosures, and it depends on the DPF surviving the legal challenges currently aimed at it.</p>
+  </div>
+
+  <div class="faq-item">
+    <p class="faq-q">Why did EU countries ban Google Analytics in 2022?</p>
+    <p class="faq-a">After the Schrems II ruling invalidated Privacy Shield, data protection authorities in Austria, France and Italy found that Google Analytics transferred EU visitors' personal data -- IP addresses, identifiers, browsing data -- to US servers without adequate protection from US surveillance law. The websites using the tool were found in breach of GDPR.</p>
+  </div>
+
+  <div class="faq-item">
+    <p class="faq-q">What is Schrems III?</p>
+    <p class="faq-a">The informal name for an expected Court of Justice case testing the EU-US Data Privacy Framework, the agreement Google Analytics currently relies on for US data transfers. Its two predecessors, Safe Harbor and Privacy Shield, were both struck down. If the DPF follows, GA4 users would again face the situation of 2022.</p>
+  </div>
+
+  <div class="faq-item">
+    <p class="faq-q">Do I still need a cookie banner for GA4 if it is legal?</p>
+    <p class="faq-a">Yes. Legality of the US transfer and cookie consent are separate requirements. GA4 stores cookies and processes personal data, so the ePrivacy Directive requires prior consent regardless of where the data goes. Only cookieless tools that process no personal data can drop the banner.</p>
+  </div>
+
+  <div class="faq-item">
+    <p class="faq-q">How do I use analytics in Europe without any legal risk?</p>
+    <p class="faq-a">Use a tool that collects no personal data at all: no cookies, no persistent identifiers, immediate IP anonymisation, aggregated statistics only. Anonymous data falls outside GDPR's scope (Recital 26), so there is no transfer question, no consent requirement, and no banner. TrackTrendy, Plausible and Fathom all work this way.</p>
+  </div>
+
+</section>
+
+      <!-- Conversion CTA at the end of the post -->
+      <div class="post-cta">
+        <h3>See privacy-first analytics in action</h3>
+        <p>TrackTrendy tracks every visitor without cookies or consent popups. GDPR compliant by design, simple dashboard, from &euro;4/month.</p>
+        <a href="https://buy.stripe.com/eVaaIhfiL77Y6uA6oo" class="btn" target="_blank">Start free for 30 days &rarr;</a>
+        <p class="btn-note">No credit card required &middot; No cookie banner needed</p>
+      </div>
+
+      <!-- Related posts - internal links to support crawlability and time on site -->
+      <div class="related">
+        <h3>Related reading</h3>
+        <div class="related-links">
+          <a href="/blog/privacy-first-analytics/">What Is Privacy-First Analytics? &rarr;</a>
+          <a href="/blog/ccpa-and-web-analytics/">CCPA and Web Analytics: What You Need to Know &rarr;</a>
+          <a href="/blog/analytics-without-cookie-banner/">How to Track Website Visitors Without a Cookie Banner &rarr;</a>
+        </div>
+      </div>
+
+    </article>
+  </main>
+
+  <!-- Site footer - consistent across all blog posts -->
+  <footer class="footer" role="contentinfo">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <a href="/" class="footer-logo"><img src="/logo.png" alt="TrackTrendy" width="22" height="22"><span>TrackTrendy</span></a>
+        <p class="footer-desc">Privacy-first website analytics for European businesses. Cookie-free, GDPR compliant, and built for people who care about their visitors.</p>
+      </div>
+      <div class="footer-col"><h4>Product</h4><ul><li><a href="/#features">Features</a></li><li><a href="/#pricing">Pricing</a></li><li><a href="/#compare">Compare</a></li><li><a href="https://app.tracktrendy.com" target="_blank">Dashboard</a></li></ul></div>
+      <div class="footer-col"><h4>Learn</h4><ul><li><a href="/blog/">Blog</a></li><li><a href="/blog/analytics-without-cookie-banner/">Cookie-free analytics</a></li><li><a href="/blog/privacy-first-analytics/">Privacy-first analytics</a></li></ul></div>
+      <div class="footer-col"><h4>Support</h4><ul><li><a href="/#faq">FAQ</a></li><li><a href="mailto:support@tracktrendy.com">Contact</a></li><li><a href="/privacy.html">Privacy policy</a></li><li><a href="/terms.html">Terms</a></li></ul></div>
+    </div>
+    <div class="footer-bottom">
+      <p class="footer-copy">&copy; <span id="yr"></span> TrackTrendy. Privacy-first analytics.</p>
+      <div class="footer-legal"><a href="/privacy.html">Privacy policy</a><a href="/terms.html">Terms of service</a></div>
+    </div>
+  </footer>
+
+  <script>
+    /* Set copyright year dynamically */
+    document.getElementById('yr').textContent = new Date().getFullYear();
+
+    /* Restore saved theme before first paint to avoid flash */
+    (function() { if (localStorage.getItem('tt-site-theme') === 'light') document.body.classList.add('light'); })();
+
+    /* Theme toggle: persists choice in localStorage */
+    document.getElementById('themeToggle').addEventListener('click', function() {
+      const isLight = document.body.classList.toggle('light');
+      localStorage.setItem('tt-site-theme', isLight ? 'light' : 'dark');
+    });
+  </script>
+</body>
+</html>

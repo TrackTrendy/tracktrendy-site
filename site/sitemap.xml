@@ -2,14 +2,24 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url><loc>https://tracktrendy.com/</loc><changefreq>weekly</changefreq><priority>1.0</priority></url>
   <url><loc>https://tracktrendy.com/blog/</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://tracktrendy.com/blog/analytics-without-cookie-banner.html</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
-  <url><loc>https://tracktrendy.com/blog/california-delete-act.html</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
-  <url><loc>https://tracktrendy.com/blog/ccpa-and-web-analytics.html</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
-  <url><loc>https://tracktrendy.com/blog/engagement-rate-google-analytics-4.html</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
-  <url><loc>https://tracktrendy.com/blog/google-analytics-pricing.html</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
-  <url><loc>https://tracktrendy.com/blog/how-to-delete-google-analytics.html</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
-  <url><loc>https://tracktrendy.com/blog/privacy-first-analytics.html</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
-  <url><loc>https://tracktrendy.com/blog/unique-visitors-google-analytics.html</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
-  <url><loc>https://tracktrendy.com/blog/what-do-website-analytics-do.html</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
-  <url><loc>https://tracktrendy.com/blog/what-does-google-know-about-me.html</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://tracktrendy.com/blog/gdpr-compliant-analytics-checklist/</loc><lastmod>2026-10-12</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://tracktrendy.com/blog/end-of-third-party-cookies/</loc><lastmod>2026-10-05</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://tracktrendy.com/blog/analytics-page-speed-core-web-vitals/</loc><lastmod>2026-09-28</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://tracktrendy.com/blog/utm-parameters-complete-guide/</loc><lastmod>2026-09-21</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://tracktrendy.com/blog/website-metrics-that-matter/</loc><lastmod>2026-09-14</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://tracktrendy.com/blog/track-conversions-without-cookies/</loc><lastmod>2026-09-07</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://tracktrendy.com/blog/google-consent-mode-v2-explained/</loc><lastmod>2026-08-31</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://tracktrendy.com/blog/ad-blockers-and-analytics/</loc><lastmod>2026-08-24</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://tracktrendy.com/blog/is-google-analytics-illegal-in-europe/</loc><lastmod>2026-08-17</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://tracktrendy.com/blog/google-analytics-alternatives/</loc><lastmod>2026-08-10</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://tracktrendy.com/blog/analytics-without-cookie-banner/</loc><lastmod>2026-06-15</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://tracktrendy.com/blog/what-does-google-know-about-me/</loc><lastmod>2026-06-15</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://tracktrendy.com/blog/privacy-first-analytics/</loc><lastmod>2026-06-15</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://tracktrendy.com/blog/google-analytics-pricing/</loc><lastmod>2026-06-15</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://tracktrendy.com/blog/unique-visitors-google-analytics/</loc><lastmod>2026-06-15</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://tracktrendy.com/blog/engagement-rate-google-analytics-4/</loc><lastmod>2026-06-15</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://tracktrendy.com/blog/how-to-delete-google-analytics/</loc><lastmod>2026-06-15</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://tracktrendy.com/blog/what-do-website-analytics-do/</loc><lastmod>2026-06-15</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://tracktrendy.com/blog/ccpa-and-web-analytics/</loc><lastmod>2026-06-15</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://tracktrendy.com/blog/california-delete-act/</loc><lastmod>2026-06-15</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
 </urlset>

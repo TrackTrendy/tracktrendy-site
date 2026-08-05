@@ -14,13 +14,23 @@ TrackTrendy is a GDPR-compliant alternative to Google Analytics 4. It gives you 
 - Website: https://tracktrendy.com
 
 ## Blog
-- [Analytics without a cookie banner](https://tracktrendy.com/blog/analytics-without-cookie-banner.html): How to run analytics with no cookie consent banner.
-- [The California Delete Act](https://tracktrendy.com/blog/california-delete-act.html): What the Delete Act means for web analytics.
-- [CCPA and web analytics](https://tracktrendy.com/blog/ccpa-and-web-analytics.html): How CCPA applies to tracking website visitors.
-- [Engagement rate in Google Analytics 4](https://tracktrendy.com/blog/engagement-rate-google-analytics-4.html): What GA4 engagement rate measures.
-- [Google Analytics pricing](https://tracktrendy.com/blog/google-analytics-pricing.html): The real cost of Google Analytics.
-- [How to delete Google Analytics](https://tracktrendy.com/blog/how-to-delete-google-analytics.html): Removing GA from your site.
-- [Privacy-first analytics](https://tracktrendy.com/blog/privacy-first-analytics.html): What privacy-first analytics means.
-- [Unique visitors in Google Analytics](https://tracktrendy.com/blog/unique-visitors-google-analytics.html): How unique visitors are counted.
-- [What do website analytics do?](https://tracktrendy.com/blog/what-do-website-analytics-do.html): A plain-language intro to web analytics.
-- [What does Google know about me?](https://tracktrendy.com/blog/what-does-google-know-about-me.html): The data Google collects on visitors.
+- [GDPR-Compliant Analytics: A Practical Checklist](https://tracktrendy.com/blog/gdpr-compliant-analytics-checklist/): A working checklist for getting your website measurement GDPR-compliant -- what to audit, what each tool type requires, and the shortcut that removes most of the list.
+- [The End of Third-Party Cookies: What It Means for Your Website](https://tracktrendy.com/blog/end-of-third-party-cookies/): Safari and Firefox block them, Chrome kept them after years of U-turns, and regulators squeezed them anyway.
+- [How Analytics Scripts Slow Your Site (and What It Costs You)](https://tracktrendy.com/blog/analytics-page-speed-core-web-vitals/): Your analytics stack is part of your page weight.
+- [UTM Parameters: The Complete Guide to Campaign Tracking](https://tracktrendy.com/blog/utm-parameters-complete-guide/): UTM parameters tell you which campaigns actually bring visitors and customers.
+- [The Website Metrics That Actually Matter for a Small Business](https://tracktrendy.com/blog/website-metrics-that-matter/): Most dashboards drown you in numbers that change nothing.
+- [How to Track Conversions Without Cookies](https://tracktrendy.com/blog/track-conversions-without-cookies/): You do not need cookies to know whether your website converts.
+- [Google Consent Mode v2 Explained (Without the Jargon)](https://tracktrendy.com/blog/google-consent-mode-v2-explained/): Google made Consent Mode v2 mandatory for ad features in Europe.
+- [Ad Blockers and Analytics: Why Your Google Analytics Numbers Are Wrong](https://tracktrendy.com/blog/ad-blockers-and-analytics/): A meaningful share of your visitors block Google Analytics before it loads -- on top of the ones who decline your cookie banner.
+- [Is Google Analytics Illegal in Europe?](https://tracktrendy.com/blog/is-google-analytics-illegal-in-europe/): Austria, France and Italy all ruled Google Analytics unlawful in 2022.
+- [The Best Google Analytics Alternatives in 2026](https://tracktrendy.com/blog/google-analytics-alternatives/): GA4 is not the only way to understand your traffic.
+- [How to Track Website Visitors Without a Cookie Banner](https://tracktrendy.com/blog/analytics-without-cookie-banner/): Cookie-free analytics tools let you capture 100% of your visitors without consent popups.
+- [What Does Google Know About Me?](https://tracktrendy.com/blog/what-does-google-know-about-me/): Google collects your searches, location, browsing history, emails, and more — building a profile far more detailed than most people realise.
+- [What Is Privacy-First Analytics?](https://tracktrendy.com/blog/privacy-first-analytics/): Privacy-first analytics collects website data without cookies, without storing personal information, and without requiring a GDPR consent banner.
+- [Google Analytics Pricing: Is GA4 Really Free?](https://tracktrendy.com/blog/google-analytics-pricing/): GA4 is free — but Google charges you with your visitors' data.
+- [Unique Visitors in Google Analytics: The Complete Guide](https://tracktrendy.com/blog/unique-visitors-google-analytics/): GA4 changed how unique visitors are counted compared to Universal Analytics.
+- [Engagement Rate in GA4: What It Is and What's a Good Score](https://tracktrendy.com/blog/engagement-rate-google-analytics-4/): Engagement rate replaced bounce rate in GA4.
+- [How to Delete Your Google Analytics Account (Step by Step)](https://tracktrendy.com/blog/how-to-delete-google-analytics/): Ready to leave Google Analytics? Here's how to delete your GA4 account, what happens to your historical data, and how to export it before it's gone.
+- [What Do Website Analytics Allow You to Do?](https://tracktrendy.com/blog/what-do-website-analytics-do/): Website analytics tell you who visits, where they come from, what they do, and where they leave.
+- [CCPA and Web Analytics: What You Need to Know](https://tracktrendy.com/blog/ccpa-and-web-analytics/): The California Consumer Privacy Act affects any website with California visitors.
+- [California Delete Act: What It Means for Your Data](https://tracktrendy.com/blog/california-delete-act/): California's Delete Act (SB 362) lets residents wipe their data from every data broker at once through a single state-run portal.
