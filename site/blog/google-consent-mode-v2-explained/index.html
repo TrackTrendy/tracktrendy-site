@@ -30,6 +30,7 @@
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://tracktrendy.com/"},{"@type":"ListItem","position":2,"name":"Blog","item":"https://tracktrendy.com/blog/"},{"@type":"ListItem","position":3,"name":"Google Consent Mode v2 Explained (Without the Jargon)","item":"https://tracktrendy.com/blog/google-consent-mode-v2-explained/"}]}</script>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"What is Google Consent Mode v2?","acceptedAnswer":{"@type":"Answer","text":"A framework that passes your cookie banner's outcome to Google's tags as machine-readable signals. Version 2 added two advertising signals (ad_user_data and ad_personalization) and has been mandatory since March 2024 for sites in the EEA that use Google advertising features like remarketing and conversion tracking."}},{"@type":"Question","name":"Does Consent Mode v2 replace a cookie banner?","acceptedAnswer":{"@type":"Answer","text":"No. Consent Mode is a messenger, not a consent collector. You still need a consent banner or CMP to ask the visitor; Consent Mode only tells Google's tags what the visitor answered. Sites without cookies and personal-data processing need neither."}},{"@type":"Question","name":"What is the difference between basic and advanced Consent Mode?","acceptedAnswer":{"@type":"Answer","text":"In basic mode, Google tags stay unloaded until consent is granted and decliners send nothing. In advanced mode, tags load regardless and send cookieless pings even after a decline, which Google uses to statistically model the missing sessions and conversions in your reports."}},{"@type":"Question","name":"Is Consent Mode v2 required for GA4?","acceptedAnswer":{"@type":"Answer","text":"Not if you use GA4 purely for measurement without Google advertising features. It is required when you rely on Google Ads remarketing or conversion measurement for EEA users. Either way, GA4's cookies still require a consent banner in the EU."}},{"@type":"Question","name":"How do I avoid needing Consent Mode entirely?","acceptedAnswer":{"@type":"Answer","text":"Use analytics that processes no personal data and sets no cookies. Anonymous, aggregated measurement falls outside the consent requirement, so there is nothing for a banner to gate and nothing for Consent Mode to signal. Cookieless tools like TrackTrendy work this way -- and they measure every visitor instead of modelling the missing ones."}}]}</script>
 <script defer data-site="tracktrendy.com" src="https://track.tracktrendy.com/js/t.js"></script>
+  <meta name="generator" content="AI-assisted">
 </head>
 <body>
 
@@ -193,6 +194,7 @@
     </div>
     <div class="footer-bottom">
       <p class="footer-copy">&copy; <span id="yr"></span> TrackTrendy. Privacy-first analytics.</p>
+      <p class="footer-copy">Written with AI assistance, reviewed by Ludovic Verbeeck.</p>
       <div class="footer-legal"><a href="/privacy.html">Privacy policy</a><a href="/terms.html">Terms of service</a></div>
     </div>
   </footer>
