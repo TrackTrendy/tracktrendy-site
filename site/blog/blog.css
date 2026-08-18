@@ -342,7 +342,7 @@ body.light .footer-col a:hover { color: #1E1E2F; }
 
 /* NEWSLETTER (SendMerlin) */
 .nl-section { max-width: var(--max-w); margin: 0 auto 90px; padding: 0 24px; }
-.nl-panel { position: relative; display: grid; grid-template-columns: 1.1fr 1fr; gap: 40px; align-items: center; background: var(--surface2); border: 1px solid var(--sep); border-radius: 16px; padding: 44px 48px; }
+.nl-panel { position: relative; display: grid; grid-template-columns: 1fr; gap: 22px; align-items: start; background: var(--surface2); border: 1px solid var(--sep); border-radius: 16px; padding: 44px 48px; }
 .nl-eyebrow { font-size: 12px; font-weight: 600; letter-spacing: 0.16em; text-transform: uppercase; color: var(--purple-light); margin-bottom: 10px; }
 .nl-panel h2 { font-size: 24px; font-weight: 600; color: var(--t1); margin-bottom: 10px; }
 .nl-blurb { color: var(--t2); font-size: 15px; line-height: 1.7; }
