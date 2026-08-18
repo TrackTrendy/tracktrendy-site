@@ -11,8 +11,10 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@200;300;400;500;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="/blog/blog.css">
+  <link rel="stylesheet" href="/blog/blog.css?v=2">
+  <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
   
+  <meta name="generator" content="AI-assisted">
 <title>Is Google Analytics Illegal in Europe? The Legal Situation Explained | TrackTrendy Blog</title>
 <meta name="description" content="Is Google Analytics illegal in the EU? A plain-language history of the Schrems II rulings, the EU-US Data Privacy Framework, and the compliance obligations that still apply to GA4 in 2026.">
 <meta property="og:title" content="Is Google Analytics Illegal in Europe? The Legal Situation Explained | TrackTrendy Blog">
@@ -30,7 +32,6 @@
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://tracktrendy.com/"},{"@type":"ListItem","position":2,"name":"Blog","item":"https://tracktrendy.com/blog/"},{"@type":"ListItem","position":3,"name":"Is Google Analytics Illegal in Europe?","item":"https://tracktrendy.com/blog/is-google-analytics-illegal-in-europe/"}]}</script>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Is Google Analytics illegal in the EU right now?","acceptedAnswer":{"@type":"Answer","text":"No. Since the EU-US Data Privacy Framework was adopted in July 2023, transfers to certified US companies like Google have a legal basis, so using GA4 is not in itself unlawful. However, it still requires cookie consent, privacy policy disclosures, and it depends on the DPF surviving the legal challenges currently aimed at it."}},{"@type":"Question","name":"Why did EU countries ban Google Analytics in 2022?","acceptedAnswer":{"@type":"Answer","text":"After the Schrems II ruling invalidated Privacy Shield, data protection authorities in Austria, France and Italy found that Google Analytics transferred EU visitors' personal data -- IP addresses, identifiers, browsing data -- to US servers without adequate protection from US surveillance law. The websites using the tool were found in breach of GDPR."}},{"@type":"Question","name":"What is Schrems III?","acceptedAnswer":{"@type":"Answer","text":"The informal name for an expected Court of Justice case testing the EU-US Data Privacy Framework, the agreement Google Analytics currently relies on for US data transfers. Its two predecessors, Safe Harbor and Privacy Shield, were both struck down. If the DPF follows, GA4 users would again face the situation of 2022."}},{"@type":"Question","name":"Do I still need a cookie banner for GA4 if it is legal?","acceptedAnswer":{"@type":"Answer","text":"Yes. Legality of the US transfer and cookie consent are separate requirements. GA4 stores cookies and processes personal data, so the ePrivacy Directive requires prior consent regardless of where the data goes. Only cookieless tools that process no personal data can drop the banner."}},{"@type":"Question","name":"How do I use analytics in Europe without any legal risk?","acceptedAnswer":{"@type":"Answer","text":"Use a tool that collects no personal data at all: no cookies, no persistent identifiers, immediate IP anonymisation, aggregated statistics only. Anonymous data falls outside GDPR's scope (Recital 26), so there is no transfer question, no consent requirement, and no banner. TrackTrendy, Plausible and Fathom all work this way."}}]}</script>
 <script defer data-site="tracktrendy.com" src="https://track.tracktrendy.com/js/t.js"></script>
-  <meta name="generator" content="AI-assisted">
 </head>
 <body>
 
@@ -170,6 +171,76 @@
         <a href="https://buy.stripe.com/eVaaIhfiL77Y6uA6oo" class="btn" target="_blank">Start free for 30 days &rarr;</a>
         <p class="btn-note">No credit card required &middot; No cookie banner needed</p>
       </div>
+
+      <!-- NEWSLETTER: native form -> SendMerlin headless subscribe API (double opt-in server-side).
+           Copy hardcoded: item templates only see entry fields. -->
+      <section class="nl-section" aria-label="Newsletter" style="padding: 0; margin: 48px 0;">
+        <div class="nl-panel">
+          <div>
+            <p class="nl-eyebrow">Newsletter</p>
+            <h2>Enjoyed this article?</h2>
+            <p class="nl-blurb">Subscribe and new privacy-first analytics guides land straight in your inbox. No spam, unsubscribe anytime.</p>
+          </div>
+          <form class="nl-form" data-newsletter action="https://app.sendmerlin.com/api/forms/cmsyjau5w0013m92bm7bfw95c/subscribe" method="post">
+            <div class="nl-row">
+              <input type="email" name="email" required placeholder="you@example.com" aria-label="Email address" autocomplete="email">
+              <button type="submit" class="nl-btn">Subscribe</button>
+            </div>
+            <input class="nl-hp" type="text" name="website" tabindex="-1" autocomplete="off" aria-hidden="true">
+            <div class="cf-turnstile" data-sitekey="0x4AAAAAAECx-nU3j6b0C_vx" data-appearance="interaction-only"></div>
+            <p class="nl-msg" hidden></p>
+            <p class="nl-note">Double opt-in: confirm by email. <a href="/privacy.html">Privacy policy</a>.</p>
+          </form>
+        </div>
+      </section>
+      <script>
+        // Newsletter -> SendMerlin headless subscribe API (form.action). Turnstile
+        // interaction-only + honeypot; SendMerlin forces double opt-in server-side.
+        (function () {
+          var form = document.querySelector('[data-newsletter]');
+          if (!form) return;
+          form.addEventListener('submit', async function (e) {
+            e.preventDefault();
+            var btn = form.querySelector('[type="submit"]');
+            var msg = form.querySelector('.nl-msg');
+            function show(text, ok) {
+              msg.textContent = text;
+              msg.hidden = false;
+              msg.classList.toggle('is-error', !ok);
+            }
+            var token = form.querySelector('[name="cf-turnstile-response"]');
+            if (!token || !token.value) {
+              show('Bot check is still loading, try again in a second.', false);
+              return;
+            }
+            var label = btn.textContent;
+            btn.disabled = true;
+            btn.textContent = 'Subscribing...';
+            try {
+              var res = await fetch(form.action, {
+                method: 'POST',
+                headers: { 'content-type': 'application/json' },
+                body: JSON.stringify({
+                  email: form.email.value,
+                  website: form.website.value,
+                  'cf-turnstile-response': token.value,
+                }),
+              });
+              var data = await res.json();
+              if (!data.ok) throw new Error(data.error);
+              show(data.state === 'subscribed'
+                ? "You're on the list."
+                : 'Almost there: check your inbox to confirm.', true);
+              // Hide the row only. Removing the whole form kills the Turnstile widget.
+              form.querySelector('.nl-row').hidden = true;
+            } catch (err) {
+              show('Something went wrong. Please try again.', false);
+              btn.disabled = false;
+              btn.textContent = label;
+            }
+          });
+        })();
+      </script>
 
       <!-- Related posts - internal links to support crawlability and time on site -->
       <div class="related">

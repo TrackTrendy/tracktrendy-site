@@ -11,8 +11,10 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@200;300;400;500;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="/blog/blog.css">
+  <link rel="stylesheet" href="/blog/blog.css?v=2">
+  <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
   
+  <meta name="generator" content="AI-assisted">
 <title>How to Track Conversions Without Cookies | TrackTrendy Blog</title>
 <meta name="description" content="Cookieless conversion tracking explained: how goals, events and revenue can be measured without cookies or personal data, what changes vs GA4, and a practical setup guide.">
 <meta property="og:title" content="How to Track Conversions Without Cookies | TrackTrendy Blog">
@@ -30,7 +32,6 @@
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://tracktrendy.com/"},{"@type":"ListItem","position":2,"name":"Blog","item":"https://tracktrendy.com/blog/"},{"@type":"ListItem","position":3,"name":"How to Track Conversions Without Cookies","item":"https://tracktrendy.com/blog/track-conversions-without-cookies/"}]}</script>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Can you track conversions without cookies?","acceptedAnswer":{"@type":"Answer","text":"Yes. A conversion is an event -- a purchase, signup or form submission -- and events can be counted anonymously, together with the page and traffic source of the same session. Cookies are only needed if you want to link sessions across days and devices into user profiles, which is an advertising requirement rather than an analytics one."}},{"@type":"Question","name":"How accurate is cookieless conversion tracking?","acceptedAnswer":{"@type":"Answer","text":"For counting conversions, more accurate than cookie-based tools in Europe: it records every visitor's conversions, including the 20-40% who decline consent banners and the ad-blocker users who never load GA4. What it cannot do is stitch multi-day, multi-device journeys into a single attribution path."}},{"@type":"Question","name":"Can I track revenue without cookies?","acceptedAnswer":{"@type":"Answer","text":"Yes. The purchase event simply carries the order value, and the analytics tool aggregates totals, averages and revenue per source or campaign. No customer profile is created. TrackTrendy includes cookieless revenue tracking on all plans."}},{"@type":"Question","name":"How does attribution work without cookies?","acceptedAnswer":{"@type":"Answer","text":"Attribution is per-session: a conversion credits the source that brought that session -- referrer or UTM parameters. Multi-session journeys are not linked, so a visitor who researches on Tuesday and buys on Friday credits Friday's channel. Across a month of traffic, channel-level totals still balance out well enough for budget decisions."}},{"@type":"Question","name":"Do I need a cookie banner for conversion tracking?","acceptedAnswer":{"@type":"Answer","text":"Not if the tracking is cookieless and processes no personal data -- anonymous event counts fall outside the ePrivacy consent requirement. You only need a banner when you add cookie-based advertising pixels such as Google Ads or Meta conversion tracking."}}]}</script>
 <script defer data-site="tracktrendy.com" src="https://track.tracktrendy.com/js/t.js"></script>
-  <meta name="generator" content="AI-assisted">
 </head>
 <body>
 
@@ -175,6 +176,76 @@
         <a href="https://buy.stripe.com/eVaaIhfiL77Y6uA6oo" class="btn" target="_blank">Start free for 30 days &rarr;</a>
         <p class="btn-note">No credit card required &middot; No cookie banner needed</p>
       </div>
+
+      <!-- NEWSLETTER: native form -> SendMerlin headless subscribe API (double opt-in server-side).
+           Copy hardcoded: item templates only see entry fields. -->
+      <section class="nl-section" aria-label="Newsletter" style="padding: 0; margin: 48px 0;">
+        <div class="nl-panel">
+          <div>
+            <p class="nl-eyebrow">Newsletter</p>
+            <h2>Enjoyed this article?</h2>
+            <p class="nl-blurb">Subscribe and new privacy-first analytics guides land straight in your inbox. No spam, unsubscribe anytime.</p>
+          </div>
+          <form class="nl-form" data-newsletter action="https://app.sendmerlin.com/api/forms/cmsyjau5w0013m92bm7bfw95c/subscribe" method="post">
+            <div class="nl-row">
+              <input type="email" name="email" required placeholder="you@example.com" aria-label="Email address" autocomplete="email">
+              <button type="submit" class="nl-btn">Subscribe</button>
+            </div>
+            <input class="nl-hp" type="text" name="website" tabindex="-1" autocomplete="off" aria-hidden="true">
+            <div class="cf-turnstile" data-sitekey="0x4AAAAAAECx-nU3j6b0C_vx" data-appearance="interaction-only"></div>
+            <p class="nl-msg" hidden></p>
+            <p class="nl-note">Double opt-in: confirm by email. <a href="/privacy.html">Privacy policy</a>.</p>
+          </form>
+        </div>
+      </section>
+      <script>
+        // Newsletter -> SendMerlin headless subscribe API (form.action). Turnstile
+        // interaction-only + honeypot; SendMerlin forces double opt-in server-side.
+        (function () {
+          var form = document.querySelector('[data-newsletter]');
+          if (!form) return;
+          form.addEventListener('submit', async function (e) {
+            e.preventDefault();
+            var btn = form.querySelector('[type="submit"]');
+            var msg = form.querySelector('.nl-msg');
+            function show(text, ok) {
+              msg.textContent = text;
+              msg.hidden = false;
+              msg.classList.toggle('is-error', !ok);
+            }
+            var token = form.querySelector('[name="cf-turnstile-response"]');
+            if (!token || !token.value) {
+              show('Bot check is still loading, try again in a second.', false);
+              return;
+            }
+            var label = btn.textContent;
+            btn.disabled = true;
+            btn.textContent = 'Subscribing...';
+            try {
+              var res = await fetch(form.action, {
+                method: 'POST',
+                headers: { 'content-type': 'application/json' },
+                body: JSON.stringify({
+                  email: form.email.value,
+                  website: form.website.value,
+                  'cf-turnstile-response': token.value,
+                }),
+              });
+              var data = await res.json();
+              if (!data.ok) throw new Error(data.error);
+              show(data.state === 'subscribed'
+                ? "You're on the list."
+                : 'Almost there: check your inbox to confirm.', true);
+              // Hide the row only. Removing the whole form kills the Turnstile widget.
+              form.querySelector('.nl-row').hidden = true;
+            } catch (err) {
+              show('Something went wrong. Please try again.', false);
+              btn.disabled = false;
+              btn.textContent = label;
+            }
+          });
+        })();
+      </script>
 
       <!-- Related posts - internal links to support crawlability and time on site -->
       <div class="related">

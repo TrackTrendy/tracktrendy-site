@@ -11,8 +11,10 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@200;300;400;500;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="/blog/blog.css">
+  <link rel="stylesheet" href="/blog/blog.css?v=2">
+  <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
   
+  <meta name="generator" content="AI-assisted">
 <title>The Website Metrics That Actually Matter for Small Business | TrackTrendy Blog</title>
 <meta name="description" content="Which website metrics should a small business track? The six that drive decisions -- visitors, sources, top pages, conversion rate, revenue per channel -- and the vanity metrics to ignore.">
 <meta property="og:title" content="The Website Metrics That Actually Matter for Small Business | TrackTrendy Blog">
@@ -30,7 +32,6 @@
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://tracktrendy.com/"},{"@type":"ListItem","position":2,"name":"Blog","item":"https://tracktrendy.com/blog/"},{"@type":"ListItem","position":3,"name":"The Website Metrics That Actually Matter for a Small Business","item":"https://tracktrendy.com/blog/website-metrics-that-matter/"}]}</script>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"What website metrics should a small business track?","acceptedAnswer":{"@type":"Answer","text":"Six cover nearly every decision: unique visitors as a trend, traffic sources, top pages, conversion rate, conversions or revenue per channel, and engagement on key pages. Together they answer whether your audience is growing, where it comes from, what it reads, and what persuades it to act."}},{"@type":"Question","name":"What is a good conversion rate for a small business website?","acceptedAnswer":{"@type":"Answer","text":"Typical e-commerce sites convert at 1-3% of visitors; lead-generation sites often see 2-5% for enquiries. The honest answer is that your own trend matters more than benchmarks -- a rise from 1.5% to 2% is a 33% increase in customers from the same traffic, whatever the industry average says."}},{"@type":"Question","name":"Are pageviews or unique visitors more important?","acceptedAnswer":{"@type":"Answer","text":"Unique visitors, tracked as a trend, is the better headline number -- pageviews mix real reach with refreshes and browsing depth. Pageviews still matter per page, for spotting which content actually earns attention."}},{"@type":"Question","name":"Is bounce rate still a useful metric?","acceptedAnswer":{"@type":"Answer","text":"Only per page, and only on pages meant to lead somewhere. A high bounce rate on a blog post can mean the reader got exactly what they came for; on a landing page it signals a mismatch. As a sitewide average it is noise."}},{"@type":"Question","name":"How often should I check my website analytics?","acceptedAnswer":{"@type":"Answer","text":"Weekly, for fifteen minutes, with a monthly deeper look at trends. Daily checking invites reaction to random noise. The discipline that matters is leaving each weekly review with one concrete action."}}]}</script>
 <script defer data-site="tracktrendy.com" src="https://track.tracktrendy.com/js/t.js"></script>
-  <meta name="generator" content="AI-assisted">
 </head>
 <body>
 
@@ -166,6 +167,76 @@
         <a href="https://buy.stripe.com/eVaaIhfiL77Y6uA6oo" class="btn" target="_blank">Start free for 30 days &rarr;</a>
         <p class="btn-note">No credit card required &middot; No cookie banner needed</p>
       </div>
+
+      <!-- NEWSLETTER: native form -> SendMerlin headless subscribe API (double opt-in server-side).
+           Copy hardcoded: item templates only see entry fields. -->
+      <section class="nl-section" aria-label="Newsletter" style="padding: 0; margin: 48px 0;">
+        <div class="nl-panel">
+          <div>
+            <p class="nl-eyebrow">Newsletter</p>
+            <h2>Enjoyed this article?</h2>
+            <p class="nl-blurb">Subscribe and new privacy-first analytics guides land straight in your inbox. No spam, unsubscribe anytime.</p>
+          </div>
+          <form class="nl-form" data-newsletter action="https://app.sendmerlin.com/api/forms/cmsyjau5w0013m92bm7bfw95c/subscribe" method="post">
+            <div class="nl-row">
+              <input type="email" name="email" required placeholder="you@example.com" aria-label="Email address" autocomplete="email">
+              <button type="submit" class="nl-btn">Subscribe</button>
+            </div>
+            <input class="nl-hp" type="text" name="website" tabindex="-1" autocomplete="off" aria-hidden="true">
+            <div class="cf-turnstile" data-sitekey="0x4AAAAAAECx-nU3j6b0C_vx" data-appearance="interaction-only"></div>
+            <p class="nl-msg" hidden></p>
+            <p class="nl-note">Double opt-in: confirm by email. <a href="/privacy.html">Privacy policy</a>.</p>
+          </form>
+        </div>
+      </section>
+      <script>
+        // Newsletter -> SendMerlin headless subscribe API (form.action). Turnstile
+        // interaction-only + honeypot; SendMerlin forces double opt-in server-side.
+        (function () {
+          var form = document.querySelector('[data-newsletter]');
+          if (!form) return;
+          form.addEventListener('submit', async function (e) {
+            e.preventDefault();
+            var btn = form.querySelector('[type="submit"]');
+            var msg = form.querySelector('.nl-msg');
+            function show(text, ok) {
+              msg.textContent = text;
+              msg.hidden = false;
+              msg.classList.toggle('is-error', !ok);
+            }
+            var token = form.querySelector('[name="cf-turnstile-response"]');
+            if (!token || !token.value) {
+              show('Bot check is still loading, try again in a second.', false);
+              return;
+            }
+            var label = btn.textContent;
+            btn.disabled = true;
+            btn.textContent = 'Subscribing...';
+            try {
+              var res = await fetch(form.action, {
+                method: 'POST',
+                headers: { 'content-type': 'application/json' },
+                body: JSON.stringify({
+                  email: form.email.value,
+                  website: form.website.value,
+                  'cf-turnstile-response': token.value,
+                }),
+              });
+              var data = await res.json();
+              if (!data.ok) throw new Error(data.error);
+              show(data.state === 'subscribed'
+                ? "You're on the list."
+                : 'Almost there: check your inbox to confirm.', true);
+              // Hide the row only. Removing the whole form kills the Turnstile widget.
+              form.querySelector('.nl-row').hidden = true;
+            } catch (err) {
+              show('Something went wrong. Please try again.', false);
+              btn.disabled = false;
+              btn.textContent = label;
+            }
+          });
+        })();
+      </script>
 
       <!-- Related posts - internal links to support crawlability and time on site -->
       <div class="related">

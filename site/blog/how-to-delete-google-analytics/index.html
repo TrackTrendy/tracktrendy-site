@@ -11,8 +11,10 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@200;300;400;500;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="/blog/blog.css">
+  <link rel="stylesheet" href="/blog/blog.css?v=2">
+  <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
   
+  <meta name="generator" content="AI-assisted">
 <title>How to Delete Your Google Analytics Account (Step by Step) | TrackTrendy</title>
 <meta name="description" content="Ready to leave Google Analytics? Here&#39;s exactly how to delete your GA4 account, what happens to your data, how long you have to export it, and what to use instead.">
 <meta property="og:title" content="How to Delete Your Google Analytics Account (Step by Step) | TrackTrendy">
@@ -30,7 +32,6 @@
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://tracktrendy.com/"},{"@type":"ListItem","position":2,"name":"Blog","item":"https://tracktrendy.com/blog/"},{"@type":"ListItem","position":3,"name":"How to Delete Your Google Analytics Account (Step by Step)","item":"https://tracktrendy.com/blog/how-to-delete-google-analytics/"}]}</script>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"What happens when I delete my Google Analytics account?","acceptedAnswer":{"@type":"Answer","text":"When you delete a GA4 account, it moves to a trash state where it remains for 35 days. During this period, any admin can restore it. After 35 days, the account and all associated properties, data streams, and historical data are permanently and irreversibly deleted. Export any data you need before the 35-day window closes."}},{"@type":"Question","name":"Can I recover a deleted Google Analytics account?","acceptedAnswer":{"@type":"Answer","text":"Yes, but only within 35 days of deletion. During this window, an account administrator can go to the Admin panel and restore the account from the trash. After 35 days, recovery is not possible - Google permanently deletes all data."}},{"@type":"Question","name":"Does deleting Google Analytics delete my Google account?","acceptedAnswer":{"@type":"Answer","text":"No. A Google Analytics account is separate from your Google account (Gmail, Drive, etc.). Deleting a GA account removes your analytics properties and historical data but has no effect on your Google account, Ads account, or any other Google product."}},{"@type":"Question","name":"How do I delete Google Analytics from my WordPress site?","acceptedAnswer":{"@type":"Answer","text":"If you added GA via a plugin (e.g., Site Kit, MonsterInsights, or similar): deactivate and delete the plugin. If you added the GA script manually in your theme's header.php or functions.php: remove the script tag directly. If you're using Google Tag Manager: either remove the GA4 tag in GTM, or remove the GTM container snippet from your site. After removing the code, no new data will be collected even if the GA property still exists."}},{"@type":"Question","name":"What should I use instead of Google Analytics?","acceptedAnswer":{"@type":"Answer","text":"That depends on your needs. If you want similar depth with more control and no Google involvement: Matomo (self-hosted). If you want a simple, privacy-first tool that requires no cookie banner, no GDPR setup, and works in 5 minutes: TrackTrendy (from €4/month) covers traffic, sources, page performance, and conversions without the complexity."}}]}</script>
 <script defer data-site="tracktrendy.com" src="https://track.tracktrendy.com/js/t.js"></script>
-  <meta name="generator" content="AI-assisted">
 </head>
 <body>
 
@@ -185,6 +186,76 @@
         <a href="https://buy.stripe.com/eVaaIhfiL77Y6uA6oo" class="btn" target="_blank">Start free for 30 days &rarr;</a>
         <p class="btn-note">No credit card required &middot; No cookie banner needed</p>
       </div>
+
+      <!-- NEWSLETTER: native form -> SendMerlin headless subscribe API (double opt-in server-side).
+           Copy hardcoded: item templates only see entry fields. -->
+      <section class="nl-section" aria-label="Newsletter" style="padding: 0; margin: 48px 0;">
+        <div class="nl-panel">
+          <div>
+            <p class="nl-eyebrow">Newsletter</p>
+            <h2>Enjoyed this article?</h2>
+            <p class="nl-blurb">Subscribe and new privacy-first analytics guides land straight in your inbox. No spam, unsubscribe anytime.</p>
+          </div>
+          <form class="nl-form" data-newsletter action="https://app.sendmerlin.com/api/forms/cmsyjau5w0013m92bm7bfw95c/subscribe" method="post">
+            <div class="nl-row">
+              <input type="email" name="email" required placeholder="you@example.com" aria-label="Email address" autocomplete="email">
+              <button type="submit" class="nl-btn">Subscribe</button>
+            </div>
+            <input class="nl-hp" type="text" name="website" tabindex="-1" autocomplete="off" aria-hidden="true">
+            <div class="cf-turnstile" data-sitekey="0x4AAAAAAECx-nU3j6b0C_vx" data-appearance="interaction-only"></div>
+            <p class="nl-msg" hidden></p>
+            <p class="nl-note">Double opt-in: confirm by email. <a href="/privacy.html">Privacy policy</a>.</p>
+          </form>
+        </div>
+      </section>
+      <script>
+        // Newsletter -> SendMerlin headless subscribe API (form.action). Turnstile
+        // interaction-only + honeypot; SendMerlin forces double opt-in server-side.
+        (function () {
+          var form = document.querySelector('[data-newsletter]');
+          if (!form) return;
+          form.addEventListener('submit', async function (e) {
+            e.preventDefault();
+            var btn = form.querySelector('[type="submit"]');
+            var msg = form.querySelector('.nl-msg');
+            function show(text, ok) {
+              msg.textContent = text;
+              msg.hidden = false;
+              msg.classList.toggle('is-error', !ok);
+            }
+            var token = form.querySelector('[name="cf-turnstile-response"]');
+            if (!token || !token.value) {
+              show('Bot check is still loading, try again in a second.', false);
+              return;
+            }
+            var label = btn.textContent;
+            btn.disabled = true;
+            btn.textContent = 'Subscribing...';
+            try {
+              var res = await fetch(form.action, {
+                method: 'POST',
+                headers: { 'content-type': 'application/json' },
+                body: JSON.stringify({
+                  email: form.email.value,
+                  website: form.website.value,
+                  'cf-turnstile-response': token.value,
+                }),
+              });
+              var data = await res.json();
+              if (!data.ok) throw new Error(data.error);
+              show(data.state === 'subscribed'
+                ? "You're on the list."
+                : 'Almost there: check your inbox to confirm.', true);
+              // Hide the row only. Removing the whole form kills the Turnstile widget.
+              form.querySelector('.nl-row').hidden = true;
+            } catch (err) {
+              show('Something went wrong. Please try again.', false);
+              btn.disabled = false;
+              btn.textContent = label;
+            }
+          });
+        })();
+      </script>
 
       <!-- Related posts - internal links to support crawlability and time on site -->
       <nav class="related" aria-labelledby="related-heading">

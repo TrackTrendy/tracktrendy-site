@@ -11,8 +11,10 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@200;300;400;500;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="/blog/blog.css">
+  <link rel="stylesheet" href="/blog/blog.css?v=2">
+  <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
   
+  <meta name="generator" content="AI-assisted">
 <title>The End of Third-Party Cookies: What It Means for Your Website | TrackTrendy Blog</title>
 <meta name="description" content="Third-party cookies are blocked in Safari and Firefox, and Chrome reversed its plan to remove them. What the cookie transition really means for analytics, ads and your website in 2026.">
 <meta property="og:title" content="The End of Third-Party Cookies: What It Means for Your Website | TrackTrendy Blog">
@@ -30,7 +32,6 @@
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://tracktrendy.com/"},{"@type":"ListItem","position":2,"name":"Blog","item":"https://tracktrendy.com/blog/"},{"@type":"ListItem","position":3,"name":"The End of Third-Party Cookies: What It Means for Your Website","item":"https://tracktrendy.com/blog/end-of-third-party-cookies/"}]}</script>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Are third-party cookies gone?","acceptedAnswer":{"@type":"Answer","text":"Partially. Safari, Firefox and Brave block them by default, which covers a substantial share of users. Chrome announced their removal but reversed course in 2024-2025 and keeps them available, with user-level controls. In the EU, consent requirements restrict them on the legal level regardless of browser."}},{"@type":"Question","name":"Did Google remove third-party cookies from Chrome?","acceptedAnswer":{"@type":"Answer","text":"No. After four years of announced and delayed deadlines, Google abandoned the forced phase-out in July 2024, and later shelved the planned standalone opt-out prompt. Chrome still supports third-party cookies; users can restrict them in settings."}},{"@type":"Question","name":"Do third-party cookie changes affect Google Analytics?","acceptedAnswer":{"@type":"Answer","text":"Not directly -- GA uses first-party cookies. But related privacy measures do: Safari's ITP expires script-set first-party cookies within days, EU law requires consent for analytics cookies of any party, and ad blockers block the GA script itself. Together these create the 30-50% measurement gap many sites see."}},{"@type":"Question","name":"What replaces third-party cookies for advertisers?","acceptedAnswer":{"@type":"Answer","text":"A mix: Chrome's Privacy Sandbox APIs, identifiers built on hashed emails, and the walled-garden audiences of platforms like Google and Meta. For small businesses the practical takeaway is that owned first-party channels -- email lists, direct traffic, content -- are becoming relatively more valuable than rented cross-site targeting."}},{"@type":"Question","name":"Is my website's analytics future-proof against cookie changes?","acceptedAnswer":{"@type":"Answer","text":"It is if it never depended on cookies: anonymous, aggregated measurement has been untouched by every browser crackdown since 2017 because there is nothing to block or expire. Cookie-based analytics, by contrast, has needed consent banners, Consent Mode, and modelling patches to keep functioning in Europe."}}]}</script>
 <script defer data-site="tracktrendy.com" src="https://track.tracktrendy.com/js/t.js"></script>
-  <meta name="generator" content="AI-assisted">
 </head>
 <body>
 
@@ -159,6 +160,76 @@
         <a href="https://buy.stripe.com/eVaaIhfiL77Y6uA6oo" class="btn" target="_blank">Start free for 30 days &rarr;</a>
         <p class="btn-note">No credit card required &middot; No cookie banner needed</p>
       </div>
+
+      <!-- NEWSLETTER: native form -> SendMerlin headless subscribe API (double opt-in server-side).
+           Copy hardcoded: item templates only see entry fields. -->
+      <section class="nl-section" aria-label="Newsletter" style="padding: 0; margin: 48px 0;">
+        <div class="nl-panel">
+          <div>
+            <p class="nl-eyebrow">Newsletter</p>
+            <h2>Enjoyed this article?</h2>
+            <p class="nl-blurb">Subscribe and new privacy-first analytics guides land straight in your inbox. No spam, unsubscribe anytime.</p>
+          </div>
+          <form class="nl-form" data-newsletter action="https://app.sendmerlin.com/api/forms/cmsyjau5w0013m92bm7bfw95c/subscribe" method="post">
+            <div class="nl-row">
+              <input type="email" name="email" required placeholder="you@example.com" aria-label="Email address" autocomplete="email">
+              <button type="submit" class="nl-btn">Subscribe</button>
+            </div>
+            <input class="nl-hp" type="text" name="website" tabindex="-1" autocomplete="off" aria-hidden="true">
+            <div class="cf-turnstile" data-sitekey="0x4AAAAAAECx-nU3j6b0C_vx" data-appearance="interaction-only"></div>
+            <p class="nl-msg" hidden></p>
+            <p class="nl-note">Double opt-in: confirm by email. <a href="/privacy.html">Privacy policy</a>.</p>
+          </form>
+        </div>
+      </section>
+      <script>
+        // Newsletter -> SendMerlin headless subscribe API (form.action). Turnstile
+        // interaction-only + honeypot; SendMerlin forces double opt-in server-side.
+        (function () {
+          var form = document.querySelector('[data-newsletter]');
+          if (!form) return;
+          form.addEventListener('submit', async function (e) {
+            e.preventDefault();
+            var btn = form.querySelector('[type="submit"]');
+            var msg = form.querySelector('.nl-msg');
+            function show(text, ok) {
+              msg.textContent = text;
+              msg.hidden = false;
+              msg.classList.toggle('is-error', !ok);
+            }
+            var token = form.querySelector('[name="cf-turnstile-response"]');
+            if (!token || !token.value) {
+              show('Bot check is still loading, try again in a second.', false);
+              return;
+            }
+            var label = btn.textContent;
+            btn.disabled = true;
+            btn.textContent = 'Subscribing...';
+            try {
+              var res = await fetch(form.action, {
+                method: 'POST',
+                headers: { 'content-type': 'application/json' },
+                body: JSON.stringify({
+                  email: form.email.value,
+                  website: form.website.value,
+                  'cf-turnstile-response': token.value,
+                }),
+              });
+              var data = await res.json();
+              if (!data.ok) throw new Error(data.error);
+              show(data.state === 'subscribed'
+                ? "You're on the list."
+                : 'Almost there: check your inbox to confirm.', true);
+              // Hide the row only. Removing the whole form kills the Turnstile widget.
+              form.querySelector('.nl-row').hidden = true;
+            } catch (err) {
+              show('Something went wrong. Please try again.', false);
+              btn.disabled = false;
+              btn.textContent = label;
+            }
+          });
+        })();
+      </script>
 
       <!-- Related posts - internal links to support crawlability and time on site -->
       <div class="related">

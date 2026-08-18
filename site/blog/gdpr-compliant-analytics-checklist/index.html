@@ -11,8 +11,10 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@200;300;400;500;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="/blog/blog.css">
+  <link rel="stylesheet" href="/blog/blog.css?v=2">
+  <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
   
+  <meta name="generator" content="AI-assisted">
 <title>GDPR-Compliant Analytics: A Practical Checklist | TrackTrendy Blog</title>
 <meta name="description" content="Step-by-step GDPR compliance checklist for website analytics: audit your trackers, legal basis, consent, IP anonymisation, data transfers, retention, and the cookieless shortcut.">
 <meta property="og:title" content="GDPR-Compliant Analytics: A Practical Checklist | TrackTrendy Blog">
@@ -30,7 +32,6 @@
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://tracktrendy.com/"},{"@type":"ListItem","position":2,"name":"Blog","item":"https://tracktrendy.com/blog/"},{"@type":"ListItem","position":3,"name":"GDPR-Compliant Analytics: A Practical Checklist","item":"https://tracktrendy.com/blog/gdpr-compliant-analytics-checklist/"}]}</script>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"What makes website analytics GDPR-compliant?","acceptedAnswer":{"@type":"Answer","text":"Either full compliance around personal-data collection -- valid consent, disclosure, DPA, lawful transfers, honoured data-subject rights -- or collecting no personal data at all. Fully anonymised, aggregated statistics fall outside GDPR's scope under Recital 26, which is why cookieless tools need no consent banner."}},{"@type":"Question","name":"Can I use Google Analytics without a cookie banner?","acceptedAnswer":{"@type":"Answer","text":"No. GA4 sets cookies and processes personal data, so EU visitors must give prior consent via a banner, and the scripts must not fire until they do. Only tools that use no cookies and process no personal data can run banner-free."}},{"@type":"Question","name":"Is IP anonymisation enough to make analytics GDPR-compliant?","acceptedAnswer":{"@type":"Answer","text":"On its own, no. If the tool still sets identifying cookies or assigns user IDs, it processes personal data regardless of what happens to the IP address. Anonymisation must cover the whole pipeline: no persistent identifiers, IPs discarded at collection, and only aggregated data stored."}},{"@type":"Question","name":"Do I need a DPA with my analytics provider?","acceptedAnswer":{"@type":"Answer","text":"If the provider processes personal data on your behalf, yes -- GDPR Article 28 requires a data processing agreement. Reputable providers offer one as standard. For anonymous tools a DPA is often still signed for good order, covering the brief moment data exists before anonymisation."}},{"@type":"Question","name":"What is the easiest way to make my site's analytics compliant?","acceptedAnswer":{"@type":"Answer","text":"Switch the analytics role to a cookieless, EU-focused tool: no banner requirement, no transfer analysis, no consent-rate data loss, and a one-paragraph privacy-policy entry. Then handle any remaining personal-data tools (ad pixels, newsletter forms) on their own merits."}}]}</script>
 <script defer data-site="tracktrendy.com" src="https://track.tracktrendy.com/js/t.js"></script>
-  <meta name="generator" content="AI-assisted">
 </head>
 <body>
 
@@ -164,6 +165,76 @@
         <a href="https://buy.stripe.com/eVaaIhfiL77Y6uA6oo" class="btn" target="_blank">Start free for 30 days &rarr;</a>
         <p class="btn-note">No credit card required &middot; No cookie banner needed</p>
       </div>
+
+      <!-- NEWSLETTER: native form -> SendMerlin headless subscribe API (double opt-in server-side).
+           Copy hardcoded: item templates only see entry fields. -->
+      <section class="nl-section" aria-label="Newsletter" style="padding: 0; margin: 48px 0;">
+        <div class="nl-panel">
+          <div>
+            <p class="nl-eyebrow">Newsletter</p>
+            <h2>Enjoyed this article?</h2>
+            <p class="nl-blurb">Subscribe and new privacy-first analytics guides land straight in your inbox. No spam, unsubscribe anytime.</p>
+          </div>
+          <form class="nl-form" data-newsletter action="https://app.sendmerlin.com/api/forms/cmsyjau5w0013m92bm7bfw95c/subscribe" method="post">
+            <div class="nl-row">
+              <input type="email" name="email" required placeholder="you@example.com" aria-label="Email address" autocomplete="email">
+              <button type="submit" class="nl-btn">Subscribe</button>
+            </div>
+            <input class="nl-hp" type="text" name="website" tabindex="-1" autocomplete="off" aria-hidden="true">
+            <div class="cf-turnstile" data-sitekey="0x4AAAAAAECx-nU3j6b0C_vx" data-appearance="interaction-only"></div>
+            <p class="nl-msg" hidden></p>
+            <p class="nl-note">Double opt-in: confirm by email. <a href="/privacy.html">Privacy policy</a>.</p>
+          </form>
+        </div>
+      </section>
+      <script>
+        // Newsletter -> SendMerlin headless subscribe API (form.action). Turnstile
+        // interaction-only + honeypot; SendMerlin forces double opt-in server-side.
+        (function () {
+          var form = document.querySelector('[data-newsletter]');
+          if (!form) return;
+          form.addEventListener('submit', async function (e) {
+            e.preventDefault();
+            var btn = form.querySelector('[type="submit"]');
+            var msg = form.querySelector('.nl-msg');
+            function show(text, ok) {
+              msg.textContent = text;
+              msg.hidden = false;
+              msg.classList.toggle('is-error', !ok);
+            }
+            var token = form.querySelector('[name="cf-turnstile-response"]');
+            if (!token || !token.value) {
+              show('Bot check is still loading, try again in a second.', false);
+              return;
+            }
+            var label = btn.textContent;
+            btn.disabled = true;
+            btn.textContent = 'Subscribing...';
+            try {
+              var res = await fetch(form.action, {
+                method: 'POST',
+                headers: { 'content-type': 'application/json' },
+                body: JSON.stringify({
+                  email: form.email.value,
+                  website: form.website.value,
+                  'cf-turnstile-response': token.value,
+                }),
+              });
+              var data = await res.json();
+              if (!data.ok) throw new Error(data.error);
+              show(data.state === 'subscribed'
+                ? "You're on the list."
+                : 'Almost there: check your inbox to confirm.', true);
+              // Hide the row only. Removing the whole form kills the Turnstile widget.
+              form.querySelector('.nl-row').hidden = true;
+            } catch (err) {
+              show('Something went wrong. Please try again.', false);
+              btn.disabled = false;
+              btn.textContent = label;
+            }
+          });
+        })();
+      </script>
 
       <!-- Related posts - internal links to support crawlability and time on site -->
       <div class="related">

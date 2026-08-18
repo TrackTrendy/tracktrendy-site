@@ -1251,8 +1251,32 @@
     body.light .how-step.border-glow-card { --card-bg: var(--surface2); }
     body.light .browser-frame.border-glow-card { --card-bg: #f0eefc; }
     body.light .ai-chat.border-glow-card { --card-bg: var(--surface); }
+
+    /* NEWSLETTER (SendMerlin) */
+    .nl-section { max-width: var(--max-w); margin: 0 auto; padding: 0 var(--pad-x) 100px; }
+    .nl-panel { position: relative; display: grid; grid-template-columns: 1.1fr 1fr; gap: 40px; align-items: center; background: var(--surface2); border: 1px solid var(--sep); border-radius: 16px; padding: 44px 48px; }
+    .nl-eyebrow { font-size: 12px; font-weight: 600; letter-spacing: 0.16em; text-transform: uppercase; color: var(--purple-light); margin-bottom: 10px; }
+    .nl-panel h2 { font-size: 24px; font-weight: 600; color: var(--t1); margin-bottom: 10px; }
+    .nl-blurb { color: var(--t2); font-size: 15px; line-height: 1.7; }
+    .nl-form { position: relative; }
+    .nl-row { display: flex; gap: 10px; }
+    .nl-row input[type='email'] { flex: 1; min-width: 0; background: var(--black); border: 1px solid var(--sep); border-radius: 10px; color: var(--t1); font: inherit; font-size: 15px; padding: 12px 16px; }
+    .nl-row input[type='email']:focus { outline: none; border-color: var(--purple); }
+    .nl-btn { background: var(--purple); color: #fff; border: none; border-radius: 10px; font: inherit; font-size: 14px; font-weight: 600; padding: 12px 22px; cursor: pointer; transition: background 0.2s ease; }
+    .nl-btn:hover { background: var(--purple-light); }
+    .nl-hp { position: absolute; left: -9999px; }
+    .nl-form .cf-turnstile { margin-top: 12px; }
+    .nl-msg { margin-top: 12px; font-size: 14px; color: var(--green); }
+    .nl-msg.is-error { color: var(--red); }
+    .nl-note { margin-top: 10px; font-size: 12px; color: var(--t3); }
+    .nl-note a { color: var(--t2); text-decoration: underline; }
+    @media (max-width: 760px) {
+      .nl-panel { grid-template-columns: 1fr; padding: 28px 22px; gap: 20px; }
+      .nl-row { flex-direction: column; }
+    }
   </style>
   
+  <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
 <title>TrackTrendy - Privacy-First Analytics | GDPR-Compliant Google Analytics Alternative</title>
 <meta name="description" content="TrackTrendy gives you powerful website analytics without cookies or consent banners. 100% GDPR compliant. Track visitors, revenue and goals from €4/month. Try free for 30 days.">
 <meta property="og:title" content="TrackTrendy - Privacy-First Analytics | GDPR-Compliant Google Analytics Alternative">
@@ -1949,6 +1973,75 @@
       <p class="cta-note" data-cms-field="cta.note">No credit card &nbsp;&middot;&nbsp; No cookie banner &nbsp;&middot;&nbsp; Cancel anytime</p>
     </div>
   </section>
+
+  <!-- NEWSLETTER: native form -> SendMerlin headless subscribe API (double opt-in server-side) -->
+  <section class="nl-section" aria-label="Newsletter">
+    <div class="nl-panel">
+      <div>
+        <p class="nl-eyebrow" data-cms-field="newsletter.eyebrow">Newsletter</p>
+        <h2 data-cms-field="newsletter.heading">Privacy-first analytics, straight to your inbox</h2>
+        <p class="nl-blurb" data-cms-field="newsletter.blurb">Product updates and practical guides on cookieless, GDPR-friendly analytics. A few emails a month, no spam.</p>
+      </div>
+      <form class="nl-form" data-newsletter action="https://app.sendmerlin.com/api/forms/cmsyjau5w0013m92bm7bfw95c/subscribe" method="post">
+        <div class="nl-row">
+          <input type="email" name="email" required placeholder="you@example.com" aria-label="Email address" autocomplete="email">
+          <button type="submit" class="nl-btn">Subscribe</button>
+        </div>
+        <input class="nl-hp" type="text" name="website" tabindex="-1" autocomplete="off" aria-hidden="true">
+        <div class="cf-turnstile" data-sitekey="0x4AAAAAAECx-nU3j6b0C_vx" data-appearance="interaction-only"></div>
+        <p class="nl-msg" hidden></p>
+        <p class="nl-note">Double opt-in: confirm by email. Unsubscribe anytime. <a href="/privacy.html">Privacy policy</a>.</p>
+      </form>
+    </div>
+  </section>
+  <script>
+    // Newsletter -> SendMerlin headless subscribe API (form.action). Turnstile
+    // interaction-only + honeypot; SendMerlin forces double opt-in server-side.
+    (function () {
+      var form = document.querySelector('[data-newsletter]');
+      if (!form) return;
+      form.addEventListener('submit', async function (e) {
+        e.preventDefault();
+        var btn = form.querySelector('[type="submit"]');
+        var msg = form.querySelector('.nl-msg');
+        function show(text, ok) {
+          msg.textContent = text;
+          msg.hidden = false;
+          msg.classList.toggle('is-error', !ok);
+        }
+        var token = form.querySelector('[name="cf-turnstile-response"]');
+        if (!token || !token.value) {
+          show('Bot check is still loading, try again in a second.', false);
+          return;
+        }
+        var label = btn.textContent;
+        btn.disabled = true;
+        btn.textContent = 'Subscribing...';
+        try {
+          var res = await fetch(form.action, {
+            method: 'POST',
+            headers: { 'content-type': 'application/json' },
+            body: JSON.stringify({
+              email: form.email.value,
+              website: form.website.value,
+              'cf-turnstile-response': token.value,
+            }),
+          });
+          var data = await res.json();
+          if (!data.ok) throw new Error(data.error);
+          show(data.state === 'subscribed'
+            ? "You're on the list."
+            : 'Almost there: check your inbox to confirm.', true);
+          // Hide the row only. Removing the whole form kills the Turnstile widget.
+          form.querySelector('.nl-row').hidden = true;
+        } catch (err) {
+          show('Something went wrong. Please try again.', false);
+          btn.disabled = false;
+          btn.textContent = label;
+        }
+      });
+    })();
+  </script>
   </main>
 
   <!-- FOOTER -->

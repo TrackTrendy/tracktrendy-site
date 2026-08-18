@@ -11,8 +11,10 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@200;300;400;500;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="/blog/blog.css">
+  <link rel="stylesheet" href="/blog/blog.css?v=2">
+  <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
   
+  <meta name="generator" content="AI-assisted">
 <title>What Does Google Know About Me? | TrackTrendy Blog</title>
 <meta name="description" content="Google collects your search history, location, browsing behaviour, emails, and more -- building a profile far more detailed than most people realise. Here&#39;s exactly what they know and how to see it.">
 <meta property="og:title" content="What Does Google Know About Me? | TrackTrendy Blog">
@@ -30,7 +32,6 @@
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://tracktrendy.com/"},{"@type":"ListItem","position":2,"name":"Blog","item":"https://tracktrendy.com/blog/"},{"@type":"ListItem","position":3,"name":"What Does Google Know About Me?","item":"https://tracktrendy.com/blog/what-does-google-know-about-me/"}]}</script>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"What information does Google collect about me?","acceptedAnswer":{"@type":"Answer","text":"Google collects your search history, websites you visit (through Google Analytics and Ads on approximately 85% of sites), location data from Maps and Android, Gmail content, YouTube history, Google Drive files, calendar events, Chrome browsing data, and app usage on Android. This data is combined to build advertising profiles used to serve you targeted ads."}},{"@type":"Question","name":"How do I find out what Google knows about me?","acceptedAnswer":{"@type":"Answer","text":"Go to myaccount.google.com and navigate to Data and Privacy. There you can view your activity history (searches, YouTube, Maps), see your inferred interests in Ad Settings, and download everything Google has via Google Takeout. The My Activity section shows a chronological log of your Google interactions, which can be surprising in its detail."}},{"@type":"Question","name":"Does Google track you in incognito mode?","acceptedAnswer":{"@type":"Answer","text":"Incognito mode prevents your browser from saving local history, but it does not prevent Google from seeing your searches if you use Google Search. Websites you visit in incognito that run Google Analytics still send data to Google. Your internet service provider can also see traffic regardless of incognito mode. Incognito prevents local traces, not network-level tracking."}},{"@type":"Question","name":"Does Google read my emails?","acceptedAnswer":{"@type":"Answer","text":"Google scans Gmail for spam filtering, phishing detection, and smart features like Smart Reply. Google has stated since 2017 that it does not use Gmail content to personalise ads. However, the scanning happens, and the data exists on Google's servers. Emails in transit and at rest are accessible to Google."}},{"@type":"Question","name":"Can I stop Google from collecting my data?","acceptedAnswer":{"@type":"Answer","text":"You can reduce but not eliminate Google's data collection if you continue using Google products. You can turn off Web and App Activity, disable Location History, delete past activity, and opt out of ad personalisation. To stop collection meaningfully, you need to switch to alternatives -- non-Google search engines, email providers, and analytics tools that do not share data with Google."}}]}</script>
 <script defer data-site="tracktrendy.com" src="https://track.tracktrendy.com/js/t.js"></script>
-  <meta name="generator" content="AI-assisted">
 </head>
 <body>
 
@@ -206,6 +207,76 @@
         <a href="https://buy.stripe.com/eVaaIhfiL77Y6uA6oo" class="btn" target="_blank">Start free for 30 days &rarr;</a>
         <p class="btn-note">No credit card required &middot; No cookie banner needed</p>
       </div>
+
+      <!-- NEWSLETTER: native form -> SendMerlin headless subscribe API (double opt-in server-side).
+           Copy hardcoded: item templates only see entry fields. -->
+      <section class="nl-section" aria-label="Newsletter" style="padding: 0; margin: 48px 0;">
+        <div class="nl-panel">
+          <div>
+            <p class="nl-eyebrow">Newsletter</p>
+            <h2>Enjoyed this article?</h2>
+            <p class="nl-blurb">Subscribe and new privacy-first analytics guides land straight in your inbox. No spam, unsubscribe anytime.</p>
+          </div>
+          <form class="nl-form" data-newsletter action="https://app.sendmerlin.com/api/forms/cmsyjau5w0013m92bm7bfw95c/subscribe" method="post">
+            <div class="nl-row">
+              <input type="email" name="email" required placeholder="you@example.com" aria-label="Email address" autocomplete="email">
+              <button type="submit" class="nl-btn">Subscribe</button>
+            </div>
+            <input class="nl-hp" type="text" name="website" tabindex="-1" autocomplete="off" aria-hidden="true">
+            <div class="cf-turnstile" data-sitekey="0x4AAAAAAECx-nU3j6b0C_vx" data-appearance="interaction-only"></div>
+            <p class="nl-msg" hidden></p>
+            <p class="nl-note">Double opt-in: confirm by email. <a href="/privacy.html">Privacy policy</a>.</p>
+          </form>
+        </div>
+      </section>
+      <script>
+        // Newsletter -> SendMerlin headless subscribe API (form.action). Turnstile
+        // interaction-only + honeypot; SendMerlin forces double opt-in server-side.
+        (function () {
+          var form = document.querySelector('[data-newsletter]');
+          if (!form) return;
+          form.addEventListener('submit', async function (e) {
+            e.preventDefault();
+            var btn = form.querySelector('[type="submit"]');
+            var msg = form.querySelector('.nl-msg');
+            function show(text, ok) {
+              msg.textContent = text;
+              msg.hidden = false;
+              msg.classList.toggle('is-error', !ok);
+            }
+            var token = form.querySelector('[name="cf-turnstile-response"]');
+            if (!token || !token.value) {
+              show('Bot check is still loading, try again in a second.', false);
+              return;
+            }
+            var label = btn.textContent;
+            btn.disabled = true;
+            btn.textContent = 'Subscribing...';
+            try {
+              var res = await fetch(form.action, {
+                method: 'POST',
+                headers: { 'content-type': 'application/json' },
+                body: JSON.stringify({
+                  email: form.email.value,
+                  website: form.website.value,
+                  'cf-turnstile-response': token.value,
+                }),
+              });
+              var data = await res.json();
+              if (!data.ok) throw new Error(data.error);
+              show(data.state === 'subscribed'
+                ? "You're on the list."
+                : 'Almost there: check your inbox to confirm.', true);
+              // Hide the row only. Removing the whole form kills the Turnstile widget.
+              form.querySelector('.nl-row').hidden = true;
+            } catch (err) {
+              show('Something went wrong. Please try again.', false);
+              btn.disabled = false;
+              btn.textContent = label;
+            }
+          });
+        })();
+      </script>
 
       <!-- Related posts - internal links to support crawlability and time on site -->
       <div class="related">

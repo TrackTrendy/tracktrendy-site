@@ -11,8 +11,10 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@200;300;400;500;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="/blog/blog.css">
+  <link rel="stylesheet" href="/blog/blog.css?v=2">
+  <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
   
+  <meta name="generator" content="AI-assisted">
 <title>What Is Privacy-First Analytics? | TrackTrendy Blog</title>
 <meta name="description" content="Privacy-first analytics collects website data without cookies, without storing personal information, and without needing a GDPR consent banner. Here&#39;s how it works and what you gain.">
 <meta property="og:title" content="What Is Privacy-First Analytics? | TrackTrendy Blog">
@@ -30,7 +32,6 @@
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://tracktrendy.com/"},{"@type":"ListItem","position":2,"name":"Blog","item":"https://tracktrendy.com/blog/"},{"@type":"ListItem","position":3,"name":"What Is Privacy-First Analytics?","item":"https://tracktrendy.com/blog/privacy-first-analytics/"}]}</script>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"What is privacy-first analytics?","acceptedAnswer":{"@type":"Answer","text":"Privacy-first analytics refers to website analytics tools that track visitor behaviour without cookies, without collecting personal data, and without requiring GDPR consent banners. These tools aggregate anonymous data -- traffic volumes, referrers, page views, conversion counts -- to give you insights about your site without building profiles of individual visitors."}},{"@type":"Question","name":"Is privacy-first analytics the same as GDPR-compliant analytics?","acceptedAnswer":{"@type":"Answer","text":"Not exactly. All privacy-first analytics tools are designed to be GDPR compliant, but not all 'GDPR-compliant' tools are privacy-first. Some tools claim GDPR compliance while still using cookies and collecting personal data -- they just add consent mechanisms. Privacy-first tools go further by not collecting personal data in the first place, which means no consent is needed at all."}},{"@type":"Question","name":"Do privacy-first analytics tools work as well as Google Analytics?","acceptedAnswer":{"@type":"Answer","text":"For measuring traffic, sources, page performance, and conversions: yes, often more accurately, because they count every visitor rather than only those who accepted cookies. For advanced features like individual user journey tracking, remarketing audiences, or ML-based predictions: no, these require personal data and cookies to function."}},{"@type":"Question","name":"Do I still need a cookie banner with privacy-first analytics?","acceptedAnswer":{"@type":"Answer","text":"No. Cookie banners are legally required when you store cookies or similar identifiers in visitors' browsers under the ePrivacy Directive. Privacy-first analytics tools do not use cookies or browser storage, so the consent requirement doesn't apply. You can remove your cookie banner entirely if your only tracking tool is cookieless."}},{"@type":"Question","name":"What is the best privacy-first analytics tool?","acceptedAnswer":{"@type":"Answer","text":"The best tool depends on your needs. TrackTrendy (from €4/month) is built for European businesses and covers traffic, sources, page performance, revenue tracking, and conversions in a clean dashboard -- without cookies, without consent banners, and without sharing data with Google. Other options include Plausible and Fathom, which take a similar approach but differ in pricing and feature set."}}]}</script>
 <script defer data-site="tracktrendy.com" src="https://track.tracktrendy.com/js/t.js"></script>
-  <meta name="generator" content="AI-assisted">
 </head>
 <body>
 
@@ -193,6 +194,76 @@
         <a href="https://buy.stripe.com/eVaaIhfiL77Y6uA6oo" class="btn" target="_blank">Start free for 30 days &rarr;</a>
         <p class="btn-note">No credit card required &middot; No cookie banner needed</p>
       </div>
+
+      <!-- NEWSLETTER: native form -> SendMerlin headless subscribe API (double opt-in server-side).
+           Copy hardcoded: item templates only see entry fields. -->
+      <section class="nl-section" aria-label="Newsletter" style="padding: 0; margin: 48px 0;">
+        <div class="nl-panel">
+          <div>
+            <p class="nl-eyebrow">Newsletter</p>
+            <h2>Enjoyed this article?</h2>
+            <p class="nl-blurb">Subscribe and new privacy-first analytics guides land straight in your inbox. No spam, unsubscribe anytime.</p>
+          </div>
+          <form class="nl-form" data-newsletter action="https://app.sendmerlin.com/api/forms/cmsyjau5w0013m92bm7bfw95c/subscribe" method="post">
+            <div class="nl-row">
+              <input type="email" name="email" required placeholder="you@example.com" aria-label="Email address" autocomplete="email">
+              <button type="submit" class="nl-btn">Subscribe</button>
+            </div>
+            <input class="nl-hp" type="text" name="website" tabindex="-1" autocomplete="off" aria-hidden="true">
+            <div class="cf-turnstile" data-sitekey="0x4AAAAAAECx-nU3j6b0C_vx" data-appearance="interaction-only"></div>
+            <p class="nl-msg" hidden></p>
+            <p class="nl-note">Double opt-in: confirm by email. <a href="/privacy.html">Privacy policy</a>.</p>
+          </form>
+        </div>
+      </section>
+      <script>
+        // Newsletter -> SendMerlin headless subscribe API (form.action). Turnstile
+        // interaction-only + honeypot; SendMerlin forces double opt-in server-side.
+        (function () {
+          var form = document.querySelector('[data-newsletter]');
+          if (!form) return;
+          form.addEventListener('submit', async function (e) {
+            e.preventDefault();
+            var btn = form.querySelector('[type="submit"]');
+            var msg = form.querySelector('.nl-msg');
+            function show(text, ok) {
+              msg.textContent = text;
+              msg.hidden = false;
+              msg.classList.toggle('is-error', !ok);
+            }
+            var token = form.querySelector('[name="cf-turnstile-response"]');
+            if (!token || !token.value) {
+              show('Bot check is still loading, try again in a second.', false);
+              return;
+            }
+            var label = btn.textContent;
+            btn.disabled = true;
+            btn.textContent = 'Subscribing...';
+            try {
+              var res = await fetch(form.action, {
+                method: 'POST',
+                headers: { 'content-type': 'application/json' },
+                body: JSON.stringify({
+                  email: form.email.value,
+                  website: form.website.value,
+                  'cf-turnstile-response': token.value,
+                }),
+              });
+              var data = await res.json();
+              if (!data.ok) throw new Error(data.error);
+              show(data.state === 'subscribed'
+                ? "You're on the list."
+                : 'Almost there: check your inbox to confirm.', true);
+              // Hide the row only. Removing the whole form kills the Turnstile widget.
+              form.querySelector('.nl-row').hidden = true;
+            } catch (err) {
+              show('Something went wrong. Please try again.', false);
+              btn.disabled = false;
+              btn.textContent = label;
+            }
+          });
+        })();
+      </script>
 
       <!-- Related posts - internal links to support crawlability and time on site -->
       <div class="related">

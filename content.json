@@ -236,6 +236,11 @@
         "footer": {
           "desc": "Privacy-first website analytics for European businesses. Cookie-free, GDPR compliant, and built for people who care about their visitors.",
           "copy": "TrackTrendy. Privacy-first analytics."
+        },
+        "newsletter": {
+          "eyebrow": "Newsletter",
+          "heading": "Privacy-first analytics, straight to your inbox",
+          "blurb": "Product updates and practical guides on cookieless, GDPR-friendly analytics. A few emails a month, no spam."
         }
       },
       "seo": {
@@ -323,6 +328,11 @@
           "title_line1": "Privacy, Analytics &",
           "title_line2": "What Google Won't Tell You",
           "intro": "Practical guides on cookie-free analytics, GDPR compliance, and understanding your website data - without the corporate spin."
+        },
+        "newsletter": {
+          "eyebrow": "Newsletter",
+          "heading": "New guides in your inbox",
+          "blurb": "Practical reads on privacy-first analytics: GDPR, cookieless tracking, and making sense of your numbers. No spam, unsubscribe anytime."
         }
       },
       "seo": {

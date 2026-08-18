@@ -339,3 +339,26 @@ body.light .footer-col a:hover { color: #1E1E2F; }
   .footer-top { grid-template-columns: 1fr; }
   .footer-bottom { flex-direction: column; gap: 12px; text-align: center; }
 }
+
+/* NEWSLETTER (SendMerlin) */
+.nl-section { max-width: var(--max-w); margin: 0 auto 90px; padding: 0 24px; }
+.nl-panel { position: relative; display: grid; grid-template-columns: 1.1fr 1fr; gap: 40px; align-items: center; background: var(--surface2); border: 1px solid var(--sep); border-radius: 16px; padding: 44px 48px; }
+.nl-eyebrow { font-size: 12px; font-weight: 600; letter-spacing: 0.16em; text-transform: uppercase; color: var(--purple-light); margin-bottom: 10px; }
+.nl-panel h2 { font-size: 24px; font-weight: 600; color: var(--t1); margin-bottom: 10px; }
+.nl-blurb { color: var(--t2); font-size: 15px; line-height: 1.7; }
+.nl-form { position: relative; }
+.nl-row { display: flex; gap: 10px; }
+.nl-row input[type='email'] { flex: 1; min-width: 0; background: var(--black); border: 1px solid var(--sep); border-radius: 10px; color: var(--t1); font: inherit; font-size: 15px; padding: 12px 16px; }
+.nl-row input[type='email']:focus { outline: none; border-color: var(--purple); }
+.nl-btn { background: var(--purple); color: #fff; border: none; border-radius: 10px; font: inherit; font-size: 14px; font-weight: 600; padding: 12px 22px; cursor: pointer; transition: background 0.2s ease; }
+.nl-btn:hover { background: var(--purple-light); }
+.nl-hp { position: absolute; left: -9999px; }
+.nl-form .cf-turnstile { margin-top: 12px; }
+.nl-msg { margin-top: 12px; font-size: 14px; color: var(--green); }
+.nl-msg.is-error { color: var(--red); }
+.nl-note { margin-top: 10px; font-size: 12px; color: var(--t3); }
+.nl-note a { color: var(--t2); text-decoration: underline; }
+@media (max-width: 760px) {
+  .nl-panel { grid-template-columns: 1fr; padding: 28px 22px; gap: 20px; }
+  .nl-row { flex-direction: column; }
+}
