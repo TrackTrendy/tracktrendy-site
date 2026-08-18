@@ -632,7 +632,6 @@
         {
           "id": "newsletter",
           "label": "Newsletter",
-          "clonable": false,
           "repeater": false,
           "fields": [
             {
@@ -693,7 +692,6 @@
         {
           "id": "newsletter",
           "label": "Newsletter",
-          "clonable": false,
           "repeater": false,
           "fields": [
             {
