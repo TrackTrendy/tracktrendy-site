@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- Title, description, Open Graph + BlogPosting/BreadcrumbList/FAQPage JSON-LD are injected by Orbit CMS at render time. Do not add them here or they will duplicate. -->
+  <link rel="canonical" href="https://tracktrendy.com/blog/leaving-google-analytics-checklist/">
+
+  <link rel="icon" href="/favicon.png" type="image/png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@200;300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/blog/blog.css?v=3">
+  <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
+  
+  <meta name="generator" content="AI-assisted">
+<title>Leaving Google Analytics: A Step-by-Step Checklist | TrackTrendy Blog</title>
+<meta name="description" content="How to switch away from Google Analytics without losing data: export, run tools in parallel, reassign integrations, then delete the property and account.">
+<meta property="og:title" content="Leaving Google Analytics: A Step-by-Step Checklist | TrackTrendy Blog">
+<meta property="og:description" content="How to switch away from Google Analytics without losing data: export, run tools in parallel, reassign integrations, then delete the property and account.">
+<meta property="og:image" content="https://tracktrendy.com/blog/covers/leaving-google-analytics-checklist.jpg">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://tracktrendy.com/blog/leaving-google-analytics-checklist/">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Leaving Google Analytics: A Step-by-Step Checklist | TrackTrendy Blog">
+<meta name="twitter:description" content="How to switch away from Google Analytics without losing data: export, run tools in parallel, reassign integrations, then delete the property and account.">
+<meta name="twitter:image" content="https://tracktrendy.com/blog/covers/leaving-google-analytics-checklist.jpg">
+<meta property="article:published_time" content="2026-10-26">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"WebPage"}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","headline":"Leaving Google Analytics: A Step-by-Step Checklist","datePublished":"2026-10-26","image":"https://tracktrendy.com/blog/covers/leaving-google-analytics-checklist.jpg","description":"Switching analytics tools without losing data takes a sequence, not a single click: export what you need, run both tools in parallel, confirm the new numbers, then delete the old property and account for good.","author":{"@type":"Organization","name":"TrackTrendy"},"publisher":{"@type":"Organization","name":"TrackTrendy"},"mainEntityOfPage":{"@type":"WebPage","@id":"https://tracktrendy.com/blog/leaving-google-analytics-checklist/"}}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://tracktrendy.com/"},{"@type":"ListItem","position":2,"name":"Blog","item":"https://tracktrendy.com/blog/"},{"@type":"ListItem","position":3,"name":"Leaving Google Analytics: A Step-by-Step Checklist","item":"https://tracktrendy.com/blog/leaving-google-analytics-checklist/"}]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Should I delete Google Analytics before setting up a new tool?","acceptedAnswer":{"@type":"Answer","text":"No. Install the replacement first and run both tools in parallel for two to four weeks so you can compare the new numbers against GA4's before committing. Deleting GA4 first leaves you with no reference point if something looks off."}},{"@type":"Question","name":"What happens when I delete a GA4 property?","acceptedAnswer":{"@type":"Answer","text":"It moves to a trash can for 35 days, during which an Editor or higher can restore it from Admin > Trash Can. After 35 days the deletion becomes permanent and cannot be reversed."}},{"@type":"Question","name":"How long does Google Analytics keep my data anyway?","acceptedAnswer":{"@type":"Answer","text":"By default, Google Analytics Help sets GA4 user-level data retention at 2 months and event-level data retention at 14 months, so export anything you want to keep before that window closes rather than relying on GA4 as an archive."}}]}</script>
+<script defer data-site="tracktrendy.com" src="https://track.tracktrendy.com/js/t.js"></script>
+</head>
+<body>
+
+  <!-- Site navigation - matches the main site header -->
+  <nav class="nav" role="navigation" aria-label="Main navigation">
+    <a href="/" class="nav-logo" aria-label="TrackTrendy home">
+      <img src="/logo.png" alt="TrackTrendy logo" width="24" height="24">
+      <span class="nav-wordmark">TrackTrendy</span>
+    </a>
+    <div class="nav-links">
+      <a href="/#features">Features</a>
+      <a href="/#compare">Compare</a>
+      <a href="/#pricing">Pricing</a>
+      <a href="/blog/" class="active">Blog</a>
+    </div>
+    <div class="nav-right">
+      <a href="https://app.tracktrendy.com" class="nav-login" target="_blank">Log in</a>
+      <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">
+        <span class="icon-moon"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg></span>
+        <span class="icon-sun"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg></span>
+      </button>
+      <a href="https://buy.stripe.com/eVaaIhfiL77Y6uA6oo" class="nav-cta" target="_blank">Try free &rarr;</a>
+    </div>
+  </nav>
+
+  <main>
+    <article class="post-wrap" itemscope itemtype="https://schema.org/Article">
+
+      <!-- Breadcrumb trail - visual complement to the BreadcrumbList schema -->
+      <nav class="post-breadcrumb" aria-label="Breadcrumb">
+        <a href="/">Home</a>
+        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"/></svg>
+        <a href="/blog/">Blog</a>
+        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"/></svg>
+        <span>Leaving Google Analytics: A Step-by-Step Checklist</span>
+      </nav>
+
+      <!-- Post header -->
+      <p class="post-eyebrow">How-To</p>
+      <h1 itemprop="headline">Leaving Google Analytics: A Step-by-Step Checklist</h1>
+      <div class="post-meta">
+        <time datetime="2026-10-26" itemprop="datePublished">October 26, 2026</time>
+        <span>6 min read</span>
+      </div>
+
+      <!-- Cover illustration - brand particle-wave artwork -->
+      <img class="post-cover" src="/blog/covers/leaving-google-analytics-checklist.svg" alt="" width="1200" height="630">
+
+      <div class="quick-answer">
+  <strong>Quick answer:</strong> Do not delete Google Analytics on day one. Export your historical reports first, install your new analytics tool and let it run side by side with GA4 for at least two to four weeks, confirm the new tool's numbers make sense against what you already know about your traffic, update every place GA4's tracking ID or consent-banner rule is referenced, and only then delete the GA4 property -- followed by the account, if you are leaving Google Analytics entirely.
+</div>
+
+<div class="post-body" itemprop="articleBody">
+
+  <h2>Step 1: Export what you will actually need later</h2>
+
+  <p>Google Analytics Help sets GA4's default data retention at 2 months for user-level data and 14 months for event-level data -- after that window, the underlying data simply is not there to query anymore, retention setting or not. Before you touch anything else, export the reports you might reference in a year: Reports Snapshot, Acquisition overview, your top landing and exit pages, conversions by channel, and any custom Explorations you built. GA4's Explore section can export to Google Sheets; the standard reports export to PDF or CSV from the share icon. Keep these in a dated folder -- "GA4 export 2026-10" -- rather than trusting Google to keep anything beyond its own window.</p>
+
+  <h2>Step 2: Install the replacement and let both tools run together</h2>
+
+  <p>Add your new analytics snippet (for TrackTrendy, a single script tag) without removing the GA4 tag yet. Running two tools in parallel for two to four weeks of real traffic is the only reliable way to sanity-check a switch: it gives you a like-for-like comparison period instead of guessing whether a dip in week one is the new tool undercounting or just a quiet week. Expect the raw numbers to disagree somewhat -- a cookieless tool typically reports a higher visitor count than GA4 precisely because it has no consent banner to lose visitors to, not because anything is broken.</p>
+
+  <h2>Step 3: Reassign everything that points at Google Analytics</h2>
+
+  <p>Before removing GA4, track down every place its measurement ID or behaviour is referenced:</p>
+
+  <ul>
+    <li>Google Tag Manager containers, if you used one just for GA4 events.</li>
+    <li>Your cookie consent banner's configuration, which may be gating the GA4 script specifically.</li>
+    <li>Any dashboard, Looker Studio report, or Slack/email alert built on GA4 data.</li>
+    <li>Google Ads or Search Console links, which pull conversion data from the GA4 property.</li>
+  </ul>
+
+  <p>Leaving one of these live after deletion does not break anything visibly, but it does mean someone finds a dead integration months later with no explanation.</p>
+
+  <h2>Step 4: Delete the GA4 property (not the account yet)</h2>
+
+  <p>In GA4, deleting a property does not erase it immediately. It moves to a trash can for a 35-day grace period, recoverable by an Editor or higher from Admin &rarr; Trash Can, after which it is removed for good and cannot be restored by Google support either. That window is your safety net if the switch does not go as planned -- use it. Delete the property only once your replacement tool's numbers have been live and believable for your full parallel-running period.</p>
+
+  <h2>Step 5: Delete the account, if you are leaving Google Analytics entirely</h2>
+
+  <p>A Google Analytics account can hold several properties. If GA4 was the only one and you are stepping away from Google's analytics products altogether, delete the account itself once every property inside it is confirmed gone. This also removes any remaining user access and data-sharing settings tied to the account, which is the step people most often forget -- the property is gone, but the account (and the fact that it is still sharing data with Google's other products under its default settings) lingers.</p>
+
+  <p>For the mechanical, click-by-click version of property deletion itself, see our guide on <a href="/blog/how-to-delete-google-analytics/">how to delete your Google Analytics account</a>. This checklist is the order of operations around that one step so you do not lose data or break a dependent tool on the way out.</p>
+
+  <h2>A short sanity check before you commit</h2>
+
+  <p>Before the final delete, confirm three things: you have exported what you need, your new tool has at least two to four weeks of parallel data that matches your expectations, and nothing downstream (ads, Search Console, dashboards) still expects GA4 to exist. If all three are true, there is no reason to keep paying the complexity cost of running two analytics tools.</p>
+
+</div>
+
+      <!-- Conversion CTA at the end of the post -->
+      <div class="post-cta">
+        <h3>See privacy-first analytics in action</h3>
+        <p>TrackTrendy tracks every visitor without cookies or consent popups. GDPR compliant by design, simple dashboard, from &euro;4/month.</p>
+        <a href="https://buy.stripe.com/eVaaIhfiL77Y6uA6oo" class="btn" target="_blank">Start free for 30 days &rarr;</a>
+        <p class="btn-note">No credit card required &middot; No cookie banner needed</p>
+      </div>
+
+      <!-- NEWSLETTER: native form -> SendMerlin headless subscribe API (double opt-in server-side).
+           Copy hardcoded: item templates only see entry fields. -->
+      <section class="nl-section" aria-label="Newsletter" style="padding: 0; margin: 48px 0;">
+        <div class="nl-panel">
+          <div>
+            <p class="nl-eyebrow">Newsletter</p>
+            <h2>Enjoyed this article?</h2>
+            <p class="nl-blurb">Subscribe and new privacy-first analytics guides land straight in your inbox. No spam, unsubscribe anytime.</p>
+          </div>
+          <form class="nl-form" data-newsletter action="https://app.sendmerlin.com/api/forms/cmsyjau5w0013m92bm7bfw95c/subscribe" method="post">
+            <div class="nl-row">
+              <input type="email" name="email" required placeholder="you@example.com" aria-label="Email address" autocomplete="email">
+              <button type="submit" class="nl-btn">Subscribe</button>
+            </div>
+            <input class="nl-hp" type="text" name="website" tabindex="-1" autocomplete="off" aria-hidden="true">
+            <div class="cf-turnstile" data-sitekey="0x4AAAAAAECx-nU3j6b0C_vx" data-appearance="interaction-only"></div>
+            <p class="nl-msg" hidden></p>
+            <p class="nl-note">Double opt-in: confirm by email. <a href="/privacy.html">Privacy policy</a>.</p>
+          </form>
+        </div>
+      </section>
+      <script>
+        // Newsletter -> SendMerlin headless subscribe API (form.action). Turnstile
+        // interaction-only + honeypot; SendMerlin forces double opt-in server-side.
+        (function () {
+          var form = document.querySelector('[data-newsletter]');
+          if (!form) return;
+          form.addEventListener('submit', async function (e) {
+            e.preventDefault();
+            var btn = form.querySelector('[type="submit"]');
+            var msg = form.querySelector('.nl-msg');
+            function show(text, ok) {
+              msg.textContent = text;
+              msg.hidden = false;
+              msg.classList.toggle('is-error', !ok);
+            }
+            var token = form.querySelector('[name="cf-turnstile-response"]');
+            if (!token || !token.value) {
+              show('Bot check is still loading, try again in a second.', false);
+              return;
+            }
+            var label = btn.textContent;
+            btn.disabled = true;
+            btn.textContent = 'Subscribing...';
+            try {
+              var res = await fetch(form.action, {
+                method: 'POST',
+                headers: { 'content-type': 'application/json' },
+                body: JSON.stringify({
+                  email: form.email.value,
+                  website: form.website.value,
+                  'cf-turnstile-response': token.value,
+                }),
+              });
+              var data = await res.json();
+              if (!data.ok) throw new Error(data.error);
+              show(data.state === 'subscribed'
+                ? "You're on the list."
+                : 'Almost there: check your inbox to confirm.', true);
+              // Hide the row only. Removing the whole form kills the Turnstile widget.
+              form.querySelector('.nl-row').hidden = true;
+            } catch (err) {
+              show('Something went wrong. Please try again.', false);
+              btn.disabled = false;
+              btn.textContent = label;
+            }
+          });
+        })();
+      </script>
+
+      <!-- Related posts - internal links to support crawlability and time on site -->
+      <div class="related">
+        <h3>Related reading</h3>
+        <div class="related-links">
+          <a href="/blog/how-to-delete-google-analytics/">How to Delete Your Google Analytics Account (Step by Step) &rarr;</a>
+          <a href="/blog/google-analytics-alternatives/">The Best Google Analytics Alternatives in 2026 &rarr;</a>
+          <a href="/blog/gdpr-compliant-analytics-checklist/">GDPR-Compliant Analytics: A Practical Checklist &rarr;</a>
+        </div>
+      </div>
+
+    </article>
+  </main>
+
+  <!-- Site footer - consistent across all blog posts -->
+  <footer class="footer" role="contentinfo">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <a href="/" class="footer-logo"><img src="/logo.png" alt="TrackTrendy" width="22" height="22"><span>TrackTrendy</span></a>
+        <p class="footer-desc">Privacy-first website analytics for European businesses. Cookie-free, GDPR compliant, and built for people who care about their visitors.</p>
+      </div>
+      <div class="footer-col"><h4>Product</h4><ul><li><a href="/#features">Features</a></li><li><a href="/#pricing">Pricing</a></li><li><a href="/#compare">Compare</a></li><li><a href="https://app.tracktrendy.com" target="_blank">Dashboard</a></li></ul></div>
+      <div class="footer-col"><h4>Learn</h4><ul><li><a href="/blog/">Blog</a></li><li><a href="/blog/analytics-without-cookie-banner/">Cookie-free analytics</a></li><li><a href="/blog/privacy-first-analytics/">Privacy-first analytics</a></li></ul></div>
+      <div class="footer-col"><h4>Support</h4><ul><li><a href="/#faq">FAQ</a></li><li><a href="mailto:support@tracktrendy.com">Contact</a></li><li><a href="/privacy.html">Privacy policy</a></li><li><a href="/terms.html">Terms</a></li></ul></div>
+    </div>
+    <div class="footer-bottom">
+      <p class="footer-copy">&copy; <span id="yr"></span> TrackTrendy. Privacy-first analytics.</p>
+      <p class="footer-copy">Written with AI assistance, reviewed by Ludovic Verbeeck.</p>
+      <div class="footer-legal"><a href="/privacy.html">Privacy policy</a><a href="/terms.html">Terms of service</a></div>
+    </div>
+  </footer>
+
+  <script>
+    /* Set copyright year dynamically */
+    document.getElementById('yr').textContent = new Date().getFullYear();
+
+    /* Restore saved theme before first paint to avoid flash */
+    (function() { if (localStorage.getItem('tt-site-theme') === 'light') document.body.classList.add('light'); })();
+
+    /* Theme toggle: persists choice in localStorage */
+    document.getElementById('themeToggle').addEventListener('click', function() {
+      const isLight = document.body.classList.toggle('light');
+      localStorage.setItem('tt-site-theme', isLight ? 'light' : 'dark');
+    });
+  </script>
+</body>
+</html>

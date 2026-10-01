@@ -2,6 +2,12 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url><loc>https://tracktrendy.com/</loc><changefreq>weekly</changefreq><priority>1.0</priority></url>
   <url><loc>https://tracktrendy.com/blog/</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://tracktrendy.com/blog/bot-traffic-in-analytics/</loc><lastmod>2026-11-23</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://tracktrendy.com/blog/ai-assistant-referral-traffic/</loc><lastmod>2026-11-16</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://tracktrendy.com/blog/bounce-rate-vs-engagement-rate/</loc><lastmod>2026-11-09</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://tracktrendy.com/blog/cookieless-tracking-explained/</loc><lastmod>2026-11-02</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://tracktrendy.com/blog/leaving-google-analytics-checklist/</loc><lastmod>2026-10-26</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://tracktrendy.com/blog/what-is-a-unique-visitor/</loc><lastmod>2026-10-19</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
   <url><loc>https://tracktrendy.com/blog/gdpr-compliant-analytics-checklist/</loc><lastmod>2026-10-12</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
   <url><loc>https://tracktrendy.com/blog/end-of-third-party-cookies/</loc><lastmod>2026-10-05</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
   <url><loc>https://tracktrendy.com/blog/analytics-page-speed-core-web-vitals/</loc><lastmod>2026-09-28</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>

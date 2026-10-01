@@ -14,6 +14,12 @@ TrackTrendy is a GDPR-compliant alternative to Google Analytics 4. It gives you 
 - Website: https://tracktrendy.com
 
 ## Blog
+- [Bot Traffic: Why Your Analytics Shows Visitors Who Are Not Human](https://tracktrendy.com/blog/bot-traffic-in-analytics/): Automated traffic now makes up more than half of all activity on the web.
+- [Traffic From ChatGPT and AI Assistants: How to See It in Your Analytics](https://tracktrendy.com/blog/ai-assistant-referral-traffic/): AI assistants are starting to send real, measurable traffic, and it shows up as a referrer like any other.
+- [Bounce Rate vs. Engagement Rate: Which One Should a Small Business Watch?](https://tracktrendy.com/blog/bounce-rate-vs-engagement-rate/): Bounce rate and engagement rate describe the same sessions from opposite directions.
+- [Is Tracking Possible Without Cookies? How Cookieless Analytics Counts Visitors](https://tracktrendy.com/blog/cookieless-tracking-explained/): No cookie, no stored identifier, no consent banner -- so how does a cookieless tool still count a returning visitor?
+- [Leaving Google Analytics: A Step-by-Step Checklist](https://tracktrendy.com/blog/leaving-google-analytics-checklist/): Switching analytics tools without losing data takes a sequence, not a single click.
+- [What Is a Unique Visitor? A Plain Definition](https://tracktrendy.com/blog/what-is-a-unique-visitor/): A unique visitor is one real person counted once, no matter how many pages they load.
 - [GDPR-Compliant Analytics: A Practical Checklist](https://tracktrendy.com/blog/gdpr-compliant-analytics-checklist/): A working checklist for getting your website measurement GDPR-compliant -- what to audit, what each tool type requires, and the shortcut that removes most of the list.
 - [The End of Third-Party Cookies: What It Means for Your Website](https://tracktrendy.com/blog/end-of-third-party-cookies/): Safari and Firefox block them, Chrome kept them after years of U-turns, and regulators squeezed them anyway.
 - [How Analytics Scripts Slow Your Site (and What It Costs You)](https://tracktrendy.com/blog/analytics-page-speed-core-web-vitals/): Your analytics stack is part of your page weight.
