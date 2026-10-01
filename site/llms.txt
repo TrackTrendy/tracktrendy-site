@@ -14,6 +14,10 @@ TrackTrendy is a GDPR-compliant alternative to Google Analytics 4. It gives you 
 - Website: https://tracktrendy.com
 
 ## Blog
+- [How to Manage Your Own Website Analytics Without an Agency](https://tracktrendy.com/blog/analytics-without-an-agency/): Most small businesses never hire a digital marketing agency, which means reading analytics usually falls to the owner.
+- [New vs. Returning Visitors: What the Split Actually Tells You](https://tracktrendy.com/blog/new-vs-returning-visitors/): Returning visitors are usually a minority of sessions but disproportionately valuable.
+- [Browser Fingerprinting: The Tracking Method That Skips the Cookie Banner](https://tracktrendy.com/blog/browser-fingerprinting-explained/): Fingerprinting identifies a visitor from signals their browser already exposes, no cookie required.
+- [Traffic Sources Explained: Where Your Website Visitors Actually Come From](https://tracktrendy.com/blog/traffic-sources-explained/): Organic, direct, referral, social: every analytics tool sorts your visitors into sources.
 - [Bot Traffic: Why Your Analytics Shows Visitors Who Are Not Human](https://tracktrendy.com/blog/bot-traffic-in-analytics/): Automated traffic now makes up more than half of all activity on the web.
 - [Traffic From ChatGPT and AI Assistants: How to See It in Your Analytics](https://tracktrendy.com/blog/ai-assistant-referral-traffic/): AI assistants are starting to send real, measurable traffic, and it shows up as a referrer like any other.
 - [Bounce Rate vs. Engagement Rate: Which One Should a Small Business Watch?](https://tracktrendy.com/blog/bounce-rate-vs-engagement-rate/): Bounce rate and engagement rate describe the same sessions from opposite directions.
