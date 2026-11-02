@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- Title, description, Open Graph + FAQPage JSON-LD are injected by Orbit CMS at render time (from content.json seo). Do not add them here or they will duplicate. -->
+  <link rel="canonical" href="https://tracktrendy.com/utm-builder/">
+
+  <link rel="icon" href="/favicon.png" type="image/png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@200;300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/blog/blog.css?v=3">
+  <style>
+    /* UTM builder tool: reuses the blog tokens (--surface, --sep, --purple...) so dark/light both work */
+    .utm-tool {
+      background: var(--surface); border: 1px solid var(--sep);
+      border-radius: 14px; padding: 28px; margin: 8px 0 48px;
+    }
+    body.light .utm-tool { background: var(--surface2); }
+    .utm-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 18px 20px; }
+    .utm-field { display: flex; flex-direction: column; gap: 6px; }
+    .utm-field.full { grid-column: 1 / -1; }
+    .utm-field label { font-size: 13px; font-weight: 600; color: var(--t1); }
+    .utm-field label small { font-weight: 400; color: var(--t3); }
+    .utm-field input, .utm-field select {
+      font: inherit; font-size: 15px; color: var(--t1);
+      background: var(--black); border: 1px solid var(--sep); border-radius: 8px;
+      padding: 11px 12px; width: 100%;
+    }
+    .utm-field input:focus, .utm-field select:focus { outline: 2px solid var(--purple); outline-offset: 1px; border-color: var(--purple); }
+    .utm-field .hint { font-size: 12px; color: var(--t3); }
+    .utm-out { margin-top: 24px; border-top: 1px solid var(--sep); padding-top: 22px; }
+    .utm-out-label { font-size: 13px; font-weight: 600; color: var(--t1); margin-bottom: 8px; }
+    .utm-link {
+      font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: 14px; line-height: 1.6;
+      color: var(--purple-pale); background: var(--black); border: 1px solid var(--sep);
+      border-radius: 8px; padding: 14px; word-break: break-all; min-height: 52px;
+    }
+    body.light .utm-link { color: #4c32a8; }
+    .utm-link.empty { color: var(--t3); font-family: var(--font); }
+    .utm-actions { display: flex; flex-wrap: wrap; align-items: center; gap: 12px; margin-top: 14px; }
+    .utm-copy {
+      font: inherit; font-size: 14px; font-weight: 600; color: #fff; background: var(--purple);
+      border: 0; border-radius: 8px; padding: 11px 20px; cursor: pointer;
+    }
+    .utm-copy:hover { background: #6948c8; }
+    .utm-copy:disabled { opacity: 0.4; cursor: default; }
+    .utm-notes { font-size: 13px; color: var(--t2); list-style: none; margin-top: 14px; }
+    .utm-notes li { margin-top: 4px; }
+    .utm-notes li::before { content: '\2713'; color: var(--green); margin-right: 8px; }
+    .utm-notes li.warn::before { content: '!'; color: #f59e0b; font-weight: 700; }
+    .faq-a p { margin-bottom: 8px; }
+    .post-body code { word-break: break-all; }
+    @media (max-width: 640px) {
+      .utm-grid { grid-template-columns: 1fr; }
+      .utm-tool { padding: 20px 16px; }
+    }
+  </style>
+  
+<title>Free UTM Builder: Create Campaign Links in Seconds | TrackTrendy</title>
+<meta name="description" content="Free UTM builder and generator. Paste your link, pick a channel and copy a clean tagged URL for Google Analytics, TrackTrendy or any analytics tool. Nothing is stored.">
+<meta property="og:title" content="Free UTM Builder: Create Campaign Links in Seconds | TrackTrendy">
+<meta property="og:description" content="Free UTM builder and generator. Paste your link, pick a channel and copy a clean tagged URL for Google Analytics, TrackTrendy or any analytics tool. Nothing is stored.">
+
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="TrackTrendy">
+<meta property="og:url" content="https://tracktrendy.com/utm-builder/">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Free UTM Builder: Create Campaign Links in Seconds | TrackTrendy">
+<meta name="twitter:description" content="Free UTM builder and generator. Paste your link, pick a channel and copy a clean tagged URL for Google Analytics, TrackTrendy or any analytics tool. Nothing is stored.">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"What is a UTM builder?","acceptedAnswer":{"@type":"Answer","text":"A tool that adds UTM tags to the end of a link, so your analytics can tell which campaign, platform and channel each visitor came from. It saves typing the tags by hand and keeps their spelling consistent."}},{"@type":"Question","name":"Is this UTM builder free?","acceptedAnswer":{"@type":"Answer","text":"Yes, free and with no sign-up. It runs entirely in your browser: the links you build are not sent to our servers or stored anywhere."}},{"@type":"Question","name":"Which UTM parameters are required?","acceptedAnswer":{"@type":"Answer","text":"utm_source, utm_medium and utm_campaign. utm_term and utm_content are optional: add them when you want to compare keywords, or two links in the same campaign."}},{"@type":"Question","name":"Why does the builder change my capitals and spaces?","acceptedAnswer":{"@type":"Answer","text":"Analytics tools treat Facebook and facebook as two different sources, and spaces turn into %20. The builder lowercases every tag and swaps spaces for hyphens, so the same campaign always lands in one row of your report."}},{"@type":"Question","name":"Do UTM links work without cookies?","acceptedAnswer":{"@type":"Answer","text":"Yes. The tags travel inside the link itself and describe the campaign, not the person, so cookie-free analytics tools like TrackTrendy read them for every visitor, with no consent banner needed."}},{"@type":"Question","name":"Should I add UTM tags to links on my own website?","acceptedAnswer":{"@type":"Answer","text":"No. Tagging internal links overwrites where the visitor really came from: someone who found you on Google would suddenly look like they came from your homepage banner. Only tag links you place on other sites, in emails, in ads and on print."}},{"@type":"Question","name":"Where do I see the results?","acceptedAnswer":{"@type":"Answer","text":"In your analytics tool's campaign report. In Google Analytics 4, open Reports, then Acquisition, then Traffic acquisition, and set the dimension to Session campaign. In TrackTrendy, the Campaign panel on your dashboard shows every campaign, source, medium, term and content."}}]}</script>
+<script>(function(){if(/\.pages\.dev$/.test(location.hostname))return;var s=document.createElement('script');s.defer=true;s.setAttribute('data-site',"tracktrendy.com");s.src='https://track.tracktrendy.com/js/t.js';document.head.appendChild(s);})();</script>
+<script>document.addEventListener('DOMContentLoaded',function(){var y=new Date().getFullYear(),w=document.createTreeWalker(document.body,NodeFilter.SHOW_TEXT),n;while((n=w.nextNode()))if(n.data.indexOf('©')>=0)n.data=n.data.replace(/(©\s*(?:\d{4}\s*[-–]\s*)?)(\d{4})/g,function(m,p,d){return +d<y?p+y:m;});});</script>
+</head>
+<body>
+
+  <nav class="nav" role="navigation" aria-label="Main navigation">
+    <a href="/" class="nav-logo" aria-label="TrackTrendy home">
+      <img src="/logo.png" alt="TrackTrendy logo" width="24" height="24">
+      <span class="nav-wordmark">TrackTrendy</span>
+    </a>
+    <div class="nav-links">
+      <a href="/#features">Features</a>
+      <a href="/#compare">Compare</a>
+      <a href="/#pricing">Pricing</a>
+      <a href="/blog/">Blog</a>
+    </div>
+    <div class="nav-right">
+      <a href="https://app.tracktrendy.com" class="nav-login" target="_blank">Log in</a>
+      <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">
+        <span class="icon-moon"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg></span>
+        <span class="icon-sun"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg></span>
+      </button>
+      <a href="https://buy.stripe.com/eVaaIhfiL77Y6uA6oo" class="nav-cta" target="_blank">Try free &rarr;</a>
+    </div>
+  </nav>
+
+  <main>
+    <article class="post-wrap">
+      <nav class="post-breadcrumb" aria-label="Breadcrumb">
+        <a href="/">Home</a>
+        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"/></svg>
+        <span>UTM builder</span>
+      </nav>
+
+      <p class="post-eyebrow" data-cms-field="header.eyebrow">Free tool</p>
+      <h1 data-cms-field="header.title">Free UTM Builder</h1>
+      <p class="post-body" style="margin-bottom: 32px;" data-cms-field="header.intro">Paste the page you&#39;re linking to, pick where you&#39;re sharing it, and copy a clean tagged link. Works with Google Analytics, TrackTrendy and every other analytics tool. Nothing you type leaves your browser.</p>
+
+      <!-- The builder. Runs entirely in the browser: nothing typed here is sent anywhere. -->
+      <form class="utm-tool" id="utmTool" autocomplete="off" onsubmit="return false">
+        <div class="utm-grid">
+          <div class="utm-field full">
+            <label for="utmUrl">Page you're linking to</label>
+            <input id="utmUrl" type="text" inputmode="url" placeholder="https://yoursite.com/spring-offer" spellcheck="false">
+          </div>
+          <div class="utm-field full">
+            <label for="utmChannel">Where are you sharing it?</label>
+            <select id="utmChannel">
+              <option value="">Pick a channel to fill source and medium</option>
+              <option data-s="facebook" data-m="social">Facebook post</option>
+              <option data-s="instagram" data-m="social">Instagram</option>
+              <option data-s="linkedin" data-m="social">LinkedIn</option>
+              <option data-s="twitter" data-m="social">X / Twitter</option>
+              <option data-s="youtube" data-m="social">YouTube</option>
+              <option data-s="newsletter" data-m="email">Email newsletter</option>
+              <option data-s="google" data-m="cpc">Google Ads</option>
+              <option data-s="facebook" data-m="cpc">Facebook / Instagram Ads</option>
+              <option data-s="print" data-m="qr">QR code / print</option>
+              <option data-s="whatsapp" data-m="social">WhatsApp / SMS</option>
+              <option data-s="" data-m="">Other (type source and medium)</option>
+            </select>
+          </div>
+          <div class="utm-field">
+            <label for="utmSource">utm_source <small>(required)</small></label>
+            <input id="utmSource" type="text" placeholder="newsletter" spellcheck="false">
+            <span class="hint">The site or platform: google, newsletter, instagram</span>
+          </div>
+          <div class="utm-field">
+            <label for="utmMedium">utm_medium <small>(required)</small></label>
+            <input id="utmMedium" type="text" placeholder="email" spellcheck="false">
+            <span class="hint">The type of channel: email, social, cpc</span>
+          </div>
+          <div class="utm-field full">
+            <label for="utmCampaign">utm_campaign <small>(required)</small></label>
+            <input id="utmCampaign" type="text" placeholder="spring-sale-2026" spellcheck="false">
+            <span class="hint">Your campaign name. Add a date so you can compare years later.</span>
+          </div>
+          <div class="utm-field">
+            <label for="utmTerm">utm_term <small>(optional)</small></label>
+            <input id="utmTerm" type="text" placeholder="running-shoes" spellcheck="false">
+            <span class="hint">Paid search keyword</span>
+          </div>
+          <div class="utm-field">
+            <label for="utmContent">utm_content <small>(optional)</small></label>
+            <input id="utmContent" type="text" placeholder="header-button" spellcheck="false">
+            <span class="hint">Tells two links in the same campaign apart</span>
+          </div>
+        </div>
+
+        <div class="utm-out">
+          <p class="utm-out-label">Your tagged link</p>
+          <div class="utm-link empty" id="utmLink" aria-live="polite">Fill in the page, source, medium and campaign.</div>
+          <div class="utm-actions">
+            <button type="button" class="utm-copy" id="utmCopy" disabled>Copy link</button>
+          </div>
+          <ul class="utm-notes" id="utmNotes"></ul>
+        </div>
+      </form>
+
+      <div class="post-body" data-cms-field="guide.body"><h2>How to use this UTM generator</h2>
+<ol>
+  <li><strong>Paste the page you want people to land on.</strong> Any page on your site works, including links that already have a ? or a #section.</li>
+  <li><strong>Pick where you're sharing it.</strong> The channel fills in utm_source and utm_medium with the standard values, so your reports group properly. Pick Other to type your own.</li>
+  <li><strong>Name the campaign.</strong> Short, lowercase, with a date: spring-sale-2026 beats Sale.</li>
+  <li><strong>Copy the link</strong> and use it in your post, ad, email or QR code.</li>
+</ol>
+
+<h2>What each UTM parameter means</h2>
+<ul>
+  <li><strong>utm_source</strong>: the site or platform that sends the visit, like google, newsletter or instagram.</li>
+  <li><strong>utm_medium</strong>: the type of channel, like email, social or cpc (paid clicks).</li>
+  <li><strong>utm_campaign</strong>: the promotion or project, like black-friday-2026.</li>
+  <li><strong>utm_term</strong> (optional): the paid search keyword you bid on.</li>
+  <li><strong>utm_content</strong> (optional): which link or ad version was clicked, like header-button or video-ad-b.</li>
+</ul>
+
+<h2>Example tagged links</h2>
+<div class="highlight-box"><strong>Newsletter</strong><br><code>yoursite.com/offer?utm_source=newsletter&amp;utm_medium=email&amp;utm_campaign=spring-sale-2026</code></div>
+<div class="highlight-box"><strong>Instagram bio</strong><br><code>yoursite.com/?utm_source=instagram&amp;utm_medium=social&amp;utm_campaign=bio-link</code></div>
+<div class="highlight-box"><strong>QR code on a flyer</strong><br><code>yoursite.com/menu?utm_source=print&amp;utm_medium=qr&amp;utm_campaign=summer-flyer-2026</code></div>
+
+<p>Want the full picture, including a naming convention that keeps your reports clean for years? Read our <a href="/blog/utm-parameters-complete-guide/">complete guide to UTM parameters</a>.</p></div>
+
+      <section class="faq-section">
+        <h2>Frequently asked questions</h2>
+        
+        <div class="faq-item">
+          <h3 class="faq-q" data-cms-field="faqItems.question" data-cms-item="0">What is a UTM builder?</h3>
+          <div class="faq-a" data-cms-field="faqItems.answer" data-cms-item="0">A tool that adds UTM tags to the end of a link, so your analytics can tell which campaign, platform and channel each visitor came from. It saves typing the tags by hand and keeps their spelling consistent.</div>
+        </div>
+        
+        <div class="faq-item">
+          <h3 class="faq-q" data-cms-field="faqItems.question" data-cms-item="1">Is this UTM builder free?</h3>
+          <div class="faq-a" data-cms-field="faqItems.answer" data-cms-item="1">Yes, free and with no sign-up. It runs entirely in your browser: the links you build are not sent to our servers or stored anywhere.</div>
+        </div>
+        
+        <div class="faq-item">
+          <h3 class="faq-q" data-cms-field="faqItems.question" data-cms-item="2">Which UTM parameters are required?</h3>
+          <div class="faq-a" data-cms-field="faqItems.answer" data-cms-item="2">utm_source, utm_medium and utm_campaign. utm_term and utm_content are optional: add them when you want to compare keywords, or two links in the same campaign.</div>
+        </div>
+        
+        <div class="faq-item">
+          <h3 class="faq-q" data-cms-field="faqItems.question" data-cms-item="3">Why does the builder change my capitals and spaces?</h3>
+          <div class="faq-a" data-cms-field="faqItems.answer" data-cms-item="3">Analytics tools treat Facebook and facebook as two different sources, and spaces turn into %20. The builder lowercases every tag and swaps spaces for hyphens, so the same campaign always lands in one row of your report.</div>
+        </div>
+        
+        <div class="faq-item">
+          <h3 class="faq-q" data-cms-field="faqItems.question" data-cms-item="4">Do UTM links work without cookies?</h3>
+          <div class="faq-a" data-cms-field="faqItems.answer" data-cms-item="4">Yes. The tags travel inside the link itself and describe the campaign, not the person, so cookie-free analytics tools like TrackTrendy read them for every visitor, with no consent banner needed.</div>
+        </div>
+        
+        <div class="faq-item">
+          <h3 class="faq-q" data-cms-field="faqItems.question" data-cms-item="5">Should I add UTM tags to links on my own website?</h3>
+          <div class="faq-a" data-cms-field="faqItems.answer" data-cms-item="5">No. Tagging internal links overwrites where the visitor really came from: someone who found you on Google would suddenly look like they came from your homepage banner. Only tag links you place on other sites, in emails, in ads and on print.</div>
+        </div>
+        
+        <div class="faq-item">
+          <h3 class="faq-q" data-cms-field="faqItems.question" data-cms-item="6">Where do I see the results?</h3>
+          <div class="faq-a" data-cms-field="faqItems.answer" data-cms-item="6">In your analytics tool's campaign report. In Google Analytics 4, open Reports, then Acquisition, then Traffic acquisition, and set the dimension to Session campaign. In TrackTrendy, the Campaign panel on your dashboard shows every campaign, source, medium, term and content.</div>
+        </div>
+        
+      </section>
+
+      <div class="post-cta">
+        <h3>See which campaign brought your visitors</h3>
+        <p>TrackTrendy reads UTM tags automatically and shows every campaign, source and medium in one simple dashboard. No cookies, no consent banner, from &euro;4/month.</p>
+        <a href="https://buy.stripe.com/eVaaIhfiL77Y6uA6oo" class="btn" target="_blank">Start free for 30 days &rarr;</a>
+        <p class="btn-note">No credit card required &middot; No cookie banner needed</p>
+      </div>
+    </article>
+  </main>
+
+  <footer class="footer" role="contentinfo">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <a href="/" class="footer-logo" aria-label="TrackTrendy home">
+          <img src="/logo.png" alt="TrackTrendy" width="22" height="22">
+          <span>TrackTrendy</span>
+        </a>
+        <p class="footer-desc">Privacy-first website analytics for European businesses. Cookie-free, GDPR compliant, and built for people who care about their visitors.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Product</h4>
+        <ul>
+          <li><a href="/#features">Features</a></li>
+          <li><a href="/#pricing">Pricing</a></li>
+          <li><a href="/#compare">Compare</a></li>
+          <li><a href="https://app.tracktrendy.com" target="_blank">Dashboard</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Learn</h4>
+        <ul>
+          <li><a href="/blog/">Blog</a></li>
+          <li><a href="/blog/analytics-without-cookie-banner/">Cookie-free analytics</a></li>
+          <li><a href="/blog/privacy-first-analytics/">Privacy-first analytics</a></li>
+          <li><a href="/utm-builder/">Free UTM builder</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Support</h4>
+        <ul>
+          <li><a href="/#faq">FAQ</a></li>
+          <li><a href="mailto:support@tracktrendy.com">Contact</a></li>
+          <li><a href="/privacy.html">Privacy policy</a></li>
+          <li><a href="/terms.html">Terms of service</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p class="footer-copy">&copy; <span id="yr"></span> TrackTrendy. Privacy-first analytics.</p>
+      <div class="footer-legal">
+        <a href="/privacy.html">Privacy policy</a>
+        <a href="/terms.html">Terms of service</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // UTM builder. Same channel presets as the TrackTrendy dashboard (src/Presets.php CHANNEL_PRESETS).
+    // Tags are tidied the way the UTM guide recommends: lowercase, hyphens instead of spaces,
+    // accents and odd characters dropped, so "Spring Sale" and "spring-sale" never split a report.
+    (function () {
+      var $ = function (id) { return document.getElementById(id); };
+      var fields = { utm_source: $('utmSource'), utm_medium: $('utmMedium'), utm_campaign: $('utmCampaign'), utm_term: $('utmTerm'), utm_content: $('utmContent') };
+      var link = $('utmLink'), copy = $('utmCopy'), notes = $('utmNotes'), channel = $('utmChannel'), urlInput = $('utmUrl');
+
+      function tidy(s) {
+        return s.normalize('NFD').replace(/[̀-ͯ]/g, '').toLowerCase().trim()
+          .replace(/\s+/g, '-').replace(/[^a-z0-9_.-]/g, '').replace(/-+/g, '-').replace(/^-|-$/g, '');
+      }
+
+      function build() {
+        var out = [], tidied = [];
+        var raw = urlInput.value.trim();
+        var url = null;
+        if (raw) {
+          var withScheme = /^[a-z][a-z0-9+.-]*:\/\//i.test(raw) ? raw : 'https://' + raw;
+          try { url = new URL(withScheme); } catch (e) { url = null; }
+          if (url && !/\./.test(url.hostname)) url = null;
+          if (url && withScheme !== raw) out.push({ text: 'Added https:// to the start of your link.' });
+          if (!url) out.push({ warn: true, text: 'That page address does not look like a link yet.' });
+        }
+        var values = {};
+        Object.keys(fields).forEach(function (k) {
+          var v = fields[k].value.trim(), t = tidy(v);
+          values[k] = t;
+          if (v && v !== t) tidied.push('“' + v + '” → ' + (t || '(removed)'));
+        });
+        if (tidied.length) out.push({ text: 'Tidied for clean reports: ' + tidied.join(', ') });
+
+        var ready = url && values.utm_source && values.utm_medium && values.utm_campaign;
+        if (url) {
+          // URL keeps any existing query string and #anchor, and replaces old utm_ tags instead of duplicating them.
+          var had = ['utm_source', 'utm_medium', 'utm_campaign', 'utm_term', 'utm_content'].some(function (k) { return url.searchParams.has(k); });
+          Object.keys(values).forEach(function (k) {
+            if (values[k]) url.searchParams.set(k, values[k]); else url.searchParams.delete(k);
+          });
+          if (had) out.push({ text: 'Replaced the UTM tags that were already on the link.' });
+          if (url.protocol === 'http:') out.push({ warn: true, text: 'Your link uses http://. Use https:// if your site supports it.' });
+        }
+
+        link.textContent = ready ? url.toString() : 'Fill in the page, source, medium and campaign.';
+        link.classList.toggle('empty', !ready);
+        copy.disabled = !ready;
+        copy.textContent = 'Copy link';
+        notes.innerHTML = '';
+        out.forEach(function (n) {
+          var li = document.createElement('li');
+          li.textContent = n.text;
+          if (n.warn) li.className = 'warn';
+          notes.appendChild(li);
+        });
+      }
+
+      channel.addEventListener('change', function () {
+        var o = channel.selectedOptions[0];
+        if (o && o.dataset.s) {
+          fields.utm_source.value = o.dataset.s;
+          fields.utm_medium.value = o.dataset.m;
+          fields.utm_campaign.focus();
+        } else if (o && o.value !== '') {
+          fields.utm_source.focus(); // "Other": keep whatever is typed
+        }
+        build();
+      });
+      // Typing a source/medium that no longer matches the picked channel switches the picker to "Other".
+      [fields.utm_source, fields.utm_medium].forEach(function (el) {
+        el.addEventListener('input', function () {
+          var o = channel.selectedOptions[0];
+          if (o && o.dataset.s && (fields.utm_source.value !== o.dataset.s || fields.utm_medium.value !== o.dataset.m)) {
+            channel.selectedIndex = channel.options.length - 1;
+          }
+        });
+      });
+      [urlInput].concat(Object.keys(fields).map(function (k) { return fields[k]; })).forEach(function (el) {
+        el.addEventListener('input', build);
+      });
+      copy.addEventListener('click', function () {
+        var text = link.textContent;
+        var done = function () { copy.textContent = 'Copied!'; };
+        if (navigator.clipboard && window.isSecureContext) {
+          navigator.clipboard.writeText(text).then(done, function () { selectLink(); });
+        } else { selectLink(); }
+      });
+      // Fallback when the clipboard API is blocked: select the link so Cmd/Ctrl+C works.
+      function selectLink() {
+        var r = document.createRange(); r.selectNodeContents(link);
+        var s = window.getSelection(); s.removeAllRanges(); s.addRange(r);
+        copy.textContent = 'Press Ctrl+C to copy';
+      }
+      build();
+    })();
+  </script>
+
+  <script>
+    document.getElementById('yr').textContent = new Date().getFullYear();
+    (function() {
+      if (localStorage.getItem('tt-site-theme') === 'light') document.body.classList.add('light');
+    })();
+    document.getElementById('themeToggle').addEventListener('click', function() {
+      const isLight = document.body.classList.toggle('light');
+      localStorage.setItem('tt-site-theme', isLight ? 'light' : 'dark');
+    });
+  </script>
+
+</body>
+</html>
