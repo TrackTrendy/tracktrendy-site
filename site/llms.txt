@@ -13,6 +13,9 @@ TrackTrendy is a GDPR-compliant alternative to Google Analytics 4. It gives you 
 - Dashboard: https://app.tracktrendy.com
 - Website: https://tracktrendy.com
 
+## Free tools
+- [Free UTM Builder](https://tracktrendy.com/utm-builder/): Build clean UTM-tagged campaign links in the browser, with channel presets and automatic lowercase/hyphen tidying.
+
 ## Blog
 - [How to Manage Your Own Website Analytics Without an Agency](https://tracktrendy.com/blog/analytics-without-an-agency/): Most small businesses never hire a digital marketing agency, which means reading analytics usually falls to the owner.
 - [New vs. Returning Visitors: What the Split Actually Tells You](https://tracktrendy.com/blog/new-vs-returning-visitors/): Returning visitors are usually a minority of sessions but disproportionately valuable.

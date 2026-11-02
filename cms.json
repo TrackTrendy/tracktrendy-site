@@ -714,6 +714,69 @@
       ]
     },
     {
+      "id": "utm",
+      "label": "UTM builder",
+      "template": "templates/utm-builder.html",
+      "output": "site/utm-builder/index.html",
+      "seo": {
+        "schemaType": "FAQPage"
+      },
+      "sections": [
+        {
+          "id": "header",
+          "label": "Page header",
+          "repeater": false,
+          "fields": [
+            {
+              "id": "eyebrow",
+              "label": "Eyebrow",
+              "type": "text"
+            },
+            {
+              "id": "title",
+              "label": "Headline",
+              "type": "text"
+            },
+            {
+              "id": "intro",
+              "label": "Intro paragraph",
+              "type": "textarea"
+            }
+          ]
+        },
+        {
+          "id": "guide",
+          "label": "Guide below the tool",
+          "repeater": false,
+          "fields": [
+            {
+              "id": "body",
+              "label": "Guide (HTML)",
+              "type": "richtext"
+            }
+          ]
+        },
+        {
+          "id": "faqItems",
+          "label": "FAQ - questions",
+          "repeater": true,
+          "clonable": true,
+          "fields": [
+            {
+              "id": "question",
+              "label": "Question",
+              "type": "text"
+            },
+            {
+              "id": "answer",
+              "label": "Answer (HTML)",
+              "type": "richtext"
+            }
+          ]
+        }
+      ]
+    },
+    {
       "id": "notfound",
       "label": "404 Not found",
       "template": "templates/404.html",
