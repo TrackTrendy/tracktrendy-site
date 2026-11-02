@@ -223,6 +223,7 @@ body.light .post-body h3 { color: #1E1E2F; }
 .post-body li { margin-bottom: 8px; }
 .post-body strong { color: var(--t1); font-weight: 600; }
 body.light .post-body strong { color: #1E1E2F; }
+.post-body code { overflow-wrap: anywhere; } /* long example URLs wrap on phones */
 .post-body a { color: var(--purple-light); text-decoration: none; transition: color 0.15s; }
 .post-body a:hover { color: var(--white); }
 body.light .post-body a:hover { color: #1E1E2F; }
