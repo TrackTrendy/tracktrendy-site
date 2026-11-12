@@ -2,7 +2,7 @@
 > Privacy-first, cookie-free website analytics for European businesses. GDPR compliant by design, from €4/month.
 
 ## About
-TrackTrendy is a GDPR-compliant alternative to Google Analytics 4. It gives you full website analytics - visitors, sources, pages, countries, goals and revenue - without cookies, consent banners, or sending visitor data to third parties. It is designed to be readable without training, and includes revenue tracking, Google Search Console integration, team roles, a UTM campaign builder, and an AI assistant (coming soon).
+TrackTrendy is a GDPR-compliant alternative to Google Analytics 4. It gives you full website analytics - visitors, sources, pages, countries, goals and revenue - without cookies, consent banners, or sending visitor data to third parties. It is designed to be readable without training, and includes revenue tracking, Google Search Console integration, team roles, a UTM campaign builder, and a built-in AI assistant that answers questions about your data in plain language.
 
 ## Pricing
 - Single Site: 30 days free, then €4/month (or €40/year)
