@@ -233,10 +233,6 @@
           "cta2_label": "See how we compare",
           "note": "No credit card &nbsp;&middot;&nbsp; No cookie banner &nbsp;&middot;&nbsp; Cancel anytime"
         },
-        "footer": {
-          "desc": "Privacy-first website analytics for European businesses. Cookie-free, GDPR compliant, and built for people who care about their visitors.",
-          "copy": "TrackTrendy. Privacy-first analytics."
-        },
         "newsletter": {
           "eyebrow": "Newsletter",
           "heading": "Privacy-first analytics, straight to your inbox",
@@ -2280,6 +2276,18 @@
             ]
           }
         ]
+      }
+    ]
+  },
+  "globals": {
+    "footer": {
+      "desc": "Privacy-first website analytics for European businesses. Cookie-free, GDPR compliant, and built for people who care about their visitors.",
+      "copy": "TrackTrendy. Privacy-first analytics."
+    },
+    "social_links": [
+      {
+        "label": "Facebook",
+        "url": "https://www.facebook.com/tracktrendyapp"
       }
     ]
   }

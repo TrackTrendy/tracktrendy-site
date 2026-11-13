@@ -4,6 +4,42 @@
     "name": "TrackTrendy",
     "lang": "en"
   },
+  "globals": [
+    {
+      "id": "footer",
+      "label": "Footer",
+      "repeater": false,
+      "fields": [
+        {
+          "id": "desc",
+          "label": "Brand description",
+          "type": "textarea"
+        },
+        {
+          "id": "copy",
+          "label": "Copyright line",
+          "type": "text"
+        }
+      ]
+    },
+    {
+      "id": "social_links",
+      "label": "Social links",
+      "repeater": true,
+      "fields": [
+        {
+          "id": "label",
+          "label": "Label",
+          "type": "text"
+        },
+        {
+          "id": "url",
+          "label": "Link",
+          "type": "url"
+        }
+      ]
+    }
+  ],
   "features": {
     "news": {
       "enabled": false
@@ -609,23 +645,6 @@
               "id": "note",
               "label": "Reassurance line (HTML)",
               "type": "richtext"
-            }
-          ]
-        },
-        {
-          "id": "footer",
-          "label": "Footer",
-          "repeater": false,
-          "fields": [
-            {
-              "id": "desc",
-              "label": "Brand description",
-              "type": "textarea"
-            },
-            {
-              "id": "copy",
-              "label": "Copyright line",
-              "type": "text"
             }
           ]
         },
