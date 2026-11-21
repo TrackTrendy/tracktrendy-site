@@ -2288,6 +2288,10 @@
       {
         "label": "Facebook",
         "url": "https://www.facebook.com/tracktrendyapp"
+      },
+      {
+        "label": "LinkedIn",
+        "url": "https://www.linkedin.com/company/tracktrendy/"
       }
     ]
   }
